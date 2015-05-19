@@ -1,7 +1,7 @@
 module.exports = function(myApp) {
-    var nsp_draft = myApp.webserver.io.of('/draft');
+    var nsp_draft = myApp.webserver.io.of('/livedraft');
     nsp_draft.on('connection', function(socket){
-        myApp.utils.consoleOutput("Connection on socket.io/draft for socket " + socket.id);
+        myApp.utils.consoleOutput("Connection on socket.io/livedraft for socket " + socket.id);
 
         socket.custom = {
             room: null,
@@ -40,5 +40,5 @@ module.exports = function(myApp) {
 
     });
 
-    myApp.utils.consoleOutput("module/sockets/draft has been loaded...");
+    myApp.utils.consoleOutput("module/sockets/livedraft has been loaded...");
 };
