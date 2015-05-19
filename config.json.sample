@@ -1,0 +1,6 @@
+{
+    "livedraft": {
+        "theme": "default",
+        "wsurl": "http://localhost"
+    }
+}

@@ -1,0 +1,130 @@
+extends layout
+
+block head
+  link(href="/stylesheets/heroes.css", rel="stylesheet")
+  link(href="/stylesheets/divimage.css", rel="stylesheet")
+
+block footer
+  script(src="/javascripts/common.js")
+  - if (layout == "livedraft") {
+    script.
+      var livedraft_url = #{wsurl}
+    script(src="/javascripts/livedraft.js")
+    link(href="/stylesheets/themes/#{theme}.css", rel="stylesheet")
+  - } else {
+    script(src="/javascripts/draft.js")
+    link(href="/stylesheets/draft.css", rel="stylesheet")
+  - }
+
+block content
+  div(id='wrapper').container.map-bg.divimage-hero-select
+    div(id='tvsafe')
+      div.row
+        div.col-sm-12.text-center
+          div(id='title').text.title 
+
+      div.row.team-blue
+        div.row
+          div.col-sm-12.teams.flex.flex-justify-between
+            div(id='blue-b1',data-team='blue').video-container.draft.banned
+              div.overlay-bg.waiting.fadeIn
+              video(id="blue-b1-video",autoplay,loop,muted,src='',class='video portrait',type='video/webm').hide.fadeIn
+              div.overlay-hero.hide.slideInLeft
+                div.overlay-text
+                div.overlay-triangle
+              div.overlay-single.hide.slideInLeft
+                div.overlay-text
+                div.overlay-triangle
+              div.overlay-player.hide.slideInRight
+                div.overlay-text
+                div.overlay-triangle
+            - for (var i = 1; i < 6; ++i) {
+              div(id='blue-p'+i,data-team='blue').video-container.draft.pick
+                div.overlay-bg.waiting.fadeIn
+                video(id='blue-p'+i+'-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm').hide.fadeIn
+                div.overlay-hero.hide.slideInLeft
+                  div.overlay-text
+                  div.overlay-triangle
+                div.overlay-single.hide.slideInLeft
+                  div.overlay-text
+                  div.overlay-triangle
+                div(id='blue-p'+i+'-name').overlay-player.hide.slideInRight
+                  div.overlay-text 
+                  div.overlay-triangle
+            - }
+        div.row
+          div.col-lg-12.flex.flex-start
+            div(id='blue-name').team-name
+              div.overlay-text.animated.slideInLeft
+              div.overlay-triangle
+
+      div.row.timers
+        div.row
+          div.col-sm-12.flex.flex-justify-center
+            div(id='blue-pool')
+            div(id='time-pool')
+            div(id='red-pool')
+
+      div.row.team-red
+        div.row
+          div.col-lg-12.flex.flex-justify-end
+            div(id='red-name').team-name
+              div.overlay-text.animated.slideInRight
+              div.overlay-triangle
+        div.row
+          div.col-sm-12.teams.flex.flex-justify-between
+            - for (var i = 5; i > 0; --i) {
+              div(id='red-p'+i,data-team='red').video-container.draft.pick
+                div.overlay-bg.waiting.fadeIn
+                video(id='red-p'+i+'-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm').hide.fadeIn
+                div.overlay-hero.hide.slideInRight
+                  div.overlay-text
+                  div.overlay-triangle
+                div.overlay-single.hide.slideInRight
+                  div.overlay-text
+                  div.overlay-triangle
+                div(id='red-p'+i+'-name').overlay-player.hide.slideInLeft
+                  div.overlay-text
+                  div.overlay-triangle
+            - }
+            div(id='red-b1').video-container.draft.banned
+              div.overlay-bg.waiting.fadeIn
+              video(id='red-b1-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm').hide.fadeIn
+              div.overlay-hero.hide.slideInRight
+                div.overlay-text 
+                div.overlay-triangle
+              div.overlay-single.hide.slideInRight
+                div.overlay-text 
+                div.overlay-triangle
+              div.overlay-player.hide.slideInLeft
+                div.overlay-text banned
+                div.overlay-triangle
+
+      div.row
+        div.col-lg-12
+          div.overlay-versus
+            div.overlay-versus-image
+
+      div.games.inline-flex
+        div.col-sm-12.pad-none
+          - for (var i = 1; i < 6; ++i) {
+            div(id='game'+i+'-container',style='display: none').row.game
+              div(id='game'+i+'-team1',data-group='game-heroes',data-team='team1',role='trigger',data-trigger='team-scores').col-sm-5.text-center.pad-small.heroes.heroes-left
+                div(id='game'+i+'-team1-hero1').divimage.divimagelg.divimage-transparent
+                div(id='game'+i+'-team1-hero2').divimage.divimagelg.divimage-transparent
+                div(id='game'+i+'-team1-hero3').divimage.divimagelg.divimage-transparent
+                div(id='game'+i+'-team1-hero4').divimage.divimagelg.divimage-transparent
+                div(id='game'+i+'-team1-hero5').divimage.divimagelg.divimage-transparent
+              div.col-sm-2.pad-small
+                div(id='game'+i+'-map').divimage.center.map-small.divimage-transparent
+              div(id='game'+i+'-team2',data-group='game-heroes',data-team='team2',role='trigger',data-trigger='team-scores').col-sm-5.text-center.pad-small.heroes.heroes-right
+                div(id='game'+i+'-team2-hero1').divimage.divimagelg.divimage-transparent
+                div(id='game'+i+'-team2-hero2').divimage.divimagelg.divimage-transparent
+                div(id='game'+i+'-team2-hero3').divimage.divimagelg.divimage-transparent
+                div(id='game'+i+'-team2-hero4').divimage.divimagelg.divimage-transparent
+                div(id='game'+i+'-team2-hero5').divimage.divimagelg.divimage-transparent
+          - }
+
+      div.row
+        div.col-sm-12.text-center
+          span(id='announcement').html.announcement
