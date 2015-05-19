@@ -16,17 +16,17 @@ function demo() {
     var base = 3000;
 
     updateValue({ id: 'blue-p1-name', value: 'iDream' });
-    updateValue({ id: 'blue-p2-name', value: 'DunkTrain' }); 
+    updateValue({ id: 'blue-p2-name', value: 'DunkTrain' });
     updateValue({ id: 'blue-p3-name', value: 'k1pro' });
-    updateValue({ id: 'blue-p4-name', value: 'King Caffiene' }); 
+    updateValue({ id: 'blue-p4-name', value: 'King Caffiene' });
     updateValue({ id: 'blue-p5-name', value: 'Biceps' });
-    updateValue({ id: 'red-p1-name',  value: 'Glaurung' }); 
+    updateValue({ id: 'red-p1-name',  value: 'Glaurung' });
     updateValue({ id: 'red-p2-name',  value: 'Kaeyoh' });
-    updateValue({ id: 'red-p3-name',  value: 'Dreadnaught' }); 
+    updateValue({ id: 'red-p3-name',  value: 'Dreadnaught' });
     updateValue({ id: 'red-p4-name',  value: 'Sold1er' });
-    updateValue({ id: 'red-p5-name',  value: 'Arthelon' }); 
+    updateValue({ id: 'red-p5-name',  value: 'Arthelon' });
 
-    // $('#blue-b1 .overlay-bg').removeClass('waiting').addClass('animated myturn'); 
+    // $('#blue-b1 .overlay-bg').removeClass('waiting').addClass('animated myturn');
     // $('#blue-b1 .overlay-player').removeClass('hide').addClass('animated');
     setTimeout( function() { updateValue({ id: 'blue-b1',  value: 'uther' }); $('#red-b1 .overlay-bg').removeClass('waiting').addClass('animated myturn'); /* $('#red-b1 .overlay-player').removeClass('hide').addClass('animated'); */ }, base*1);
     setTimeout( function() { updateValue({ id: 'red-b1',   value: 'illidan' }); $('#blue-p1 .overlay-bg').removeClass('waiting').addClass('animated myturn'); },  base*2);
