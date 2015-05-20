@@ -33,9 +33,7 @@ command.on('reload', function(data){
 });
 
 function livedraftConnect() {
-    console.log("draft id "+draftid);
-    return;
-    livedraft = io(livedraft_wsurl,{query:"draft_id="+draftid});
+    livedraft = io(livedraft_url,{query:"draft_id="+draftid});
     livedraft.on('connect', function(data) {
         console.log("connected to livedraft "+draftid);
     });
