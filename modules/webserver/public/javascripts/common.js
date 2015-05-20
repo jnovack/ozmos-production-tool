@@ -39,8 +39,8 @@ function updateValue(data) {
         // $('#'+data.id+' .overlay-hero .overlay-text').text(data.value);
 
         /* Hero Names Only */
-        $('#'+data.id+' .overlay-single').removeClass('hide').addClass('animated');
-        $('#'+data.id+' .overlay-single .overlay-text').text(properName(data.value));
+        $('#'+data.id+' .overlay-hero').removeClass('hide').addClass('animated');
+        $('#'+data.id+' .overlay-hero .overlay-text').text(properName(data.value));
 
         $('#'+data.id).attr('data-selected', 'true');
     }

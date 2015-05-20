@@ -9,7 +9,7 @@ body {background: #000; cursor: none; font-family: 'Exo 2', 'Open Sans', sans-se
 #tvsafe { width: 1600px; height: 900px; overflow: hidden; margin-top: 90px; margin-left: auto; margin-right: auto; padding-left: 15px; padding-right: 15px;
 	background-color: rgba(0,0,0,0.2); border-top: 2px rgba(128,128,128,0.2) solid; border-bottom: 4px rgba(16,16,16,0.2) solid; border-left: 2px rgba(128,128,128,0.2) solid; border-right: 4px rgba(16,16,16,0.2) solid;}
 
-#wrapper { background-image: url('/assets/maps/tomb-of-the-spider-queen-bg.jpg'); }
+#wrapper { background-image: url('/assets/backgrounds/hero-select.jpg'); }
 
 div.title {margin-top: 16px; font-weight: 700; text-shadow: 0 0 1em #009cff; text-transform: uppercase; font-color: #fff; font-size: 4em; }
 
@@ -28,12 +28,10 @@ div.team-blue .banned .myturn { position: absolute; z-index: 0; height: 304px; w
 div.team-blue .pick .waiting { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/blue-empty.jpg'); background-size: 256px 304px; -webkit-filter: grayscale(25%); }
 div.team-blue .banned .waiting { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/blue-empty.jpg'); background-size: 256px 304px; -webkit-filter: grayscale(100%); }
 div.team-blue .video-container { border: 4px rgba(20,36,152,0.75) solid; }
-div.team-blue .video-container .overlay-hero { position : absolute; top: 200px; left: 0px; width: 200px; z-index: 2; height: 48px; line-height: 48px; background-color: rgba(20,36,152,0.75); font-size: 1.6em; margin-top: 4px; padding-left: 8px; font-variant: small-caps; color: #dddddd;}
+div.team-blue .video-container .overlay-hero { position : absolute; top: 224px; left: 0px; width: 200px; z-index: 2; height: 48px; line-height: 48px; background-color: rgba(20,36,152,0.75); font-size: 1.6em; margin-top: 4px; padding-left: 8px; color: #dddddd;}
 div.team-blue .video-container .overlay-hero .overlay-triangle { position : absolute; top: 0px; left: 200px; z-index: 2; width: 0; height: 0; border-style: solid; border-width: 48px 0 0 48px; border-color: transparent transparent transparent rgba(20,36,152,0.75); }
-div.team-blue .video-container .overlay-player { position : absolute; top: 248px; left: 48px; width: 200px; z-index: 2; height: 48px; line-height: 48px; background-color: rgba(20,36,152,0.75); font-size: 1.6em; margin-top: 4px; padding-left: 4px; color: #ffffff;}
-div.team-blue .video-container .overlay-player .overlay-triangle { position : absolute; top: 0px; left: -48px; z-index: 2; width: 0; height: 0; border-style: solid; border-width: 0 48px 48px 0; border-color: transparent rgba(20,36,152,0.75) transparent transparent; }
 div.team-blue .team-name { width: 350px; height: 48px; line-height: 48px; background-color: rgba(20,36,152,0.75); font-size: 1.6em; margin-top: 4px; padding-left: 12px; color: #ffffff; }
-div.team-blue .team-name .overlay-triangle { position: absolute; left: 365px; top: 4px; width: 0px; height: 0px; border-style: solid; border-width: 48px 0 0 48px; border-color: transparent transparent transparent rgba(20,36,152,0.75); }
+div.team-blue .team-name .overlay-triangle { position: absolute; left: 365px; top: 4px; width: 0px; height: 0px; border-style: solid; border-width: 48px 48px 0 0; border-color: rgba(20,36,152,0.75) transparent transparent transparent; }
 
 div.team-red { margin-top: 48px; }
 div.team-red .pick .myturn { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/red.jpg'); background-size: 256px 304px; }
@@ -41,10 +39,8 @@ div.team-red .banned .myturn { position: absolute; z-index: 0; height: 304px; wi
 div.team-red .pick .waiting { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/red-empty.jpg'); background-size: 256px 304px; -webkit-filter: grayscale(25%); }
 div.team-red .banned .waiting { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/red-empty.jpg'); background-size: 256px 304px;  -webkit-filter: grayscale(100%); }
 div.team-red .video-container { border: 4px rgba(156,28,56,0.85) solid; }
-div.team-red .video-container .overlay-hero { text-align: right; position : absolute; top: 200px; left: 48px; width: 200px; z-index: 2; height: 48px; line-height: 48px; background-color: rgba(156,28,56,0.85); font-size: 1.6em; margin-top: 4px; padding-right: 12px; font-variant: small-caps; color: #dddddd;}
+div.team-red .video-container .overlay-hero { text-align: right; position : absolute; top: 220px; left: 48px; width: 200px; z-index: 2; height: 48px; line-height: 48px; background-color: rgba(156,28,56,0.85); font-size: 1.6em; margin-top: 4px; padding-right: 12px; color: #dddddd;}
 div.team-red .video-container .overlay-hero .overlay-triangle { position : absolute; top: 0px; left: -48px; z-index: 2; width: 0; height: 0; border-style: solid; border-width: 0 0 48px 48px; border-color: transparent transparent rgba(156,28,56,0.85) transparent; }
-div.team-red .video-container .overlay-player { text-align: right; position : absolute; top: 248px; left: 0px; width: 200px; z-index: 2; height: 48px; line-height: 48px; background-color: rgba(156,28,56,0.85); font-size: 1.6em; margin-top: 4px; padding-left: 4px; color: #ffffff; }
-div.team-red .video-container .overlay-player .overlay-triangle { position : absolute; top: 0px; left: 200px; z-index: 2; width: 0; height: 0; border-style: solid; border-width: 48px 48px 0 0; border-color: rgba(156,28,56,0.85) transparent transparent transparent; }
 div.team-red .team-name { text-align: right; width: 350px; height: 48px; line-height: 48px; background-color: rgba(156,28,56,0.85);  font-size: 1.6em; margin-top: 4px; padding-right: 12px; color: #ffffff; }
 div.team-red .team-name .overlay-triangle { position: absolute; right: 365px; top: 4px; width: 0px; height: 0px; border-style: solid; border-width: 0 0 48px 48px; border-color: transparent transparent rgba(156,28,56,0.85) transparent; }
 
@@ -53,3 +49,12 @@ div.team-logo img { width: 100%; -webkit-filter: drop-shadow(0px 0px 4px #000000
 div.video-container video {  }
 div.draft { width: 256px;}
 div.teams { height: 300px; }
+
+
+/*** Testing ***/
+/*
+div.team-blue .video-container .overlay-player { position : absolute; top: 248px; left: 48px; width: 200px; z-index: 2; height: 48px; line-height: 48px; background-color: rgba(20,36,152,0.75); font-size: 1.6em; margin-top: 4px; padding-left: 4px; color: #ffffff;}
+div.team-blue .video-container .overlay-player .overlay-triangle { position : absolute; top: 0px; left: -48px; z-index: 2; width: 0; height: 0; border-style: solid; border-width: 0 48px 48px 0; border-color: transparent rgba(20,36,152,0.75) transparent transparent; }
+div.team-red .video-container .overlay-player { text-align: right; position : absolute; top: 248px; left: 0px; width: 200px; z-index: 2; height: 48px; line-height: 48px; background-color: rgba(156,28,56,0.85); font-size: 1.6em; margin-top: 4px; padding-left: 4px; color: #ffffff; }
+div.team-red .video-container .overlay-player .overlay-triangle { position : absolute; top: 0px; left: 200px; z-index: 2; width: 0; height: 0; border-style: solid; border-width: 48px 48px 0 0; border-color: rgba(156,28,56,0.85) transparent transparent transparent; }
+*/
