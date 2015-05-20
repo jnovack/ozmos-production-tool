@@ -92,7 +92,9 @@ function livedraftConnect() {
             console.log(data);
         }
         if ((data.status === 3) && (data.done === 1)) {
-            livedraft.disconnect();
+            $('#time-pool').text(0);
+            $('#blue-pool').text(0);
+            $('#red-pool').text(0);
             console.log("draft over");
         }
     });
