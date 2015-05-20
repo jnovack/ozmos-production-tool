@@ -67,6 +67,15 @@ $('#btnConnect').click(function() {
     }
 });
 
+$('#btnDisonnect').click(function() {
+    livedraft.disconnect();
+});
+
 $("#btnReload").click(function() {
     send({ event: 'reload' });
 });
+
+
+function updateValue(data) {
+    console.log(data);
+}
