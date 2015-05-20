@@ -38,7 +38,7 @@ function updateValue(data) {
 
         /* Hero Names Only */
         $('#'+data.id+' .overlay-hero').removeClass('hide').addClass('animated');
-        $('#'+data.id+' .overlay-hero .overlay-text').text(properName(data.value));
+        $('#'+data.id+'-hero').text(properName(data.value));
 
         // if (typeof yourFunctionName == 'function') {
         //   animateSelection();

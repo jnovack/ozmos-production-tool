@@ -28,22 +28,22 @@ block content
           div.col-sm-12.teams.flex.flex-justify-between
             div(id='blue-b1',data-team='blue').video-container.draft.banned
               div.overlay-bg.waiting.fadeIn
-              video(id="blue-b1-video",autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
+              video(data-group='videos',id="blue-b1-video",autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
               div.overlay-hero.hide.slideInLeft
-                div.overlay-text
+                div(id='blue-b1-hero').overlay-text
                 div.overlay-triangle
-              div.overlay-player.hide.slideInRight
+              div.overlay-player.hide.slideInRight Banned
                 div.overlay-text
                 div.overlay-triangle
             - for (var i = 1; i < 6; ++i) {
               div(id='blue-p'+i,data-team='blue').video-container.draft.pick
                 div.overlay-bg.waiting.fadeIn
-                video(id='blue-p'+i+'-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
+                video(data-group='videos',id='blue-p'+i+'-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
                 div.overlay-hero.hide.slideInLeft
-                  div.overlay-text
+                  div(id='blue-p'+i+'-hero').overlay-text
                   div.overlay-triangle
-                div(id='blue-p'+i+'-name').overlay-player.hide.slideInRight
-                  div.overlay-text
+                div.overlay-player.hide.slideInRight
+                  div(id='blue-p'+i+'-name').overlay-text
                   div.overlay-triangle
             - }
         div.row
@@ -70,19 +70,19 @@ block content
             - for (var i = 5; i > 0; --i) {
               div(id='red-p'+i,data-team='red').video-container.draft.pick
                 div.overlay-bg.waiting.fadeIn
-                video(id='red-p'+i+'-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
+                video(data-group='videos',id='red-p'+i+'-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
                 div.overlay-hero.hide.slideInRight
-                  div.overlay-text
+                  div(id='red-p'+i+'-hero').overlay-text
                   div.overlay-triangle
-                div(id='red-p'+i+'-name').overlay-player.hide.slideInLeft
-                  div.overlay-text
+                div.overlay-player.hide.slideInLeft
+                  div(id='red-p'+i+'-name').overlay-text
                   div.overlay-triangle
             - }
             div(id='red-b1').video-container.draft.banned
               div.overlay-bg.waiting.fadeIn
-              video(id='red-b1-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
+              video(data-group='videos',id='red-b1-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
               div.overlay-hero.hide.slideInRight
-                div.overlay-text
+                div(id='red-b1-hero').overlay-text
                 div.overlay-triangle
               div.overlay-player.hide.slideInLeft
                 div.overlay-text banned

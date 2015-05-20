@@ -26,27 +26,27 @@ block content
             input(data-group='text',type='text',id='url',placeholder='http://www.somedrafttool.com/en/drafttool/12345',class='form-control')
 
     div.row
-      div.col-sm-4
+      div.col-sm-3
         div.control-group
           label(for='team1-name',class='control-label') Team 1 Name
           div.controls
             input(data-group='text',type='text',id='team1-name',name='team1-name',placeholder='Rancho Carne Toros',class='form-control')
-      div.col-sm-1
+      div.col-sm-2
         div.control-group
-          label(for='team1-score',class='control-label') Pool
+          label(for='team1-timer',class='control-label') Team 1 Pool
           div.controls
-            input(data-group='value',type='text',id='team1-score',name='team1-score',placeholder='0',class='form-control',disabled,value=0)
+            input(data-group='value',type='text',id='blue-pool',placeholder='0',class='form-control',disabled,value=0)
       div.col-sm-2
         div.control-group
           label(for='timer',class='control-label') Timer
           div.controls
-            input(data-group='value',type='text',id='timer',name='timer',placeholder='0',class='form-control',disabled,value=0)
-      div.col-sm-1
+            input(data-group='value',type='text',id='time-pool',placeholder='0',class='form-control',disabled,value=0)
+      div.col-sm-2
         div.control-group
-          label(for='team2-score',class='control-label') Pool
+          label(for='team2-timer',class='control-label') Team 2 Pool
           div.controls
-            input(data-group='value',type='text',id='team1-score',name='team1-score',placeholder='0',class='form-control',disabled,value=0)
-      div.col-sm-4
+            input(data-group='value',type='text',id='red-pool',placeholder='0',class='form-control',disabled,value=0)
+      div.col-sm-3
         div.control-group
           label(for='team2-name',class='control-label') Team 2 Name
           div.controls
@@ -55,11 +55,17 @@ block content
     div.row
       div.col-lg-12
         div.row
-          div.col-lg-12.text-center
+          div.col-sm-3.text-center
             div.btn-toolbar
-              a(data-group='game-control-pills',id='btnDisconnect',data-action='disconnect',data-class='danger',style='display: none').btn.btn-lg.btn-danger Disconnect
-              a(data-group='game-control-pills',id='btnConnect',data-action='connect',data-class='success').btn.btn-lg.btn-success Connect
-              a(data-group='game-reset-pills',id='btnReload',data-action='reset').btn.btn-lg.btn-warning Reload
+              a(data-group='draft-control-pills',id='btnDisconnect',data-action='disconnect',data-class='danger',style='display: none;').btn.btn-lg.btn-danger Disconnect
+              a(data-group='draft-control-pills',id='btnConnect',data-action='connect',data-class='success').btn.btn-lg.btn-success Connect
+          div.col-sm-3.text-center
+            div.btn-toolbar
+              a(data-group='draft-command-pills',id='btnPause',data-action='pause').btn.btn-lg.btn-warning Stop Video
+              a(data-group='draft-command-pills',id='btnPlay',data-action='play',style='display: none;').btn.btn-lg.btn-success Loop Video
+          div.col-sm-3.text-center
+            div.btn-toolbar
+              a(data-group='draft-reset-pills',id='btnReload',data-action='reset').btn.btn-lg.btn-warning Reload
         div.row
           div.col-sm-2
               div(data-group='pictures',id='team1-ban1-picture').center.divimage.divimagelg
