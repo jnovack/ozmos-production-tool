@@ -139,27 +139,3 @@ var translated = {
     361: 'zagara',
     401: 'zeratul'
     };
-
-
-// $(document).click(function() { demo();});
-
-function demo() {
-    updateValue({ id: 'blue-name', value: 'Cloud9 Maelstrom' });
-    updateValue({ id: 'red-name', value: 'Tempo Storm' });
-    var base = 3000;
-
-    setTimeout( function() { updateValue({ id: 'blue-b1',  value: 'valla' }); $('#red-b1 .overlay-bg').removeClass('waiting').addClass('animated myturn'); }, base*1);
-    setTimeout( function() { updateValue({ id: 'red-b1',   value: 'kaelthas' }); $('#blue-p1 .overlay-bg').removeClass('waiting').addClass('animated myturn'); },  base*2);
-    setTimeout( function() { updateValue({ id: 'blue-p1',  value: 'valla' }); $('#red-p1 .overlay-bg').removeClass('waiting').addClass('animated myturn'); $('#red-p2 .overlay-bg').removeClass('waiting').addClass('animated myturn');}, base*3);
-    setTimeout( function() { updateValue({ id: 'red-p1',   value: 'kaelthas' });  }, base*4);
-    setTimeout( function() { updateValue({ id: 'red-p2',   value: 'uther' }); $('#blue-p2 .overlay-bg').removeClass('waiting').addClass('animated myturn'); $('#blue-p3 .overlay-bg').removeClass('waiting').addClass('animated myturn'); }, base*5);
-    setTimeout( function() { updateValue({ id: 'blue-p2',  value: 'illidan' });  }, base*6);
-    setTimeout( function() { updateValue({ id: 'blue-p3',  value: 'anubarak' }); $('#red-p3 .overlay-bg').removeClass('waiting').addClass('animated myturn'); $('#red-p4 .overlay-bg').removeClass('waiting').addClass('animated myturn'); }, base*7);
-    setTimeout( function() { updateValue({ id: 'red-p3',   value: 'gazlowe' });  }, base*8);
-    setTimeout( function() { updateValue({ id: 'red-p4',   value: 'murky' }); $('#blue-p4 .overlay-bg').removeClass('waiting').addClass('animated myturn'); $('#blue-p5 .overlay-bg').removeClass('waiting').addClass('animated myturn'); }, base*9);
-    setTimeout( function() { updateValue({ id: 'blue-p4',  value: 'kerrigan' }); }, base*10);
-    setTimeout( function() { updateValue({ id: 'blue-p5',  value: 'chen' }); $('#red-p5 .overlay-bg').removeClass('waiting').addClass('animated myturn'); }, base*11);
-    setTimeout( function() { updateValue({ id: 'red-p5',   value: 'sgt-hammer' }); }, base*12);
-
-    return true;
-}
