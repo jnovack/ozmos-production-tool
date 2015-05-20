@@ -1,6 +1,6 @@
 var heroes = { bans1: [], bans2: [], picks1: [], picks2: [] };
 var command = io(document.location.origin+'/livedraft');
-var livedraft;
+var livedraft = io(false);
 var draftid;
 
 command.on('connect', function(data) {
