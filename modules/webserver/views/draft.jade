@@ -8,12 +8,12 @@ block footer
   script(src="/javascripts/common.js")
   - if (layout == "livedraft") {
     script.
-      var livedraft_url = #{wsurl}
+      var livedraft_url = '#{wsurl}';
     script(src="/javascripts/livedraft.js")
     link(href="/stylesheets/themes/#{theme}.css", rel="stylesheet")
   - } else {
-    script(src="/javascripts/draft.js")
-    link(href="/stylesheets/draft.css", rel="stylesheet")
+    script(src='/javascripts/demo.js')
+    link(href="/stylesheets/themes/default.css", rel="stylesheet")
   - }
 
 block content
