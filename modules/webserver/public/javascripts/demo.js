@@ -8,7 +8,7 @@
 
 // });
 
-$('#title').click(function() { demo();});
+setTimeout( demo, 5000);
 
 function demo() {
     updateValue({ id: 'blue-name', value: 'Cloud9 Maelstrom' });
