@@ -22,6 +22,14 @@ command.on('message', function(data) {
             livedraft.disconnect();
             console.log("administratively disconnected");
             break;
+        case 'pause':
+            $("[data-group='videos']").removeAttr('loop');
+            console.log('videos paused');
+            break;
+        case 'play':
+            $("[data-group='videos']").attr('loop', 'loop');
+            console.log('videos resumed');
+            break;
         default:
             console.log(data);
     }
