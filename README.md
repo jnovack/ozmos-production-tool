@@ -21,10 +21,12 @@ Installation
 *This section is intended for those unfamiliar with NodeJS.*
 
 
-* Install [node.js](http://www.nodejs.org/download) or similar alternative 
+* Install [node.js](http://www.nodejs.org/download) or similar alternative
 ([io.js](https://iojs.org/))
 * [Download](https://github.com/jnovack/ozmos-production-tool/archive/master.zip)
 to your desktop or suitable location.
+* Open the Command Prompt
+* In the directory where the files are, run `npm install`
 * Edit `config.json`
 * Double-click on `app.js`
 
