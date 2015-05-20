@@ -1,13 +1,47 @@
 
 var control = io(document.location.origin+'/livedraft');
 
+/**** Control Functions *****/
+
 control.on('connect', function() {
     control.emit('join', {room: 'livedraft', admin: true});
 });
 
-//TODO - Process config push from server
+control.on('message', function(data) {
+    switch (data.action) {
+        case "connect":
+            draftid = data.value;
+            livedraftConnect();
+            console.log("initiating connection to livedraft url");
+            break;
+        case "disconnect":
+            livedraft.disconnect();
+            console.log("administratively disconnected");
+            break;
+        case 'pause':
+            console.log('videos paused');
+            break;
+        case 'play':
+            console.log('videos resumed');
+            break;
+        default:
+            console.log(data);
+    }
+});
 
-var classes_label = "label-primary label-default label-info label-success label-danger label-warning";
+/**** LiveDraft Functions ****/
+
+livedraft.on('connect', function(data) {
+    console.log("livedraft connected");
+    $('#btnConnect').hide();
+    $('#btnDisconnect').show();
+});
+
+livedraft.on('disconnect', function(data) {
+    console.log("livedraft connected");
+    $('#btnConnect').show();
+    $('#btnDisconnect').hide();
+});
 
 function send(message) {
     control.emit('broadcast', message);
