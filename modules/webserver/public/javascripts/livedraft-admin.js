@@ -18,7 +18,7 @@ $('#url').blur(function() {
     result = $('#url').val().substr($('#url').val().lastIndexOf('/')+1);
     pattern = new RegExp(/[0-9]+/);
     if (pattern.test(result)) {
-        $('[name=url').removeClass('has-error').addClass('has-success');
+        $('[name=url').removeClass('has-error');
     } else {
         $('[name=url').removeClass('has-success').addClass('has-error');
     }
