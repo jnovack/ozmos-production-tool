@@ -28,10 +28,8 @@ function properName(hero) {
 }
 
 function updateValue(data) {
-    if(data.id.indexOf('-name') > 0) {
-        $('#'+data.id + ' .overlay-text').text(data.value);
-    } else {
-        $('#'+data.id+'-video').attr('src', '/assets/hero-videos/'+data.value+'.webm').removeClass('hide').addClass(data.value + ' animated');
+
+        $('#'+data.id+'-video').attr('src', '/assets/hero-videos/'+data.value+'.webm').attr('poster', '/assets/hero-videos/'+data.value+'.png').removeClass('hide').addClass(data.value + ' animated');
 
         /* Hero and Player Names */
         // $('#'+data.id+' .overlay-hero').removeClass('hide').addClass('animated');
@@ -42,6 +40,7 @@ function updateValue(data) {
         $('#'+data.id+' .overlay-hero').removeClass('hide').addClass('animated');
         $('#'+data.id+' .overlay-hero .overlay-text').text(properName(data.value));
 
-        $('#'+data.id).attr('data-selected', 'true');
-    }
+        // if (typeof yourFunctionName == 'function') {
+        //   animateSelection();
+        // }
 }

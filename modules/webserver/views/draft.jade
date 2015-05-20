@@ -28,7 +28,7 @@ block content
           div.col-sm-12.teams.flex.flex-justify-between
             div(id='blue-b1',data-team='blue').video-container.draft.banned
               div.overlay-bg.waiting.fadeIn
-              video(id="blue-b1-video",autoplay,loop,muted,src='',class='video portrait',type='video/webm').hide.fadeIn
+              video(id="blue-b1-video",autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
               div.overlay-hero.hide.slideInLeft
                 div.overlay-text
                 div.overlay-triangle
@@ -38,7 +38,7 @@ block content
             - for (var i = 1; i < 6; ++i) {
               div(id='blue-p'+i,data-team='blue').video-container.draft.pick
                 div.overlay-bg.waiting.fadeIn
-                video(id='blue-p'+i+'-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm').hide.fadeIn
+                video(id='blue-p'+i+'-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
                 div.overlay-hero.hide.slideInLeft
                   div.overlay-text
                   div.overlay-triangle
@@ -70,7 +70,7 @@ block content
             - for (var i = 5; i > 0; --i) {
               div(id='red-p'+i,data-team='red').video-container.draft.pick
                 div.overlay-bg.waiting.fadeIn
-                video(id='red-p'+i+'-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm').hide.fadeIn
+                video(id='red-p'+i+'-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
                 div.overlay-hero.hide.slideInRight
                   div.overlay-text
                   div.overlay-triangle
@@ -80,7 +80,7 @@ block content
             - }
             div(id='red-b1').video-container.draft.banned
               div.overlay-bg.waiting.fadeIn
-              video(id='red-b1-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm').hide.fadeIn
+              video(id='red-b1-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
               div.overlay-hero.hide.slideInRight
                 div.overlay-text
                 div.overlay-triangle
