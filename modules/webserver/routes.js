@@ -11,7 +11,8 @@ module.exports = function(app, myApp, express){
     });
 
     router.get('/livedraft/admin', function(req, res, next) {
-        res.render('livedraft-admin.jade');
+        res.render('livedraft-admin.jade', { wsurl: myApp.config.livedraft.wsurl });
+    });
     });
 
     /*

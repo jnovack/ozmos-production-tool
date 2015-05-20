@@ -8,8 +8,10 @@ block head
     .nav-tabs>li { background-color: #ECF0F1 }
 
 block footer
-  script(src='/javascripts/draft.js')
-  script(src='/javascripts/draft-admin.js')
+  script.
+    var livedraft_url = '#{wsurl}';
+  script(src='/javascripts/livedraft.js')
+  script(src='/javascripts/livedraft-admin.js')
 
 block content
   div.container
