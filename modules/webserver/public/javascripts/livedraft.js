@@ -1,107 +1,73 @@
 var heroes = { bans1: [], bans2: [], picks1: [], picks2: [] };
-var command = io(document.location.origin+'/livedraft');
 var livedraft = io(false);
 var draftid;
-
-command.on('connect', function(data) {
-    command.emit('join', 'livedraft');
-});
-
-command.on('joined', function(data) {
-    console.log('(command) joined ' + data);
-});
-
-command.on('message', function(data) {
-    switch (data.action) {
-        case "connect":
-            draftid = data.value;
-            livedraftConnect();
-            console.log("initiating connection to livedraft url");
-            break;
-        case "disconnect":
-            livedraft.disconnect();
-            console.log("administratively disconnected");
-            break;
-        case 'pause':
-            $("[data-group='videos']").removeAttr('loop');
-            console.log('videos paused');
-            break;
-        case 'play':
-            $("[data-group='videos']").attr('loop', 'loop');
-            console.log('videos resumed');
-            break;
-        default:
-            console.log(data);
-    }
-});
-
-command.on('reload', function(data){
-    console.log("reloading...");
-    location.reload();
-});
+var status = 0;
 
 function livedraftConnect() {
     livedraft = io(livedraft_url,{query:"draft_id="+draftid});
     livedraft.on('connect', function(data) {
+        triggerConnect();
         console.log("connected to livedraft "+draftid);
     });
+    livedraft.on('disconnect', function() {
+        triggerDisconnect();
+        console.log("disconnected from livedraft");
+    });
     livedraft.on('draft_update', function(data){
+        if (data.status != status) {
+            status = data.status;
+            updateStatus(status);
+        }
         if (typeof data.heroes !== "undefined") {
-            $('#time-pool').text(data.timer);
-            $('#blue-pool').text(data.timer_bonus1);
-            $('#red-pool').text(data.timer_bonus2);
             if (JSON.stringify(data.heroes) !== JSON.stringify(heroes)) {
                 if (JSON.stringify(data.heroes.bans1) !== JSON.stringify(heroes.bans1)) {
                     $.each($(data.heroes.bans1).not(heroes.bans1), function(i, val) {
                         var num = data.heroes.bans1.indexOf(val)+1;
-                        console.log("Team 1 Banned: " + num + " - " + translated[val] );
-                        updateValue({ id: 'blue-b'+num, value: translated[val] });
+                        console.log("Team 1 Banned: " + num + " - " + heroesArray[val] );
+                        updateValue({ id: 'blue-b'+num, value: heroesArray[val] });
                     });
                 }
                 if (JSON.stringify(data.heroes.bans2) !== JSON.stringify(heroes.bans2)) {
                     $.each($(data.heroes.bans2).not(heroes.bans2), function(i, val) {
                         var num = data.heroes.bans2.indexOf(val)+1;
-                        console.log("Team 2 Banned: " + num + " - " + translated[val] );
-                        updateValue({ id: 'red-b'+num, value: translated[val] });
+                        console.log("Team 2 Banned: " + num + " - " + heroesArray[val] );
+                        updateValue({ id: 'red-b'+num, value: heroesArray[val] });
                     });
                 }
                 if (JSON.stringify(data.heroes.picks1) !== JSON.stringify(heroes.picks1)) {
                     $.each($(data.heroes.picks1).not(heroes.picks1), function(i, val) {
                         var num = data.heroes.picks1.indexOf(val)+1;
-                        console.log("Team 1 Picked: " + num + " - " + translated[val] );
-                        updateValue({ id: 'blue-p'+num, value: translated[val] });
+                        console.log("Team 1 Picked: " + num + " - " + heroesArray[val] );
+                        updateValue({ id: 'blue-p'+num, value: heroesArray[val] });
                     });
                 }
                 if (JSON.stringify(data.heroes.picks2) !== JSON.stringify(heroes.picks2)) {
                     $.each($(data.heroes.picks2).not(heroes.picks2), function(i, val) {
                         var num = data.heroes.picks2.indexOf(val)+1;
-                        console.log("Team 2 Picked: " + num + " - " + translated[val] );
-                        updateValue({ id: 'red-p'+num, value: translated[val] });
+                        console.log("Team 2 Picked: " + num + " - " + heroesArray[val] );
+                        updateValue({ id: 'red-p'+num, value: heroesArray[val] });
                     });
                 }
                 console.log(data);
                 heroes = data.heroes;
-                var team = [null, "blue", "red"];
-                var stage = [null, null, 'b', 'p'];
-                $('#'+team[data.turn]+'-'+stage[data.status]+data.turn_index+' .overlay-bg').removeClass('waiting').addClass('animated myturn');
-                $('#time-pool').text(data.timer);
-                $('#blue-pool').text(data.timer_bonus1);
-                $('#red-pool').text(data.timer_bonus2);
             }
+            updateTime(data);
         } else {
             console.log(data);
         }
         if ((data.status === 3) && (data.done === 1)) {
-            $('#time-pool').text(0);
-            $('#blue-pool').text(0);
-            $('#red-pool').text(0);
+            draftOver();
             console.log("draft over");
         }
     });
 }
 
 
-var translated = {
+function livedraftDisconnect() {
+    livedraft.disconnect();
+}
+
+var heroesArray = {
     383: 'abathur',
     345: 'anubarak',
     367: 'arthas',

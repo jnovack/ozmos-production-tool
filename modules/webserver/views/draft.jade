@@ -3,13 +3,14 @@ extends layout
 block head
   link(href="/stylesheets/heroes.css", rel="stylesheet")
   link(href="/stylesheets/divimage.css", rel="stylesheet")
+  script(src='/javascripts/functions.js')
 
 block footer
-  script(src="/javascripts/common.js")
+  script(src="/javascripts/livedraft.js")
   - if (layout == "livedraft") {
     script.
       var livedraft_url = '#{wsurl}';
-    script(src="/javascripts/livedraft.js")
+    script(src="/javascripts/livedraft-client.js")
     link(href="/stylesheets/themes/#{theme}.css", rel="stylesheet")
   - } else {
     script(src='/javascripts/demo.js')
@@ -58,6 +59,13 @@ block content
             div(id='blue-pool')
             div(id='time-pool')
             div(id='red-pool')
+        div.overlay-message.overlay-message-left.hide.slideInLeft
+          div(id='message-left-text').overlay-text DRAFT
+          div.overlay-triangle
+        div.overlay-message.overlay-message-right.hide.slideInRight
+          div(id='message-right-text').overlay-text OVER
+          div.overlay-triangle
+
 
       div.row.team-red
         div.row

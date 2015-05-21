@@ -50,6 +50,14 @@ div.video-container video {  }
 div.draft { width: 256px;}
 div.teams { height: 300px; }
 
+div.overlay-message-left { position: absolute; z-index: 3; margin-top: -8px; }
+div.overlay-message-left .overlay-text { width: 350px; height: 64px; line-height: 64px; background-color: rgb(20,36,152); font-size: 3em; margin-left: 422px; padding-left: 12px; text-align: right; color: #ffffff; float: left; }
+div.overlay-message-left .overlay-triangle { position: absolute; left: 772px; width: 0px; height: 0px; border-style: solid; border-width: 64px 64px 0 0; border-color: rgb(20,36,152) transparent transparent transparent; }
+
+div.overlay-message-right { position: absolute; z-index: 4; margin-top: -8px;}
+div.overlay-message-right .overlay-text { text-align: left; width: 350px; height: 64px; line-height: 64px; background-color: rgb(156,28,56); font-size: 3em; padding-right: 12px; margin-left: 832px; color: #ffffff; float: left;}
+div.overlay-message-right .overlay-triangle { position: absolute; right: 350px; margin-left: 664px; width: 0px; height: 0px; border-style: solid; border-width: 0 0 64px 64px; border-color: transparent transparent rgb(156,28,56) transparent; }
+
 
 /*** Testing ***/
 /*
