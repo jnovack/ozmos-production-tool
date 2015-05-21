@@ -33,7 +33,7 @@ div.team-blue .video-container .overlay-hero .overlay-triangle { position : abso
 div.team-blue .team-name { width: 350px; height: 48px; line-height: 48px; background-color: rgba(20,36,152,0.75); font-size: 1.6em; margin-top: 4px; padding-left: 12px; color: #ffffff; }
 div.team-blue .team-name .overlay-triangle { position: absolute; left: 365px; top: 4px; width: 0px; height: 0px; border-style: solid; border-width: 48px 48px 0 0; border-color: rgba(20,36,152,0.75) transparent transparent transparent; }
 
-div.team-red { margin-top: 48px; }
+div.team-red { margin-top: 64px; }
 div.team-red .pick .myturn { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/red.jpg'); background-size: 256px 304px; }
 div.team-red .banned .myturn { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/red.jpg'); background-size: 256px 304px;  -webkit-filter: grayscale(90%); }
 div.team-red .pick .waiting { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/red-empty.jpg'); background-size: 256px 304px; -webkit-filter: grayscale(25%); }
@@ -50,11 +50,11 @@ div.video-container video {  }
 div.draft { width: 256px;}
 div.teams { height: 300px; }
 
-div.overlay-message-left { position: absolute; z-index: 3; margin-top: -8px; }
+div.overlay-message-left { position: absolute; z-index: 3; }
 div.overlay-message-left .overlay-text { width: 350px; height: 64px; line-height: 64px; background-color: rgb(20,36,152); font-size: 3em; margin-left: 422px; padding-left: 12px; text-align: right; color: #ffffff; float: left; }
 div.overlay-message-left .overlay-triangle { position: absolute; left: 772px; width: 0px; height: 0px; border-style: solid; border-width: 64px 64px 0 0; border-color: rgb(20,36,152) transparent transparent transparent; }
 
-div.overlay-message-right { position: absolute; z-index: 4; margin-top: -8px;}
+div.overlay-message-right { position: absolute; z-index: 4; }
 div.overlay-message-right .overlay-text { text-align: left; width: 350px; height: 64px; line-height: 64px; background-color: rgb(156,28,56); font-size: 3em; padding-right: 12px; margin-left: 832px; color: #ffffff; float: left;}
 div.overlay-message-right .overlay-triangle { position: absolute; right: 350px; margin-left: 664px; width: 0px; height: 0px; border-style: solid; border-width: 0 0 64px 64px; border-color: transparent transparent rgb(156,28,56) transparent; }
 
