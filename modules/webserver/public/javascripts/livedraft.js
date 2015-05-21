@@ -1,7 +1,9 @@
 var heroes = { bans1: [], bans2: [], picks1: [], picks2: [] };
-var livedraft = io(false);
+var livedraft = null;
 var draftid;
 var status = 0;
+
+/* Status 1 { mode: "pre", ready1: 1, ready2: 0, status: 1, timer1: 118, timer1_percent: 98, timer2: -1 } */
 
 function livedraftConnect() {
     livedraft = io(livedraft_url,{query:"draft_id="+draftid});
@@ -49,6 +51,7 @@ function livedraftConnect() {
                     });
                 }
                 console.log(data);
+                updateProgress(data);
                 heroes = data.heroes;
             }
             updateTime(data);
@@ -64,7 +67,9 @@ function livedraftConnect() {
 
 
 function livedraftDisconnect() {
-    livedraft.disconnect();
+    console.log("livedraftDisconnect()");
+    livedraft.destroy();
+    livedraft = null;
 }
 
 var heroesArray = {

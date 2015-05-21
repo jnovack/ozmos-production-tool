@@ -19,11 +19,16 @@ block content
       .row { margin-top: 24px;}
 
     div.row
-      div.col-lg-12
+      div.col-sm-8
         div(name='url').control-group
           label(for='url',class='control-label') Draft URL
           div.controls
             input(data-group='text',type='text',id='url',placeholder='http://www.somedrafttool.com/en/drafttool/12345',class='form-control')
+      div.col-sm-4
+        div(name='status').control-group
+          label(for='status',class='control-label') Status
+          div.controls
+            span(data-group='text',type='text',id='status',class='form-control',disabled) Disconnected
 
     div.row
       div.col-sm-3
@@ -82,12 +87,12 @@ block content
           div.row
             div.col-sm-2
               div(data-group='pictures',id='blue-p'+x+'-icon').center.divimage.divimagelg
-            div.col-sm-4
-              label(for='blue-p'+x,class='control-label') blue-p#{x}
+            div(data-group='selections',id='blue-p'+x).col-sm-4
+              label(for='blue-p'+x+'-hero',class='control-label') blue-p#{x}
               div.controls
                 span(data-group='selects',role='trigger',data-trigger='picture',id='blue-p'+x+'-hero',class='form-control',disabled)
-            div.col-sm-4
-              label(for='red-p'+x,class='control-label') red-p#{x}
+            div(data-group='selections',id='red-p'+x).col-sm-4
+              label(for='red-p'+x+'-hero',class='control-label') red-p#{x}
               div.controls
                 span(data-group='selects',role='trigger',data-trigger='picture',id='red-p'+x+'-hero',class='form-control',disabled)
             div.col-sm-2

@@ -54,28 +54,57 @@ function send(message) {
     console.log(message);
 }
 
-function updateStatus(status) { }
+function updateStatus(status) {
+    switch (parseInt(status)) {
+        case 0:
+            $('#status').text('setting up draft..');
+            break;
+        case 1:
+            $('#status').text('waiting for teams...');
+            break;
+        case 2:
+            $('#status').text('bans...');
+            break;
+        case 3:
+            $('#status').text('picks...');
+            break;
+    }
+    console.log("updateStatus("+status+")");
+}
 
 function draftOver() {
+    $('#status').text('draft complete');
 }
 
 function updateTime(data) {
-    var team = [null, "blue", "red"];
-    var stage = [null, null, 'b', 'p'];
-    $('#'+team[data.turn]+'-'+stage[data.status]+data.turn_index+' .overlay-bg').removeClass('waiting').addClass('animated myturn');
     $('#time-pool').text(data.timer);
     $('#blue-pool').text(data.timer_bonus1);
     $('#red-pool').text(data.timer_bonus2);
 }
 
+function updateProgress(data) {
+    // TODO Update clock to team pick
+    // TODO Make current selection more appealing
+    $.each($("[data-group='selections']"), function(i, val) {
+        $(val).removeClass('has-success');
+    });
+    console.log("updateProgress()");
+    var team = [null, "blue", "red"];
+    var stage = [null, null, 'b', 'p'];
+    $('#'+team[data.turn]+'-'+stage[data.status]+data.turn_index).addClass('has-success');
+}
 
 function updateValue(data) {
-        $('#'+data.id+'-icon').addClass('divimage-'+data.value);
-        $('#'+data.id+'-hero').text(properName(data.value));
+    $('#'+data.id+'-icon').addClass('divimage-'+data.value);
+    $('#'+data.id+'-hero').text(properName(data.value));
 }
 
 
 /**** Administrative Functions ****/
+
+$('#url').focus(function () {
+    $(this).select();
+});
 
 $('#url').blur(function() {
     result = $('#url').val().substr($('#url').val().lastIndexOf('/')+1);
@@ -109,10 +138,12 @@ $('#btnPlay').click(function() {
 
 
 $('#btnDisconnect').click(function() {
-    livedraftDisconnect();
+    // TODO Fix Reconnect
     send({ event: 'message', data: { action: 'disconnect', value: true }});
 });
 
 $("#btnReload").click(function() {
+    // TODO Clear admin screen
+    location.reload();
     send({ event: 'reload' });
 });

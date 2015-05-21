@@ -44,17 +44,20 @@ function triggerConnect() {
 }
 
 function triggerDisconnect() {
-    console.log("triggerDisonnect()");
+    console.log("triggerDisconnect()");
 }
-
 
 function updateStatus(status) { }
 
-function updateTime(data) {
-    console.log("updateTime():"  + data);
+function updateProgress(data) {
+    console.log("updateProgress()");
     var team = [null, "blue", "red"];
     var stage = [null, null, 'b', 'p'];
     $('#'+team[data.turn]+'-'+stage[data.status]+data.turn_index+' .overlay-bg').removeClass('waiting').addClass('animated myturn');
+}
+
+function updateTime(data) {
+    console.log("updateTime()");
     $('#time-pool').text(data.timer);
     $('#blue-pool').text(data.timer_bonus1);
     $('#red-pool').text(data.timer_bonus2);
@@ -71,17 +74,6 @@ function draftOver() {
 function updateValue(data) {
         console.log(data);
         $('#'+data.id+'-video').attr('src', '/assets/hero-videos/'+data.value+'.webm').attr('poster', '/assets/hero-videos/'+data.value+'.png').removeClass('hide').addClass(data.value + ' animated');
-
-        /* Hero and Player Names */
-        // $('#'+data.id+' .overlay-hero').removeClass('hide').addClass('animated');
-        // $('#'+data.id+' .overlay-player').removeClass('hide').addClass('animated');
-        // $('#'+data.id+' .overlay-hero .overlay-text').text(data.value);
-
-        /* Hero Names Only */
         $('#'+data.id+' .overlay-hero').removeClass('hide').addClass('animated');
         $('#'+data.id+'-hero').text(properName(data.value));
-
-        // if (typeof yourFunctionName == 'function') {
-        //   animateSelection();
-        // }
 }
