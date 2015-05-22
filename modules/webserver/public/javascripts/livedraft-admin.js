@@ -69,7 +69,6 @@ function updateStatus(data) {
             $('#status').text('picks...');
             break;
     }
-    console.log("updateStatus("+status+")");
 }
 
 function draftOver() {
@@ -108,9 +107,11 @@ $('#url').focus(function () {
 
 $('#url').blur(function() {
     result = $('#url').val().substr($('#url').val().lastIndexOf('/')+1);
-    pattern = new RegExp(/[0-9]+/);
+    pattern = new RegExp(/[0-9]{5}/);
     if (pattern.test(result)) {
         $('[name=url').removeClass('has-error');
+        $('#url').attr('disabled',true).addClass('disabled');
+        $('[data-toggle="tooltip"]').tooltip();
         send({ event: 'message', data: { action: 'connect', value: result }});
     } else {
         $('[name=url').removeClass('has-success').addClass('has-error');
