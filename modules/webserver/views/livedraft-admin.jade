@@ -28,7 +28,7 @@ block content
         div(name='status').control-group
           label(for='status',class='control-label') Status
           div.controls
-            span(data-group='text',type='text',id='status',class='form-control',disabled) Disconnected
+            span(data-group='spans',type='text',id='status',class='form-control',disabled) Disconnected
 
     div.row
       div.col-sm-3
@@ -40,17 +40,17 @@ block content
         div.control-group
           label(for='team1-timer',class='control-label') Team 1 Pool
           div.controls
-            span(data-group='value',type='text',id='blue-pool',placeholder='0',class='form-control',disabled,value=0)
+            span(data-group='spans',type='text',id='blue-pool',placeholder='0',class='form-control',disabled,value=0)
       div.col-sm-2
         div.control-group
           label(for='timer',class='control-label') Timer
           div.controls
-            span(data-group='value',type='text',id='time-pool',placeholder='0',class='form-control',disabled,value=0)
+            span(data-group='spans',type='text',id='time-pool',placeholder='0',class='form-control',disabled,value=0)
       div.col-sm-2
         div.control-group
           label(for='team2-timer',class='control-label') Team 2 Pool
           div.controls
-            span(data-group='value',type='text',id='red-pool',placeholder='0',class='form-control',disabled,value=0)
+            span(data-group='spans',type='text',id='red-pool',placeholder='0',class='form-control',disabled,value=0)
       div.col-sm-3
         div.control-group
           label(for='team2-name',class='control-label') Team 2 Name
@@ -90,11 +90,11 @@ block content
             div(data-group='selections',id='blue-p'+x).col-sm-4
               label(for='blue-p'+x+'-hero',class='control-label') blue-p#{x}
               div.controls
-                span(data-group='selects',role='trigger',data-trigger='picture',id='blue-p'+x+'-hero',class='form-control',disabled)
+                span(data-group='spans',role='trigger',data-trigger='picture',id='blue-p'+x+'-hero',class='form-control',disabled)
             div(data-group='selections',id='red-p'+x).col-sm-4
               label(for='red-p'+x+'-hero',class='control-label') red-p#{x}
               div.controls
-                span(data-group='selects',role='trigger',data-trigger='picture',id='red-p'+x+'-hero',class='form-control',disabled)
+                span(data-group='spans',role='trigger',data-trigger='picture',id='red-p'+x+'-hero',class='form-control',disabled)
             div.col-sm-2
               div(data-group='pictures',id='red-p'+x+'-icon').center.divimage.divimagelg
         - }

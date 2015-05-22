@@ -143,7 +143,7 @@ $('#btnDisconnect').click(function() {
 });
 
 $("#btnReload").click(function() {
-    // TODO Clear admin screen
+    $("[data-group='selections']").text("");
     location.reload();
     send({ event: 'reload' });
 });
