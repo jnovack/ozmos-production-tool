@@ -79,8 +79,8 @@ function livedraftConnect() {
 
 function livedraftDisconnect() {
     console.log("livedraftDisconnect()");
-    livedraft.destroy();
-    livedraft = null;
+    // TODO Fix socket reconnection
+    location.reload();
 }
 
 var heroesArray = {
