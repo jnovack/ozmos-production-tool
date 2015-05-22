@@ -111,18 +111,21 @@ $('#url').blur(function() {
     pattern = new RegExp(/[0-9]+/);
     if (pattern.test(result)) {
         $('[name=url').removeClass('has-error');
+        send({ event: 'message', data: { action: 'connect', value: result }});
     } else {
         $('[name=url').removeClass('has-success').addClass('has-error');
     }
 });
 
-$('#btnConnect').click(function() {
+/* Auto Connect */
+/* $('#btnConnect').click(function() {
     result = $('#url').val().substr($('#url').val().lastIndexOf('/')+1);
     pattern = new RegExp(/[0-9]+/);
     if (pattern.test(result)) {
         send({ event: 'message', data: { action: 'connect', value: result }});
     }
 });
+*/
 
 $('#btnPause').click(function() {
     send({ event: 'message', data: { action: 'pause', value: true }});
