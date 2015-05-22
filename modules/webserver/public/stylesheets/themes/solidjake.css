@@ -49,9 +49,8 @@ div.draft { width: 256px;}
 div.teams { height: 300px; }
 
 div.timers { height: 78px; overflow: hidden; }
-#blue-pool { font-size: 3em;}
-#time-pool { margin-left: 60px; margin-right: 60px; font-size: 6em; line-height: 64px;}
-#red-pool { font-size: 3em; }
+#blue-pool, #red-pool { font-size: 3em; text-align: center; width: 64px; }
+#time-pool { margin-left: 52px; margin-right: 52px; font-size: 6em; line-height: 64px; text-align: center; width: 96px; }
 div.team-name { visibility: hidden;}
 
 div.overlay-message-left { position: absolute; z-index: 3; }
