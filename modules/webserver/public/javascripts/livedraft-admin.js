@@ -54,13 +54,13 @@ function send(message) {
     console.log(message);
 }
 
-function updateStatus(status) {
-    switch (parseInt(status)) {
+function updateStatus(data) {
+    switch (parseInt(data.status)) {
         case 0:
-            $('#status').text('setting up draft..');
+            $('#status').text('setting up draft...');
             break;
         case 1:
-            $('#status').text('waiting for teams...');
+            $('#status').text('waiting for teams to ready up...');
             break;
         case 2:
             $('#status').text('bans...');

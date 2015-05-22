@@ -1,7 +1,7 @@
 var heroes = { bans1: [], bans2: [], picks1: [], picks2: [] };
 var livedraft = null;
 var draftid;
-var status = 0;
+var status = -1;
 
 /* Status 1 { mode: "pre", ready1: 1, ready2: 0, status: 1, timer1: 118, timer1_percent: 98, timer2: -1 } */
 
@@ -18,7 +18,18 @@ function livedraftConnect() {
     livedraft.on('draft_update', function(data){
         if (data.status != status) {
             status = data.status;
-            updateStatus(status);
+            updateStatus(data);
+        }
+        if (status == 1) {
+            if (data.timer1 > 0) {
+                data.timer = data.timer1;
+                data.timer1_bonus = 'READY';
+                data.timer2_bonus = 'waiting';
+            } else {
+                data.timer = data.timer2;
+                data.timer2_bonus = 'READY';
+                data.timer1_bonus = 'waiting';
+            }
         }
         if (typeof data.heroes !== "undefined") {
             if (JSON.stringify(data.heroes) !== JSON.stringify(heroes)) {
