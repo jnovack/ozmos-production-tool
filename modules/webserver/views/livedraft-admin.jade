@@ -60,17 +60,13 @@ block content
     div.row
       div.col-lg-12
         div.row
-          div.col-sm-3.text-center
+          div.col-sm-12.text-center
             div.btn-toolbar
               a(data-group='draft-control-pills',id='btnDisconnect',data-action='disconnect',data-class='danger',style='display: none;').btn.btn-lg.btn-danger Disconnect
-              a(data-group='draft-control-pills',id='btnConnect',data-action='connect',data-class='success').btn.btn-lg.btn-success Connect
-          div.col-sm-3.text-center
-            div.btn-toolbar
+              a(data-group='draft-control-pills',id='btnConnect',data-action='connect',data-class='success').btn.btn-lg.btn-success.hide Connect
               a(data-group='draft-command-pills',id='btnPause',data-action='pause').btn.btn-lg.btn-warning Stop Video
               a(data-group='draft-command-pills',id='btnPlay',data-action='play',style='display: none;').btn.btn-lg.btn-success Loop Video
-          div.col-sm-3.text-center
-            div.btn-toolbar
-              a(data-group='draft-reset-pills',id='btnReload',data-action='reset').btn.btn-lg.btn-warning Reload
+              a(data-group='draft-reset-pills',id='btnReload',data-action='reset').btn.btn-lg.btn-primary Reload
         div.row
           div.col-sm-2
               div(data-group='pictures',id='blue-b1-icon').center.divimage.divimagelg
