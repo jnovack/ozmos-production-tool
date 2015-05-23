@@ -2,6 +2,7 @@ extends layout
 
 block head
   link(href='/stylesheets/base.css', rel='stylesheet')
+  link(rel='stylesheet',href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
   link(href='/stylesheets/divimage.css', rel='stylesheet')
   script(src='/javascripts/functions.js')
   style.
@@ -19,16 +20,40 @@ block content
       .row { margin-top: 24px;}
 
     div.row
-      div.col-sm-8
-        div(name='url').control-group
-          label(for='url',class='control-label') Draft URL (Observer)
-          div(id='url-tooltip',data-toggle='tooltip',data-placement='bottom',title="You must 'Disconnect' before changing.").controls
-            input(data-group='text',type='text',id='url',placeholder='http://www.somedrafttool.com/en/drafttool/12345',class='form-control')
-      div.col-sm-4
-        div(name='status').control-group
-          label(for='status',class='control-label') Status
-          div.controls
-            span(data-group='spans',type='text',id='status',class='form-control',disabled) Disconnected
+      div(name='url').col-md-8
+        label(for='url',class='control-label') Draft URL (Observer)
+        div(id='url-tooltip',data-toggle='tooltip',data-placement='bottom',title="You must 'Disconnect' before changing.").input-group
+          input(data-group='text',type='text',id='url',placeholder='http://www.somedrafttool.com/en/drafttool/12345',class='form-control')
+          span.input-group-btn
+            button(data-group='draft-control-pills',id='btnDisconnect',data-action='disconnect',data-class='danger',type='button',style='display: none;').btn.btn-danger
+              i.fa.fa-unlink
+              | Disconnect
+            button(data-group='draft-control-pills',id='btnConnect',data-action='connect',data-class='success',type='button').btn.btn-success
+              i.fa.fa-link
+              | Connect
+      div(name='status').col-md-4
+        label(for='status',class='control-label') Status
+        div
+          span(data-group='spans',type='text',id='status',class='form-control',disabled) Disconnected
+
+    div.row
+      div(name='background-image').col-md-8
+        label(for='background-image',class='control-label') Background Image URL (1920x1080)
+        div(data-group='onload-tooltips',id='background-image-tooltip',data-toggle='tooltip',data-placement='bottom',title="You must 'Disconnect' before changing.").input-group
+          input(data-group='text',type='text',id='background-image',placeholder='http://i.imgur.com/OcFygJu.jpg',class='form-control')
+          span.input-group-btn
+            button(data-group='draft-background-pills',id='btnBGImage',data-action='image',type='button').btn.btn-primary
+              i.fa.fa-picture-o
+              | Use Image
+      div(name='background-color').col-md-4
+        label(for='background-color',class='control-label') Background Color (#Hex)
+        div(data-group='onload-tooltips',id='background-color-tooltip',data-toggle='tooltip',data-placement='bottom',title='Enter a hexadecimal color value prefixed with a # (e.g. #FF00FF)').input-group
+          input(data-group='text',type='text',id='background-color',placeholder='#FF00FF',class='form-control')
+          span.input-group-btn
+            button(data-group='draft-background-pills',id='btnBGColor',data-action='color').btn.btn-primary
+              i.fa.fa-paint-brush
+              | Use Color
+
 
     div.row
       div.col-sm-3
@@ -62,11 +87,15 @@ block content
         div.row
           div.col-sm-12.text-center
             div.btn-toolbar
-              a(data-group='draft-control-pills',id='btnDisconnect',data-action='disconnect',data-class='danger',style='display: none;').btn.btn-lg.btn-danger Disconnect
-              a(data-group='draft-control-pills',id='btnConnect',data-action='connect',data-class='success').btn.btn-lg.btn-success.hide Connect
-              a(data-group='draft-command-pills',id='btnPause',data-action='pause').btn.btn-lg.btn-warning Stop Video
-              a(data-group='draft-command-pills',id='btnPlay',data-action='play',style='display: none;').btn.btn-lg.btn-success Loop Video
-              a(data-group='draft-reset-pills',id='btnReload',data-action='reset').btn.btn-lg.btn-primary Reload
+              a(data-group='draft-command-pills',id='btnPause',data-action='pause').btn.btn-lg.btn-warning
+                i.fa.fa-pause
+                | Pause Videos
+              a(data-group='draft-command-pills',id='btnPlay',data-action='play',style='display: none;').btn.btn-lg.btn-success
+                i.fa.fa-play
+                | Play Videos
+              a(data-group='draft-reset-pills',id='btnReload',data-action='reset').btn.btn-lg.btn-primary
+                i.fa.fa-refresh
+                | Reload
         div.row
           div.col-sm-2
               div(data-group='pictures',id='blue-b1-icon').center.divimage.divimagelg
