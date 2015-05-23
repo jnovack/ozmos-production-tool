@@ -1,0 +1,82 @@
+extends layout
+
+block head
+  title Ugly Preloader
+  script(src='/javascripts/functions.js')
+
+block footer
+  script.
+    var next = '#{next}';
+    var total = 0;
+    var current = 0;
+    var percent = 0;
+    var timers = {};
+    function addVideo(element, src, name, type) {
+        var video = document.createElement('video');
+
+        video.src = src;
+        video.type = type;
+        video.name = name;
+        video.id = name;
+
+        element.appendChild(video);
+        video.addEventListener("progress", progressHandler,false);
+    }
+
+    var video;
+    var index = 0;
+    $(document).ready(function(){
+        $('#progress').text(Object.keys(blizzard).length);
+        container = document.getElementsByTagName('span')[0];
+
+        $.each(blizzard, function(i, val){
+            console.log(blizzard[i]);
+            total++;
+            setTimeout(function() { addVideo( container, blizzard[i], i, "video/webm") }, Math.round(Math.random()*(3000-500))+500 );
+            timers[i] = setInterval(function() { cleanupHandler($('#'+i)) }, Math.round(Math.random()*(1000-500))+1000 );
+        });
+    });
+
+    cleanupHandler = function(e) {
+        // This is crap, I should not have to clean up! But for some reason, the progress handler is not triggering on every element.
+        var video = e[0];
+        if( video && video.duration ) {
+            var loaded = (video.buffered.end(0)/video.duration) * 100;
+            console.log( video.name + ": " + loaded );
+            $('#id').text(loaded + "%");
+            if( loaded >= 100 ) {
+                delete blizzard[video.name];
+                //- percent = 100 - (keys(blizzard).length/total);
+                $('#progress').text(Object.keys(blizzard).length);
+                clearInterval(timers[video.name]);
+                //- console.log(parseInt(percent));
+            }
+        }
+        if (Object.keys(blizzard).length == 0) {
+            document.location = next;
+        }
+    }
+
+    progressHandler = function(e) {
+        video = e.target;
+
+        if( video && video.duration ) {
+            var loaded = (video.buffered.end(0)/video.duration) * 100;
+            console.log( video.name + ": " + loaded );
+            $('#id').text(loaded + "%");
+            if( loaded >= 100 ) {
+                delete blizzard[video.name];
+                //- percent = 100 - (keys(blizzard).length/total);
+                $('#progress').text(Object.keys(blizzard).length);
+                //- console.log(parseInt(percent));
+            }
+        }
+        if (Object.keys(blizzard).length == 0) {
+            document.location = next;
+        }
+    }
+
+
+block content
+  h1(id='progress',style='text-align: center; font-size: 30em;')
+  span(id='video').hide

@@ -6,12 +6,16 @@ module.exports = function(app, myApp, express){
         res.render('draft.jade', { } );
     });
 
-    router.get('/livedraft/', function(req, res, next) {
+    router.get('/livedraft', function(req, res, next) {
         res.render('draft.jade', { theme: myApp.config.livedraft.theme, layout: 'livedraft', wsurl: myApp.config.livedraft.wsurl } );
     });
 
     router.get('/livedraft/admin', function(req, res, next) {
         res.render('livedraft-admin.jade', { wsurl: myApp.config.livedraft.wsurl });
+    });
+
+    router.get('/livedraft/preload', function(req, res, next) {
+        res.render('preload.jade', { next: '/livedraft'});
     });
 
     router.get('/livedraft/demo', function(req, res, next) {
