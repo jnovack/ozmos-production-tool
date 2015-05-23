@@ -27,6 +27,7 @@
     "morgan": "~1.0.0",
     "passport": "latest",
     "serve-favicon": "~2.2.0",
+    "shortid": "^2.2.2",
     "socket.io": "latest"
   },
   "devDependencies": {
