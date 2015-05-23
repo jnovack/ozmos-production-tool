@@ -1,4 +1,4 @@
-$('title').text('Dragon Shire');
+$('#title').text('Dragon Shire');
 var seconds = 5;
 setTimeout( demo, 5000);
 countdown = setInterval(function() { seconds--; $('#timer-pool').text(seconds); if (seconds == 0) { $('#timer-pool').text(''); clearInterval(countdown);  } }, 1000);
