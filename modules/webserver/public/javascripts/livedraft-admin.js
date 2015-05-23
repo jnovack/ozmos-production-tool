@@ -16,6 +16,9 @@ control.on('joined', function(data) {
 control.on('message', function(data) {
     switch (data.action) {
         case "connect":
+            $('[name=url').removeClass('has-error');
+            $('#url').attr('disabled',true).addClass('disabled');
+            $('[data-toggle="tooltip"]').tooltip();
             draftid = data.value;
             livedraftConnect();
             console.log("initiating connection to livedraft " + draftid);
