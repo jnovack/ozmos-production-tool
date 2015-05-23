@@ -58,16 +58,16 @@ function updateProgress(data) {
 
 function updateTime(data) {
     console.log("updateTime()");
-    $('#time-pool').text(data.timer);
-    $('#blue-pool').text(data.timer_bonus1);
-    $('#red-pool').text(data.timer_bonus2);
+    $('#timer-pool').text(data.timer);
+    $('#timer-blue').text(data.timer_bonus1);
+    $('#timer-red').text(data.timer_bonus2);
 }
 
 function draftOver() {
     $('.overlay-message').removeClass('hide').addClass('animated');
-    $('#time-pool').text('');
-    $('#blue-pool').text('');
-    $('#red-pool').text('');
+    $('#timer-pool').text('');
+    $('#timer-blue').text('');
+    $('#timer-red').text('');
 }
 
 

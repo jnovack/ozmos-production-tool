@@ -8,7 +8,6 @@ control.on('connect', function() {
     control.emit('join', {room: 'livedraft', admin: true});
 });
 
-
 control.on('joined', function(data) {
     console.log('(control) joined ' + data);
 });
@@ -79,9 +78,9 @@ function draftOver() {
 }
 
 function updateTime(data) {
-    $('#time-pool').text(data.timer);
-    $('#blue-pool').text(data.timer_bonus1);
-    $('#red-pool').text(data.timer_bonus2);
+    $('#timer-pool').text(data.timer);
+    $('#timer-blue').text(data.timer_bonus1);
+    $('#timer-red').text(data.timer_bonus2);
 }
 
 function updateProgress(data) {

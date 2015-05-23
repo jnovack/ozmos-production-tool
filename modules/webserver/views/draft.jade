@@ -54,17 +54,18 @@ block content
               div.overlay-triangle
 
       div.row.timers
+        div.row.overlay
+          div.overlay-message.overlay-message-left.hide.slideInLeft
+            div(id='message-left-text').overlay-text DRAFT
+            div.overlay-triangle
+          div.overlay-message.overlay-message-right.hide.slideInRight
+            div(id='message-right-text').overlay-text OVER
+            div.overlay-triangle
         div.row
           div.col-sm-12.flex.flex-justify-center
-            div(id='blue-pool')
-            div(id='time-pool')
-            div(id='red-pool')
-        div.overlay-message.overlay-message-left.hide.slideInLeft
-          div(id='message-left-text').overlay-text DRAFT
-          div.overlay-triangle
-        div.overlay-message.overlay-message-right.hide.slideInRight
-          div(id='message-right-text').overlay-text OVER
-          div.overlay-triangle
+            div(id='timer-blue').time-pool-sm.time-turn1
+            div(id='timer-pool').time-pool-lg
+            div(id='timer-red').time-pool-sm.time-turn2
 
 
       div.row.team-red

@@ -9,7 +9,7 @@ body {background: #000; cursor: none; font-family: 'Exo 2', 'Open Sans', sans-se
 #tvsafe { width: 1600px; height: 900px; overflow: hidden; margin-top: 90px; margin-left: auto; margin-right: auto; padding-left: 15px; padding-right: 15px;
 	background-color: rgba(0,0,0,0.2); border-top: 2px rgba(128,128,128,0.2) solid; border-bottom: 4px rgba(16,16,16,0.2) solid; border-left: 2px rgba(128,128,128,0.2) solid; border-right: 4px rgba(16,16,16,0.2) solid;}
 
-#wrapper { background-image: url('/assets/backgrounds/hero-select.jpg'); }
+#wrapper { background-image: url('/assets/backgrounds/hero-spotlight.jpg'); }
 
 div.title {margin-top: 16px; font-weight: 700; text-shadow: 0 0 1em #009cff; text-transform: uppercase; font-color: #fff; font-size: 4em; }
 
@@ -19,10 +19,9 @@ div.banned div, div.banned video { -webkit-filter: grayscale(100%); }
 
 div.team-name .overlay-text { font-weight: 700; }
 
-
 /*div.hide { display: none; }*/
 
-div.team-blue { margin-top: 16px; }
+div.team-blue { margin-top: 28px; }
 div.team-blue .pick .myturn { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/blue.jpg'); background-size: 256px 304px; }
 div.team-blue .banned .myturn { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/blue.jpg'); background-size: 256px 304px; -webkit-filter: grayscale(90%); }
 div.team-blue .pick .waiting { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/blue-empty.jpg'); background-size: 256px 304px; -webkit-filter: grayscale(25%); }
@@ -33,7 +32,7 @@ div.team-blue .video-container .overlay-hero .overlay-triangle { position : abso
 div.team-blue .team-name { width: 350px; height: 48px; line-height: 48px; background-color: rgba(20,36,152,0.75); font-size: 1.6em; margin-top: 4px; padding-left: 12px; color: #ffffff; }
 div.team-blue .team-name .overlay-triangle { position: absolute; left: 365px; top: 4px; width: 0px; height: 0px; border-style: solid; border-width: 48px 48px 0 0; border-color: rgba(20,36,152,0.75) transparent transparent transparent; }
 
-div.team-red { margin-top: 64px; }
+div.team-red { margin-top: 0px; }
 div.team-red .pick .myturn { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/red.jpg'); background-size: 256px 304px; }
 div.team-red .banned .myturn { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/red.jpg'); background-size: 256px 304px;  -webkit-filter: grayscale(90%); }
 div.team-red .pick .waiting { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/red-empty.jpg'); background-size: 256px 304px; -webkit-filter: grayscale(25%); }
@@ -41,8 +40,8 @@ div.team-red .banned .waiting { position: absolute; z-index: 0; height: 304px; w
 div.team-red .video-container { border: 4px rgba(156,28,56,0.85) solid; }
 div.team-red .video-container .overlay-hero { text-align: right; position : absolute; top: 220px; left: 48px; width: 200px; z-index: 2; height: 48px; line-height: 48px; background-color: rgba(156,28,56,0.85); font-size: 1.6em; margin-top: 4px; padding-right: 12px; color: #dddddd;}
 div.team-red .video-container .overlay-hero .overlay-triangle { position : absolute; top: 0px; left: -48px; z-index: 2; width: 0; height: 0; border-style: solid; border-width: 0 0 48px 48px; border-color: transparent transparent rgba(156,28,56,0.85) transparent; }
-div.team-red .team-name { text-align: right; width: 350px; height: 48px; line-height: 48px; background-color: rgba(156,28,56,0.85);  font-size: 1.6em; margin-top: 4px; padding-right: 12px; color: #ffffff; }
-div.team-red .team-name .overlay-triangle { position: absolute; right: 365px; top: 4px; width: 0px; height: 0px; border-style: solid; border-width: 0 0 48px 48px; border-color: transparent transparent rgba(156,28,56,0.85) transparent; }
+div.team-red .team-name { text-align: right; width: 350px; height: 48px; line-height: 48px; background-color: rgba(156,28,56,0.85);  font-size: 1.6em; padding-right: 12px; color: #ffffff; }
+div.team-red .team-name .overlay-triangle { position: absolute; right: 365px; width: 0px; height: 0px; border-style: solid; border-width: 0 0 48px 48px; border-color: transparent transparent rgba(156,28,56,0.85) transparent; }
 
 div.team-logo img { width: 100%; -webkit-filter: drop-shadow(0px 0px 4px #000000); padding: 12px;}
 
@@ -50,6 +49,12 @@ div.video-container video {  }
 div.draft { width: 256px;}
 div.teams { height: 300px; }
 
+div.timers { position: relative; height: 64px; overflow: hidden; }
+div.time-pool-sm { font-size: 3em; text-align: center; width: 64px; }
+div.time-pool-lg { margin-left: 52px; margin-right: 52px; font-size: 5.6em; line-height: 64px; text-align: center; width: 96px; }
+div.team-name { }
+
+div.overlay { position: absolute; }
 div.overlay-message-left { position: absolute; z-index: 3; }
 div.overlay-message-left .overlay-text { width: 350px; height: 64px; line-height: 64px; background-color: rgb(20,36,152); font-size: 3em; margin-left: 422px; padding-left: 12px; text-align: right; color: #ffffff; float: left; }
 div.overlay-message-left .overlay-triangle { position: absolute; left: 772px; width: 0px; height: 0px; border-style: solid; border-width: 64px 64px 0 0; border-color: rgb(20,36,152) transparent transparent transparent; }

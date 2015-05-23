@@ -1,16 +1,7 @@
-
-
-// socket.on('connect', function() {
-//     socket.emit('join', 'draft');
-// });
-
-// socket.on('value', function(data) {
-
-// });
-
-// TODO Fix UpdateValue
-
+$('title').text('Dragon Shire');
+var seconds = 5;
 setTimeout( demo, 5000);
+countdown = setInterval(function() { seconds--; $('#timer-pool').text(seconds); if (seconds == 0) { $('#timer-pool').text(''); clearInterval(countdown);  } }, 1000);
 
 function updateValue(data) {
         console.log(data);
@@ -35,7 +26,7 @@ function demo() {
     updateValue({ id: 'red-p4-name',  value: 'Sold1er' });
     updateValue({ id: 'red-p5-name',  value: 'Arthelon' });
 
-    // $('#blue-b1 .overlay-bg').removeClass('waiting').addClass('animated myturn');
+    $('#blue-b1 .overlay-bg').removeClass('waiting').addClass('animated myturn');
     // $('#blue-b1 .overlay-player').removeClass('hide').addClass('animated');
     setTimeout( function() { updateValue({ id: 'blue-b1',  value: 'uther' }); $('#red-b1 .overlay-bg').removeClass('waiting').addClass('animated myturn'); /* $('#red-b1 .overlay-player').removeClass('hide').addClass('animated'); */ }, base*1);
     setTimeout( function() { updateValue({ id: 'red-b1',   value: 'illidan' }); $('#blue-p1 .overlay-bg').removeClass('waiting').addClass('animated myturn'); },  base*2);
@@ -49,6 +40,7 @@ function demo() {
     setTimeout( function() { updateValue({ id: 'blue-p4',  value: 'muradin' }); }, base*10);
     setTimeout( function() { updateValue({ id: 'blue-p5',  value: 'tassadar' }); $('#red-p5 .overlay-bg').removeClass('waiting').addClass('animated myturn'); }, base*11);
     setTimeout( function() { updateValue({ id: 'red-p5',   value: 'abathur' }); }, base*12);
+    setTimeout( function() { $('.overlay-message').removeClass('hide').addClass('animated'); }, base*12+1000);
 
     return true;
 }
