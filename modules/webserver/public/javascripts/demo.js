@@ -12,6 +12,13 @@
 
 setTimeout( demo, 5000);
 
+function updateValue(data) {
+        console.log(data);
+        $('#'+data.id+'-video').attr('src', getHeroVideo(data.value)).removeClass('hide').addClass(data.value + ' animated');
+        $('#'+data.id+' .overlay-hero').removeClass('hide').addClass('animated');
+        $('#'+data.id+'-hero').text(properName(data.value));
+}
+
 function demo() {
     updateValue({ id: 'blue-name', value: 'Cloud9 Maelstrom' });
     updateValue({ id: 'red-name', value: 'Tempo Storm' });
