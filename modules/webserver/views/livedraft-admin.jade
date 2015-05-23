@@ -32,29 +32,29 @@ block content
 
     div.row
       div.col-sm-3
-        div.control-group
+        div
           label(for='team1-name',class='control-label') Team 1 Name
-          div.controls
+          div
             input(data-group='text',type='text',id='team1-name',name='team1-name',placeholder='Rancho Carne Toros',class='form-control')
       div.col-sm-2
-        div.control-group
+        div
           label(for='team1-timer',class='control-label') Team 1 Pool
-          div.controls
+          div
             span(data-group='spans',type='text',id='blue-pool',placeholder='0',class='form-control',disabled,value=0)
       div.col-sm-2
-        div.control-group
+        div
           label(for='timer',class='control-label') Timer
-          div.controls
+          div
             span(data-group='spans',type='text',id='time-pool',placeholder='0',class='form-control',disabled,value=0)
       div.col-sm-2
-        div.control-group
+        div
           label(for='team2-timer',class='control-label') Team 2 Pool
-          div.controls
+          div
             span(data-group='spans',type='text',id='red-pool',placeholder='0',class='form-control',disabled,value=0)
       div.col-sm-3
-        div.control-group
+        div
           label(for='team2-name',class='control-label') Team 2 Name
-          div.controls
+          div
             input(data-group='text',type='text',id='team2-name',name='team2-name',placeholder='East Compton Clovers',class='form-control')
 
     div.row
@@ -85,11 +85,11 @@ block content
               div(data-group='pictures',id='blue-p'+x+'-icon').center.divimage.divimagelg
             div(data-group='selections',id='blue-p'+x).col-sm-4
               label(for='blue-p'+x+'-hero',class='control-label') blue-p#{x}
-              div.controls
+              div
                 span(data-group='spans',role='trigger',data-trigger='picture',id='blue-p'+x+'-hero',class='form-control',disabled)
             div(data-group='selections',id='red-p'+x).col-sm-4
               label(for='red-p'+x+'-hero',class='control-label') red-p#{x}
-              div.controls
+              div
                 span(data-group='spans',role='trigger',data-trigger='picture',id='red-p'+x+'-hero',class='form-control',disabled)
             div.col-sm-2
               div(data-group='pictures',id='red-p'+x+'-icon').center.divimage.divimagelg
@@ -98,8 +98,8 @@ block content
 
     div.row
       div.col-lg-12
-        div.control-group
+        div
           label(for='announcement',class='control-label') Announcement
-          div.controls
+          div
             input(data-group='text',type='text',id='announcement',name='announcement',placeholder='Coming Up: The finals!',class='form-control')
 

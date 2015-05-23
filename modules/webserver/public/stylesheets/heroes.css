@@ -12,7 +12,7 @@
   border-left: 69px solid transparent;
 }
 
-/* 256px Portrait */
+/* 256px x 304px Portrait */
 .portrait.abathur            { margin-left: -838px; margin-top: -294px; -webkit-transform: scale(0.9); }
 .portrait.anubarak           { margin-left: -773px; margin-top: -312px; -webkit-transform: scale(0.7); }
 .portrait.arthas             { margin-left: -870px; margin-top: -145px; -webkit-transform: scale(0.9); }

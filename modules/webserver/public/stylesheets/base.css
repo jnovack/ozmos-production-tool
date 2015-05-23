@@ -8,7 +8,7 @@ div.center { margin-left: auto; margin-right: auto; }
 .flex-align-content-start { -webkit-box-align-content: flex-start; -webkit-align-content: flex-start; -ms-flex-align-content: flex-start; align-content: flex-start; }
 .flex-align-items-start { -webkit-box-align: flex-start; -webkit-align-items: flex-start; -moz-box-align: flex-start; -ms-flex-align: flex-start; align-items: flex-start; }
 .flex-align-items-center { -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; }
-.flex-align-item-stretch { -webkit-box-align: stretch; -webkit-align-items: stretch; -moz-box-align: stretch; -ms-flex-align: stretch; align-items: stretch; }
+.flex-align-items-stretch { -webkit-box-align: stretch; -webkit-align-items: stretch; -moz-box-align: stretch; -ms-flex-align: stretch; align-items: stretch; }
 .flex-justify-between { -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; -moz-box-pack: justify; justify-content: space-between; }
 .flex-justify-center { -webkit-box-pack: justify; -webkit-justify-content: center; -ms-flex-pack: justify; -moz-box-pack: justify; justify-content: center; }
 .flex-justify-start { -webkit-box-pack: justify; -webkit-justify-content: flex-start; -ms-flex-pack: justify; -moz-box-pack: justify; justify-content: flex-start; }
