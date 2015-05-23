@@ -73,7 +73,7 @@ function draftOver() {
 
 function updateValue(data) {
         console.log(data);
-        $('#'+data.id+'-video').attr('src', getHeroVideo(data.value)).attr('poster', '/assets/hero-videos/'+data.value+'.png').removeClass('hide').addClass(data.value + ' animated');
+        $('#'+data.id+'-video').attr('src', getHeroVideo(data.value)).removeClass('hide').addClass(data.value + ' animated');
         $('#'+data.id+' .overlay-hero').removeClass('hide').addClass('animated');
         $('#'+data.id+'-hero').text(properName(data.value));
 }
