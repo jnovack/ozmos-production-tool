@@ -20,6 +20,16 @@ client.on('message', function(data) {
             livedraftDisconnect();
             console.log("administratively disconnected");
             break;
+        case "background-image":
+            console.log(data);
+            $('#wrapper').css('background-image', "url('"+data.value+"')").css('background-color', '');
+            // TODO Set background image on #wrapper important
+            break;
+        case "background-color":
+            console.log(data);
+            $('#wrapper').css('background-image', '').css('background-color', data.value);
+            // TODO set background color #wrapper important
+            break;
         case 'pause':
             $("[data-group='videos']").removeAttr('loop');
             console.log('videos paused');

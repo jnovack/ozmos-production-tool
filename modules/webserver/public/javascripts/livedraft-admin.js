@@ -120,6 +120,39 @@ $('#url').blur(function() {
     }
 });
 
+$('#btnBGImage').click(function() {
+    var url = $('#background-image').val();
+    if (url == "") {
+        url = 'http://i.imgur.com/OcFygJu.jpg';
+        $('#background-image').val(url);
+    }
+    if(regex_url.test(url)) {
+        send({ event: 'message', data: { action: 'background-image', value: url }});
+        $("[name='background-image']").removeClass('has-error');
+        $(this).removeClass('btn-primary').addClass('btn-success');
+        $('#btnBGColor').removeClass('btn-success').addClass('btn-primary');
+    } else {
+        $("[name='background-image']").removeClass('btn-success').addClass('has-error');
+    }
+});
+
+
+$('#btnBGColor').click(function() {
+    var hex = $('#background-color').val();
+    if (hex == "") {
+        hex = '#FF00FF';
+        $('#background-color').val(hex);
+    }
+    if(regex_color.test(hex)) {
+        send({ event: 'message', data: { action: 'background-color', value: hex }});
+        $("[name='background-color']").removeClass('has-error');
+        $(this).removeClass('btn-primary').addClass('btn-success');
+        $('#btnBGImage').removeClass('btn-success').addClass('btn-primary');
+    } else {
+        $("[name='background-color']").removeClass('btn-success').addClass('has-error');
+    }
+});
+
 /* Auto Connect */
 /* $('#btnConnect').click(function() {
     result = $('#url').val().substr($('#url').val().lastIndexOf('/')+1);
