@@ -4,10 +4,6 @@
 
 body {background: #000; cursor: none; font-family: 'Exo 2', 'Open Sans', sans-serif; color: white; }
 
-#wrapper {width: 1920px; height: 1080px; overflow: hidden; float: left; background-color: rgb(0,0,0,0.8); }
-
-#tvsafe { width: 1600px; height: 900px; overflow: hidden; margin-top: 90px; margin-left: auto; margin-right: auto; padding-left: 15px; padding-right: 15px; }
-
 #wrapper { background-image: none; background-color: transparent; }
 
 div.title {margin-top: 16px; font-weight: 700; text-shadow: 0 0 1em #009cff; text-transform: uppercase; font-color: #fff; font-size: 4em; }
