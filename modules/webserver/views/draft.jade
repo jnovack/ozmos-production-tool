@@ -29,7 +29,7 @@ block content
           div.col-sm-12.teams.flex.flex-justify-between
             div(id='blue-b1',data-team='blue').video-container.draft.banned
               div.overlay-bg.waiting.fadeIn
-              video(data-group='videos',id="blue-b1-video",autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
+              video(data-group='videos',id="blue-b1-video",autoplay,loop,muted,class='video portrait',type='video/webm',poster='').hide.fadeIn
               div.overlay-hero.hide.slideInLeft
                 div(id='blue-b1-hero').overlay-text
                 div.overlay-triangle
@@ -39,7 +39,7 @@ block content
             - for (var i = 1; i < 6; ++i) {
               div(id='blue-p'+i,data-team='blue').video-container.draft.pick
                 div.overlay-bg.waiting.fadeIn
-                video(data-group='videos',id='blue-p'+i+'-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
+                video(data-group='videos',id='blue-p'+i+'-video',autoplay,loop,muted,class='video portrait',type='video/webm',poster='').hide.fadeIn
                 div.overlay-hero.hide.slideInLeft
                   div(id='blue-p'+i+'-hero').overlay-text
                   div.overlay-triangle
@@ -78,7 +78,7 @@ block content
             - for (var i = 5; i > 0; --i) {
               div(id='red-p'+i,data-team='red').video-container.draft.pick
                 div.overlay-bg.waiting.fadeIn
-                video(data-group='videos',id='red-p'+i+'-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
+                video(data-group='videos',id='red-p'+i+'-video',autoplay,loop,muted,class='video portrait',type='video/webm',poster='').hide.fadeIn
                 div.overlay-hero.hide.slideInRight
                   div(id='red-p'+i+'-hero').overlay-text
                   div.overlay-triangle
@@ -88,7 +88,7 @@ block content
             - }
             div(id='red-b1').video-container.draft.banned
               div.overlay-bg.waiting.fadeIn
-              video(data-group='videos',id='red-b1-video',autoplay,loop,muted,src='',class='video portrait',type='video/webm',poster='').hide.fadeIn
+              video(data-group='videos',id='red-b1-video',autoplay,loop,muted,class='video portrait',type='video/webm',poster='').hide.fadeIn
               div.overlay-hero.hide.slideInRight
                 div(id='red-b1-hero').overlay-text
                 div.overlay-triangle
