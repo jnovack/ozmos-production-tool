@@ -2,7 +2,11 @@ extends layout
 
 block head
   title Ugly Preloader
+  link(href='/stylesheets/base.css', rel='stylesheet')
   script(src='/javascripts/functions.js')
+  style.
+      div.title { margin-top: 16px; font-weight: 700; text-shadow: 0 0 1em #009cff; text-transform: uppercase; color: #ffffff; font-size: 4em; }
+
 
 block footer
   script.
@@ -26,7 +30,8 @@ block footer
     var video;
     var index = 0;
     $(document).ready(function(){
-        $('#progress').text(Object.keys(blizzard).length);
+        total = Object.keys(blizzard).length;
+        $('#progress').text(100 - parseInt(Object.keys(blizzard).length*100/total) + "%");
         container = document.getElementsByTagName('span')[0];
 
         $.each(blizzard, function(i, val){
@@ -46,10 +51,8 @@ block footer
             $('#id').text(loaded + "%");
             if( loaded >= 100 ) {
                 delete blizzard[video.name];
-                //- percent = 100 - (keys(blizzard).length/total);
-                $('#progress').text(Object.keys(blizzard).length);
+                $('#progress').text(100 - parseInt(Object.keys(blizzard).length*100/total) + "%");
                 clearInterval(timers[video.name]);
-                //- console.log(parseInt(percent));
             }
         }
         if (Object.keys(blizzard).length == 0) {
@@ -66,9 +69,7 @@ block footer
             $('#id').text(loaded + "%");
             if( loaded >= 100 ) {
                 delete blizzard[video.name];
-                //- percent = 100 - (keys(blizzard).length/total);
-                $('#progress').text(Object.keys(blizzard).length);
-                //- console.log(parseInt(percent));
+                $('#progress').text(100 - parseInt(Object.keys(blizzard).length*100/total) + "%");
             }
         }
         if (Object.keys(blizzard).length == 0) {
@@ -78,5 +79,11 @@ block footer
 
 
 block content
-  h1(id='progress',style='text-align: center; font-size: 30em;')
-  span(id='video').hide
+  div(id='wrapper').container.map-bg.divimage-hero-select
+    div(id='tvsafe')
+      div.row
+        div.col-sm-12.text-center
+          div(id='title').text.title pre-loading videos...
+        div.col-sm-12.text-center
+            h1(id='progress',style='text-align: center; font-size: 30em; color: #CCCCCC')
+            span(id='video').hide
