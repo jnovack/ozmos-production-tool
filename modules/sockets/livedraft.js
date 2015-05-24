@@ -38,7 +38,6 @@ module.exports = function(myApp) {
                 }
             });
 
-            // TODO: Send data for room to socket
         });
 
         socket.on('broadcast', function(message) {

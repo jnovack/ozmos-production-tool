@@ -1,6 +1,8 @@
 
 var control = io(document.location.origin+'/livedraft');
 
+// TODO create a CSS customization like url and color
+
 /**** Control Functions *****/
 
 control.on('connect', function() {

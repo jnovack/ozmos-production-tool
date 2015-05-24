@@ -6,6 +6,8 @@ module.exports = function(myApp){
          * REDIS_PASS (optional)
     */
 
+    // TODO Test this
+
     if (typeof myApp.storage !== "undefined") {
         myApp.utils.consoleOutput('module/storage/redis :: WARN :: storage '+myApp.storage.module+' already loaded.  module not loaded...');
         return;
@@ -35,7 +37,7 @@ module.exports = function(myApp){
             myApp.utils.consoleOutput('module/storage/redis :: INFO :: connected to '+myApp.config.REDIS_HOST);
         });
 
-        client.get('app', function (err, reply) { // get entire file
+        client.get('app', function (err, reply) {
             if (err) {
                 throw err;
             } else {
