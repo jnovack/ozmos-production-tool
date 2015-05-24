@@ -1,7 +1,7 @@
 module.exports = function(myApp) {
     var nsp_draft = myApp.webserver.io.of('/livedraft');
     nsp_draft.on('connection', function(socket){
-        myApp.utils.consoleOutput("Connection on socket.io/livedraft for socket " + socket.id);
+        myApp.utils.consoleOutput("module/sockets/livedraft :: INFO :: connection on socket.io/livedraft for socket " + socket.id);
 
         socket.custom = {
             room: null,
@@ -13,18 +13,18 @@ module.exports = function(myApp) {
             if (typeof data === "string") { data = { room: data }; }
 
             if (socket.custom.room) {
-              console.log("socket " + socket.id + " left " + socket.custom.room);
+              myApp.utils.consoleOutput("module/sockets/livedraft :: DBUG :: socket " + socket.id + " left " + socket.custom.room);
               socket.leave(socket.custom.room);
             }
 
             socket.join(data.room);
             socket.custom.room = data.room;
 
-            console.log("socket " + socket.id + " joined " + socket.custom.room);
+            myApp.utils.consoleOutput("module/sockets/livedraft :: DBUG :: socket " + socket.id + " joined " + socket.custom.room);
             socket.emit('joined', socket.custom.room);
 
             if ((typeof data === "object") && (data.admin === true)) {
-                console.log("socket is admin");
+                myApp.utils.consoleOutput("module/sockets/livedraft :: INFO :: socket " + socket.id + " in " + socket.custom.room + " is admin");
                 socket.custom.isAdmin = true;
             }
 
