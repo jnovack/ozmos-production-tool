@@ -10,6 +10,7 @@ block footer
   - if (layout == "livedraft") {
     script.
       var livedraft_url = '#{wsurl}';
+      var id = '#{id}';
     script(src="/javascripts/livedraft-client.js")
     link(href="/stylesheets/themes/#{theme}.css", rel="stylesheet")
   - } else {

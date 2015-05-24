@@ -2,7 +2,7 @@ var client = io(document.location.origin+'/livedraft');
 
 client.on('connect', function(data) {
     console.log('(client) connected');
-    client.emit('join', 'livedraft');
+    client.emit('join', 'livedraft:'+id);
 });
 
 client.on('joined', function(data) {

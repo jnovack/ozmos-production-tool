@@ -28,12 +28,33 @@ module.exports = function(myApp) {
                 socket.custom.isAdmin = true;
             }
 
+            myApp.storage.get(socket.custom.room, function(err, json) {
+                console.log(json);
+                if (typeof json.settings !== "undefined") {
+                    myApp.utils.each(json.settings, function(value) {
+                        console.log(value);
+                        socket.emit('setting', value);
+                    });
+                }
+            });
+
             // TODO: Send data for room to socket
         });
 
         socket.on('broadcast', function(message) {
             if (!socket.custom.isAdmin) {
                 return;
+            }
+            if (message.event == "setting") {
+                myApp.storage.get(socket.custom.room, function(err, json, passthru) {
+                    if (typeof json.settings == "undefined") {
+                        json.settings = {};
+                    }
+                    json.settings[message.data.id] = message.data;
+                    console.log(passthru);
+                    console.log(json);
+                    myApp.storage.set(passthru.id, json);
+                }, { id: socket.custom.room, data: message });
             }
             nsp_draft.in(socket.custom.room).emit(message.event, message.data);
         });

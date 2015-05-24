@@ -15,26 +15,30 @@ module.exports = function(myApp){
         // Start the initialization process
         myApp.utils.consoleOutput("Initializing...");
 
+    //     fs.stat(myApp.root+'/config.json', function(err, stats) {
+    //         if (err) {
+    //             myApp.utils.consoleOutput("line");
+    //             myApp.utils.consoleOutput("ERROR: config.json does not exist.", undefined, false);
+    //             myApp.utils.consoleOutput("   Copy "+myApp.root+"/config.json.sample as config.json to resolve.", undefined, false);
+    //             return;
+    //         }
+    //         core.finalize(myApp.root+'/config.json');
+    //     });
 
-        fs.stat(myApp.root+'/config.json', function(err, stats) {
-            if (err) {
-                myApp.utils.consoleOutput("line");
-                myApp.utils.consoleOutput("ERROR: config.json does not exist.", undefined, false);
-                myApp.utils.consoleOutput("   Copy "+myApp.root+"/config.json.sample as config.json to resolve.", undefined, false);
-                return;
-            }
-            core.finalize(myApp.root+'/config.json');
-        });
+    // };
 
-    };
+    // core.finalize = function(config) {
 
-    core.finalize = function(config) {
-
-        myApp.config = require(config);
+        myApp.config = process.env;
 
         // Initialize the database
         // require("../database/sqlite3")(myApp);
         // myApp.database.initialize();
+
+        // Initialize the storage
+        require("../storage/memory")(myApp);
+        require("../storage/redis")(myApp);
+        myApp.storage.initialize();
 
         // Initialize the webserver
         require("../webserver/")(myApp);

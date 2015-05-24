@@ -5,7 +5,7 @@ var control = io(document.location.origin+'/livedraft');
 
 control.on('connect', function() {
     console.log('(control) connected');
-    control.emit('join', {room: 'livedraft', admin: true});
+    control.emit('join', {room: 'livedraft:'+id, admin: true});
 });
 
 control.on('joined', function(data) {
