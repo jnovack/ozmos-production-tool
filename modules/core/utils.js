@@ -6,6 +6,8 @@ module.exports = function(myApp){
 
     utils.console = {};
 
+    utils.noop = function(){};
+
     utils.shortid = function(){
         return shortid.generate();
     };
@@ -126,32 +128,76 @@ module.exports = function(myApp){
     /** underscore.js functions **/
     var ArrayProto    = Array.prototype,
         nativeForEach = ArrayProto.forEach,
+        nativeKeys    = Object.keys,
         nativeEvery   = ArrayProto.every;
+
+    var isArrayLike = function(collection) {
+        var length = getLength(collection);
+        return typeof length == 'number' && length >= 0 && length <= Math.pow(2, 53) - 1;
+    };
+
+    var property = function(key) {
+        return function(obj) {
+            return obj === null ? void 0 : obj[key];
+        };
+    };
+
+    var getLength = property('length');
+
+    utils.has = function(obj, key) {
+        return obj !== null && hasOwnProperty.call(obj, key);
+    };
+
+    utils.identity = function(value) {
+        return value;
+    };
 
     utils.isArray = function(obj) {
         return toString.call(obj) == '[object Array]';
     };
 
+    utils.isObject = function(obj) {
+        var type = typeof obj;
+        return type === 'function' || type === 'object' && !!obj;
+    };
+
+    utils.keys = function(obj) {
+        if (!utils.isObject(obj)) return [];
+        if (nativeKeys) return nativeKeys(obj);
+        var keys = [];
+        for (var key in obj) if (utils.has(obj, key)) keys.push(key);
+            // if (hasEnumBug) collectNonEnumProps(obj, keys);
+        return keys;
+    };
+
+
+    utils.values = function(obj) {
+        var keys = utils.keys(obj);
+        var length = keys.length;
+        var values = Array(length);
+        for (var i = 0; i < length; i++) {
+            values[i] = obj[keys[i]];
+        }
+        return values;
+    };
+
     utils.each = utils.forEach = function(obj, iterator, context) {
-        var i = 0;
-        if (obj === null) return obj;
-        if (nativeForEach && obj.forEach === nativeForEach) {
-            obj.forEach(iterator, context);
-        } else if (obj.length === +obj.length) {
-            for (i = 0, length = obj.length; i < length; i++) {
-                if (iterator.call(context, obj[i], i, obj) === breaker) return;
-            }
+        var i, length;
+        if (isArrayLike(obj)) {
+          for (i = 0, length = obj.length; i < length; i++) {
+            iterator(obj[i], i, obj);
+          }
         } else {
-            var keys = _.keys(obj);
-            for (i = 0, length = keys.length; i < length; i++) {
-                if (iterator.call(context, obj[keys[i]], keys[i], obj) === breaker) return;
-            }
+          var keys = utils.keys(obj);
+          for (i = 0, length = keys.length; i < length; i++) {
+            iterator(obj[keys[i]], keys[i], obj);
+          }
         }
         return obj;
     };
 
     utils.every = function(obj, predicate, context) {
-        predicate || (predicate = _.identity);                  // jshint ignore:line
+        predicate || (predicate = utils.identity);                  // jshint ignore:line
         var result = true;
         if (obj === null) return result;
         if (nativeEvery && obj.every === nativeEvery) return obj.every(predicate, context);
@@ -163,7 +209,7 @@ module.exports = function(myApp){
 
     utils.flatten = function(input, shallow, output) {
         if (output === undefined) { output = []; }
-        if (shallow && _.every(input, _.isArray)) {
+        if (shallow && utils.every(input, utils.isArray)) {
             return concat.apply(output, input);
         }
         utils.each(input, function(value) {
