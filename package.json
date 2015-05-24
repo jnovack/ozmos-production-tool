@@ -31,11 +31,11 @@
     "socket.io": "latest"
   },
   "devDependencies": {
-    "grunt-concurrent": "latest",
     "grunt": "latest",
-    "grunt-simple-mocha": "latest",
+    "grunt-concurrent": "latest",
+    "grunt-contrib-jshint": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-nodemon": "latest",
-    "grunt-contrib-jshint": "latest"
+    "grunt-simple-mocha": "latest"
   }
 }
