@@ -35,19 +35,13 @@ client.on('message', function(data) {
 });
 
 client.on('setting', function(data) {
-    switch (data.id) {
-        case "background-image":
-            console.log(data);
-            $('#wrapper').css('background-image', "url('"+data.value+"')").css('background-color', '');
-            // TODO Set background image on #wrapper important
-            break;
-        case "background-color":
-            console.log(data);
-            $('#wrapper').css('background-image', '').css('background-color', data.value);
-            // TODO set background color #wrapper important
-            break;
-        default:
-            console.log(data);
+    if (typeof data.value.css !== "undefined") {
+        console.log(data);
+        $.each(data.value.css, function(i, val) {
+            $('#'+data.id).css(i, val);
+        });
+    } else {
+        console.log(data);
     }
 });
 

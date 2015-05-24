@@ -129,7 +129,7 @@ $('#btnBGImage').click(function() {
         $('#background-image').val(url);
     }
     if(regex_url.test(url)) {
-        send({ event: 'setting', data: { id: 'background-image', value: url }});
+        send({ event: 'setting', data: { id: 'wrapper', value: { css: { "background-image": "url('"+url+"')", "background-color": "" } } } });
         $("[name='background-image']").removeClass('has-error');
         $(this).removeClass('btn-primary').addClass('btn-success');
         $('#btnBGColor').removeClass('btn-success').addClass('btn-primary');
@@ -146,7 +146,7 @@ $('#btnBGColor').click(function() {
         $('#background-color').val(hex);
     }
     if(regex_color.test(hex)) {
-        send({ event: 'setting', data: { id: 'background-color', value: hex }});
+        send({ event: 'setting', data: { id: 'wrapper', value: { css: { "background-color": hex, "background-image": "" } } } });
         $("[name='background-color']").removeClass('has-error');
         $(this).removeClass('btn-primary').addClass('btn-success');
         $('#btnBGImage').removeClass('btn-success').addClass('btn-primary');
