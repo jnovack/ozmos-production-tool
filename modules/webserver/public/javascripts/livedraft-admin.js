@@ -122,6 +122,8 @@ function updateValue(data) {
 
 /**** Administrative Functions ****/
 
+// TODO edit themes
+
 $('#url').focus(function () {
     $(this).select();
 });
