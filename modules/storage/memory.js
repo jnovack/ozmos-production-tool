@@ -13,26 +13,26 @@ module.exports = function(myApp){
         myApp.utils.consoleOutput("module/storage/memory has been initialized...");
     };
 
-    storage.get = function(field, callback, passthru) {
+    storage.get = function(field, callback) {
         if (typeof memory[field] !== "undefined") {
-            callback(null, memory[field], passthru);
+            callback(null, memory[field]);
             return;
         }
         switch (field) {
             case "livedraft:solidjake":
                 json = { theme: "solidjake", wsurl: "http://ws-drafttool.stormcraft.com" };
-                callback(null, json, passthru);
+                callback(null, json);
                 break;
             default:
                 json = { theme: "default", wsurl: "http://localhost:8000" };
-                callback(null, json, passthru);
+                callback(null, json);
         }
     };
 
-    storage.set = function(field, data, callback, passthru) {
+    storage.set = function(field, data, callback) {
         memory[field] = data;
         if (typeof callback == "function") {
-            callback(null, true, passthru);
+            callback(null, true);
         }
     };
 
