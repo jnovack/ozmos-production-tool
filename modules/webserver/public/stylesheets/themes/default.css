@@ -1,12 +1,8 @@
-* {margin: 0px; padding: 0px; font-weight: normal; list-style-type: none;}
-
 body {background: #000; cursor: none; font-family: 'Exo 2', 'Open Sans', sans-serif; color: white; }
 
-#wrapper {width: 1920px; height: 1080px; overflow: hidden; float: left; background-color: rgb(0,0,0); }
+#wrapper { background-color: rgb(0,0,0); }
 
-#tvsafe { width: 1600px; height: 900px; overflow: hidden; margin-top: 90px; margin-left: auto; margin-right: auto; padding-left: 15px; padding-right: 15px; background-color: rgba(0,0,0,0.2); border-top: 2px rgba(128,128,128,0.2) solid; border-bottom: 4px rgba(16,16,16,0.2) solid; border-left: 2px rgba(128,128,128,0.2) solid; border-right: 4px rgba(16,16,16,0.2) solid;}
-
-#wrapper { background-image: url('/assets/backgrounds/hero-spotlight.jpg'); }
+#tvsafe { background-color: rgba(0,0,0,0.2); border-top: 2px rgba(128,128,128,0.2) solid; border-bottom: 4px rgba(16,16,16,0.2) solid; border-left: 2px rgba(128,128,128,0.2) solid; border-right: 4px rgba(16,16,16,0.2) solid; }
 
 div.title {margin-top: 16px; font-weight: 700; text-shadow: 0 0 1em #009cff; text-transform: uppercase; font-color: #fff; font-size: 4em; }
 
@@ -15,8 +11,6 @@ div.video-container { position: relative; overflow: hidden; height: 304px; width
 div.banned div, div.banned video { -webkit-filter: grayscale(100%); }
 
 div.team-name .overlay-text { font-weight: 700; }
-
-/*div.hide { display: none; }*/
 
 div.team-blue { margin-top: 28px; }
 div.team-blue .pick .myturn { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/blue.jpg'); background-size: 256px 304px; }

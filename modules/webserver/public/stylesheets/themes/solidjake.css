@@ -1,8 +1,8 @@
-* {margin: 0px; padding: 0px; font-weight: normal; list-style-type: none;}
-
 body {background: #000; cursor: none; font-family: 'Exo 2', 'Open Sans', sans-serif; color: white; }
 
 #wrapper { background-image: none; background-color: transparent; }
+
+#tvsafe { }
 
 div.title {margin-top: 16px; font-weight: 700; text-shadow: 0 0 1em #009cff; text-transform: uppercase; font-color: #fff; font-size: 4em; }
 
