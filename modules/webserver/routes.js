@@ -17,7 +17,7 @@ module.exports = function(app, myApp, express){
     // router.get('/livedraft/demo', function(req, res, next) {
     //     myApp.storage.get('livedraft:demo', function(err, config) {
     //         console.log("demo" + config);
-    //         res.render('draft.jade', { theme: config.theme, layout: 'demo', wsurl: config.wsurl } );
+    //         res.render('livedraft.jade', { theme: config.theme, layout: 'demo', wsurl: config.wsurl } );
     //     });
     // });
 
@@ -34,7 +34,7 @@ module.exports = function(app, myApp, express){
             res.render('error.jade', { message: "not a valid id", error: { status: 404 } } );
         } else {
             myApp.storage.get('livedraft:'+req.params.id, function(err, config) {
-                res.render('draft.jade', { id: req.params.id, theme: config.theme, layout: 'livedraft', wsurl: config.wsurl } );
+                res.render('livedraft.jade', { id: req.params.id, theme: config.theme, layout: 'livedraft', wsurl: config.wsurl } );
             });
         }
     });
@@ -62,7 +62,7 @@ module.exports = function(app, myApp, express){
             res.render('error.jade', { message: "not a valid id", error: { status: 404 } } );
         } else {
             myApp.storage.get('livedraft:demo', function(err, config) {
-                res.render('draft.jade', { theme: config.theme, layout: 'demo', wsurl: config.wsurl } );
+                res.render('livedraft.jade', { theme: config.theme, layout: 'demo', wsurl: config.wsurl } );
             });
         }
     });
@@ -95,7 +95,7 @@ module.exports = function(app, myApp, express){
                     } else if (view == 'blueteam' || view == 'redteam') {
                         res.render('mockdraft/team.jade', vars );
                     } else {
-                        res.render('draft.jade', vars );
+                        res.render('livedraft.jade', vars );
                     }
                 });
             }
