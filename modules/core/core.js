@@ -36,8 +36,8 @@ module.exports = function(myApp){
         // myApp.database.initialize();
 
         // Initialize the storage
-        require("../storage/memory")(myApp);
         require("../storage/redis")(myApp);
+        require("../storage/memory")(myApp);
         myApp.storage.initialize();
 
         // Initialize the webserver
