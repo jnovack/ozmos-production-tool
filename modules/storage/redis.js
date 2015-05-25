@@ -53,11 +53,16 @@ module.exports = function(myApp){
     };
 
     storage.get = function(field, callback) {
-        client.get(field, callback);
+        client.get(field, function(err, json) {
+            callback(err, myApp.utils.tryJSONParse(json));
+        });
     };
 
     storage.set = function(field, data, callback) {
         // NOTE: node_redis will accept an undefined callback.
+        if (typeof data === "object") {
+            data = JSON.stringify(data);
+        }
         client.set(field, data, callback);
     };
 
