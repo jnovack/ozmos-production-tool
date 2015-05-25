@@ -41,17 +41,17 @@ block content
       div(name='background-image').col-md-8
         label(for='background-image',class='control-label') Background Image URL (1920x1080)
         div(data-group='onload-tooltips',id='background-image-tooltip',data-toggle='tooltip',data-placement='bottom',title="Enter the URL (.gif, .png, .jpg) for your 1920x1080 background image.").input-group
-          input(data-group='text',type='text',id='background-image',placeholder='http://i.imgur.com/OcFygJu.jpg',class='form-control')
+          input(data-group='text',type='text',id='wrapper:background-image',placeholder='http://i.imgur.com/OcFygJu.jpg',class='form-control')
           span.input-group-btn
-            button(data-group='draft-background-pills',id='btnBGImage',data-action='image',type='button').btn.btn-primary
+            button(data-group='draft-background-pills',id='background-image',data-transform='url',data-action='image',data-default='http://i.imgur.com/OcFygJu.jpg',data-selection='radio').btn.btn-primary
               i.fa.fa-picture-o
               | Use Image
       div(name='background-color').col-md-4
         label(for='background-color',class='control-label') Background Color (#Hex)
         div(data-group='onload-tooltips',id='background-color-tooltip',data-toggle='tooltip',data-placement='bottom',title='Enter a hexadecimal color value prefixed with a # (e.g. #FF00FF)').input-group
-          input(data-group='text',type='text',id='background-color',placeholder='#FF00FF',class='form-control')
+          input(data-group='text',type='text',id='wrapper:background-color',placeholder='#FF00FF',class='form-control')
           span.input-group-btn
-            button(data-group='draft-background-pills',id='btnBGColor',data-action='color').btn.btn-primary
+            button(data-group='draft-background-pills',id='background-color',data-transform='color',data-action='color',data-default='#FF00FF',data-selection='radio').btn.btn-primary
               i.fa.fa-paint-brush
               | Use Color
 

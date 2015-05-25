@@ -39,6 +39,23 @@ control.on('message', function(data) {
     }
 });
 
+control.on('setting', function(data){
+    console.log(data);
+    if (typeof data.value.options !== "undefined") {
+        if (typeof data.value.options.radio !== "undefined") {
+            if (data.value.options.radio.type == 'btn') {
+                $('[data-group="'+data.value.options.radio.group+'"]').removeClass('btn-info').addClass('btn-primary');
+                $('#'+data.value.options.radio.active).removeClass('btn-primary').addClass('btn-info');
+            }
+        }
+        if (typeof data.value.options.saved !== "undefined") {
+            $.each(data.value.options.saved, function(i, val) {
+                $(document.getElementById(data.id+":"+i)).val(val);
+            });
+        }
+    }
+});
+
 /**** LiveDraft Functions ****/
 
 function triggerConnect() {
@@ -122,38 +139,72 @@ $('#url').blur(function() {
     }
 });
 
-$('#btnBGImage').click(function() {
-    var url = $('#background-image').val();
-    if (url == "") {
-        url = 'http://i.imgur.com/OcFygJu.jpg';
-        $('#background-image').val(url);
+$('[data-group="draft-background-pills"]').click(function() {
+    var clicked = this;
+    var message = { event: 'setting', data: { id: 'wrapper',
+                    value: {
+                        css: {},
+                        options: {
+                            saved: {},
+                            radio: {
+                                'group': $(this).attr('data-group'),
+                                'active': $(this).attr('id'),
+                                'type': 'btn'
+                            }
+                        }
+                    } } };
+
+    for (var i = $('[data-group="draft-background-pills"]').length - 1; i >= 0; i--) {
+        var obj = $('[data-group="draft-background-pills"]')[i];
+
+        var action = $(obj).attr('data-action');
+        var element = document.getElementById('wrapper:background-'+action);
+
+        var value = transformData(obj);
+
+        if (typeof value === "undefined") {
+            $("[name='"+$(obj).attr('id')+"'").addClass('has-error');
+            return;
+        } else {
+            $("[name='"+$(obj).attr('id')+"'").removeClass('has-error');
+        }
+
+        message.data.value.options.saved[$(obj).attr('id')] = $(obj).val();
+
+        if (clicked === obj) {
+            message.data.value.css[$(obj).attr('id')] = value;
+        } else {
+            message.data.value.css[$(obj).attr('id')] = '';
+        }
     }
-    if(regex_url.test(url)) {
-        send({ event: 'setting', data: { id: 'wrapper', value: { css: { "background-image": "url('"+url+"')", "background-color": "" } } } });
-        $("[name='background-image']").removeClass('has-error');
-        $(this).removeClass('btn-primary').addClass('btn-success');
-        $('#btnBGColor').removeClass('btn-success').addClass('btn-primary');
-    } else {
-        $("[name='background-image']").removeClass('btn-success').addClass('has-error');
-    }
+
+    send(message);
 });
 
-
-$('#btnBGColor').click(function() {
-    var hex = $('#background-color').val();
-    if (hex == "") {
-        hex = '#FF00FF';
-        $('#background-color').val(hex);
+function transformData(obj) {
+    if ($(obj).val() == "") {
+        $(obj).val( $(obj).attr('data-default') );
     }
-    if(regex_color.test(hex)) {
-        send({ event: 'setting', data: { id: 'wrapper', value: { css: { "background-color": hex, "background-image": "" } } } });
-        $("[name='background-color']").removeClass('has-error');
-        $(this).removeClass('btn-primary').addClass('btn-success');
-        $('#btnBGImage').removeClass('btn-success').addClass('btn-primary');
-    } else {
-        $("[name='background-color']").removeClass('btn-success').addClass('has-error');
+    var retval = $(obj).val();
+    switch ($(obj).attr('data-transform')) {
+        case 'url':
+            if (regex_url.test(retval)) {
+                return "url('" + retval + "')";
+            } else {
+                return undefined;
+            }
+            break;
+        case 'color':
+            if (regex_color.test(retval)) {
+                return retval;
+            } else {
+                return undefined;
+            }
+            break;
+        default:
+            return retval;
     }
-});
+}
 
 /* Auto Connect */
 /* $('#btnConnect').click(function() {
