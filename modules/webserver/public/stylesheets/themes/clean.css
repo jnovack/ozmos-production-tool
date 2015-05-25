@@ -1,0 +1,54 @@
+#wrapper.theme-clean { background-image: none; background-color: transparent; background: #000; cursor: none; font-family: 'Exo 2', 'Open Sans', sans-serif; color: white; }
+
+.theme-clean #tvsafe { }
+
+.theme-clean div.title { display: none; }
+
+.theme-clean div.video-container { position: relative; overflow: hidden; height: 304px; width: 256px;}
+
+.theme-clean div.banned div, div.banned video { -webkit-filter: grayscale(85%); }
+
+.theme-clean div.team-name .overlay-text { font-weight: 700; }
+
+.theme-clean div.team-blue { margin-top: 42px; }
+.theme-clean div.team-blue .pick .myturn { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/blue.jpg'); background-size: 256px 304px; }
+.theme-clean div.team-blue .banned .myturn { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/blue.jpg'); background-size: 256px 304px; -webkit-filter: grayscale(90%); }
+.theme-clean div.team-blue .pick .waiting { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/blue-empty.jpg'); background-size: 256px 304px; -webkit-filter: grayscale(25%); }
+.theme-clean div.team-blue .banned .waiting { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/blue-empty.jpg'); background-size: 256px 304px; -webkit-filter: grayscale(100%); }
+.theme-clean div.team-blue .video-container { border: 4px rgb(20,36,152) solid; }
+.theme-clean div.team-blue .video-container .overlay-hero { position : absolute; top: 224px; left: 0px; width: 200px; z-index: 2; height: 48px; line-height: 48px; background-color: rgb(20,36,152); font-size: 1.6em; margin-top: 4px; padding-left: 8px; color: #dddddd;}
+.theme-clean div.team-blue .video-container .overlay-hero .overlay-triangle { position : absolute; top: 0px; left: 200px; z-index: 2; width: 0; height: 0; border-style: solid; border-width: 48px 0 0 48px; border-color: transparent transparent transparent rgb(20,36,152); }
+.theme-clean div.team-blue .video-container .overlay-player { position : absolute; top: 248px; left: 48px; width: 200px; z-index: 2; height: 48px; line-height: 48px; background-color: rgb(20,36,152); font-size: 1.6em; margin-top: 4px; padding-left: 4px; color: #ffffff;}
+.theme-clean div.team-blue .video-container .overlay-player .overlay-triangle { position : absolute; top: 0px; left: -48px; z-index: 2; width: 0; height: 0; border-style: solid; border-width: 0 48px 48px 0; border-color: transparent rgb(20,36,152) transparent transparent; }
+.theme-clean div.team-blue .team-name { width: 350px; height: 48px; line-height: 48px; background-color: rgb(20,36,152); font-size: 1.6em; margin-top: 4px; padding-left: 12px; color: #ffffff; }
+.theme-clean div.team-blue .team-name .overlay-triangle { position: absolute; left: 365px; top: 4px; width: 0px; height: 0px; border-style: solid; border-width: 48px 0 0 48px; border-color: transparent transparent transparent rgb(20,36,152); }
+
+.theme-clean div.team-red { margin-top: 0px; }
+.theme-clean div.team-red .pick .myturn { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/red.jpg'); background-size: 256px 304px; }
+.theme-clean div.team-red .banned .myturn { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/red.jpg'); background-size: 256px 304px;  -webkit-filter: grayscale(90%); }
+.theme-clean div.team-red .pick .waiting { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/red-empty.jpg'); background-size: 256px 304px; -webkit-filter: grayscale(25%); }
+.theme-clean div.team-red .banned .waiting { position: absolute; z-index: 0; height: 304px; width: 256px; background-image: url('/assets/draft/red-empty.jpg'); background-size: 256px 304px;  -webkit-filter: grayscale(100%); }
+.theme-clean div.team-red .video-container { border: 4px rgb(156,28,56) solid; }
+.theme-clean div.team-red .video-container .overlay-hero { text-align: right; position : absolute; top: 224px; left: 48px; width: 200px; z-index: 2; height: 48px; line-height: 48px; background-color: rgb(156,28,56); font-size: 1.6em; margin-top: 4px; padding-right: 12px; color: #dddddd;}
+.theme-clean div.team-red .video-container .overlay-hero .overlay-triangle { position : absolute; top: 0px; left: -48px; z-index: 2; width: 0; height: 0; border-style: solid; border-width: 0 0 48px 48px; border-color: transparent transparent rgb(156,28,56) transparent; }
+.theme-clean div.team-red .video-container .overlay-player { text-align: right; position : absolute; top: 248px; left: 0px; width: 200px; z-index: 2; height: 48px; line-height: 48px; background-color: rgb(156,28,56); font-size: 1.6em; margin-top: 4px; padding-left: 4px; color: #ffffff; }
+.theme-clean div.team-red .video-container .overlay-player .overlay-triangle { position : absolute; top: 0px; left: 200px; z-index: 2; width: 0; height: 0; border-style: solid; border-width: 48px 48px 0 0; border-color: rgb(156,28,56) transparent transparent transparent; }
+.theme-clean div.team-red .team-name { text-align: right; width: 350px; height: 48px; line-height: 48px; background-color: rgb(156,28,56);  font-size: 1.6em; margin-top: 4px; padding-right: 12px; color: #ffffff; }
+.theme-clean div.team-red .team-name .overlay-triangle { position: absolute; right: 365px; top: 4px; width: 0px; height: 0px; border-style: solid; border-width: 0 0 48px 48px; border-color: transparent transparent rgb(156,28,56) transparent; }
+
+.theme-clean div.video-container video {  }
+.theme-clean div.draft { width: 256px;}
+.theme-clean div.teams { height: 300px; }
+
+.theme-clean div.timers { height: 78px; overflow: hidden; }
+.theme-clean div.time-pool-sm { font-size: 3em; text-align: center; width: 64px; }
+.theme-clean div.time-pool-lg { margin-left: 52px; margin-right: 52px; font-size: 6em; line-height: 64px; text-align: center; width: 96px; }
+.theme-clean div.team-name { visibility: hidden;}
+
+.theme-clean div.overlay-message-left { position: absolute; z-index: 3; }
+.theme-clean div.overlay-message-left .overlay-text { width: 350px; height: 80px; line-height: 80px; background-color: rgb(20,36,152); font-size: 3em; margin-left: 410px; padding-left: 12px; text-align: right; color: #ffffff; float: left; }
+.theme-clean div.overlay-message-left .overlay-triangle { position: absolute; left: 760px; width: 0px; height: 0px; border-style: solid; border-width: 80px 80px 0 0; border-color: rgb(20,36,152) transparent transparent transparent; }
+
+.theme-clean div.overlay-message-right { position: absolute; z-index: 4; }
+.theme-clean div.overlay-message-right .overlay-text { text-align: left; width: 350px; height: 80px; line-height: 80px; background-color: rgb(156,28,56); font-size: 3em; padding-right: 12px; margin-left: 840px; color: #ffffff; float: left;}
+.theme-clean div.overlay-message-right .overlay-triangle { position: absolute; right: 350px; margin-left: 680px; width: 0px; height: 0px; border-style: solid; border-width: 0 0 80px 80px; border-color: transparent transparent rgb(156,28,56) transparent; }
