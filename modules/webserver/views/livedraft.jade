@@ -8,23 +8,23 @@ block head
 
 block footer
   script(src="/javascripts/livedraft.js")
+  link(href="/stylesheets/themes/default.css", rel="stylesheet")
   - if (layout == "livedraft") {
     script.
       var livedraft_url = '#{wsurl}';
       var id = '#{id}';
     script(src="/javascripts/livedraft-client.js")
-    link(href="/stylesheets/themes/#{theme}.css", rel="stylesheet")
+    link(href="/stylesheets/themes/clean.css", rel="stylesheet")
   - } else {
     script(src='/javascripts/livedraft-demo.js')
-    link(href="/stylesheets/themes/default.css", rel="stylesheet")
   - }
 
 block content
-  div(id='wrapper').container.divimage-hero-select
+  div(id='wrapper').container.theme-default
     div(id='tvsafe')
       div.row
         div.col-sm-12.text-center
-          div(id='title').text.title
+          div(id='title').text.title Draft
 
       div.row.team-blue
         div.row
