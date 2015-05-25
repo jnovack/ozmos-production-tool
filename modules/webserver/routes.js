@@ -29,42 +29,47 @@ module.exports = function(app, myApp, express){
         res.redirect('/livedraft/'+id );
     });
 
-    router.get('/livedraft/:id', function(req, res, next) {
+    checkShortId = function(req, res, next) {
         if (!myApp.utils.isShortId(req.params.id)) {
             res.render('error.jade', { message: "not a valid id", error: { status: 404 } } );
         } else {
-            myApp.storage.get('livedraft:'+req.params.id, function(err, config) {
-                res.render('livedraft.jade', { id: req.params.id, theme: config.theme, layout: 'livedraft', wsurl: config.wsurl } );
-            });
+            next();
         }
+    };
+
+    router.get('/livedraft/:id', checkShortId, function(req, res, next) {
+        myApp.storage.get('livedraft:'+req.params.id, function(err, config) {
+            if (err || myApp.utils.isEmpty(config) ) {
+                config = { theme: "default", wsurl: "http://localhost:8000", settings: {} };
+                myApp.storage.set('livedraft:'+req.params.id, config);
+            }
+            console.log('/livedraft/:id ', typeof config, config);
+            res.render('livedraft.jade', { id: req.params.id, theme: config.theme, layout: 'livedraft', wsurl: config.wsurl } );
+        });
     });
 
-    router.get('/livedraft/:id/admin', function(req, res, next) {
-        if (!myApp.utils.isShortId(req.params.id)) {
-            res.render('error.jade', { message: "not a valid id", error: { status: 404 } } );
-        } else {
-            myApp.storage.get('livedraft:'+req.params.id, function(err, config) {
-                res.render('livedraft-admin.jade', { id: req.params.id, wsurl: config.wsurl });
-            });
-        }
+    router.get('/livedraft/:id/admin', checkShortId, function(req, res, next) {
+        myApp.storage.get('livedraft:'+req.params.id, function(err, config) {
+            if (err || myApp.utils.isEmpty(config) ) {
+                config = { theme: "default", wsurl: "http://localhost:8000", settings: {} };
+                myApp.storage.set('livedraft:'+req.params.id, config);
+            }
+            res.render('livedraft-admin.jade', { id: req.params.id, wsurl: config.wsurl });
+        });
     });
 
-    router.get('/livedraft/:id/preload', function(req, res, next) {
-        if (!myApp.utils.isShortId(req.params.id)) {
-            res.render('error.jade', { message: "not a valid id", error: { status: 404 } } );
-        } else {
-            res.render('preload.jade', { next: '/livedraft/'+req.params.id});
-        }
+    router.get('/livedraft/:id/preload', checkShortId, function(req, res, next) {
+        res.render('preload.jade', { next: '/livedraft/'+req.params.id});
     });
 
-    router.get('/livedraft/:id/demo', function(req, res, next) {
-        if (!myApp.utils.isShortId(req.params.id)) {
-            res.render('error.jade', { message: "not a valid id", error: { status: 404 } } );
-        } else {
-            myApp.storage.get('livedraft:demo', function(err, config) {
-                res.render('livedraft.jade', { theme: config.theme, layout: 'demo', wsurl: config.wsurl } );
-            });
-        }
+    router.get('/livedraft/:id/demo', checkShortId, function(req, res, next) {
+        myApp.storage.get('livedraft:demo', function(err, config) {
+            if (err || myApp.utils.isEmpty(config) ) {
+                config = { theme: "default", wsurl: "http://localhost:8000", settings: {} };
+                myApp.storage.set('livedraft:'+req.params.id, config);
+            }
+            res.render('livedraft.jade', { theme: config.theme, layout: 'demo', wsurl: config.wsurl } );
+        });
     });
 
     /*
