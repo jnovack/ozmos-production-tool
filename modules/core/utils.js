@@ -125,6 +125,18 @@ module.exports = function(myApp){
         return Math.floor(date.getTime() / 1000);
     };
 
+    utils.tryJSONParse = function(str) {
+        if (str === null) {
+            return {};
+        }
+        try {
+            JSON.parse(str);
+        } catch (e) {
+            return str;
+        }
+        return JSON.parse(str);
+    };
+
     /** underscore.js functions **/
     var ArrayProto    = Array.prototype,
         nativeForEach = ArrayProto.forEach,
@@ -169,7 +181,6 @@ module.exports = function(myApp){
             // if (hasEnumBug) collectNonEnumProps(obj, keys);
         return keys;
     };
-
 
     utils.values = function(obj) {
         var keys = utils.keys(obj);
@@ -220,6 +231,12 @@ module.exports = function(myApp){
             }
         });
         return output;
+    };
+
+    utils.isEmpty = function(obj) {
+        if (obj === null) return true;
+        if (isArrayLike(obj) && (utils.isArray(obj)) ) return obj.length === 0;
+        return utils.keys(obj).length === 0;
     };
     /** end underscore.js functions **/
 
