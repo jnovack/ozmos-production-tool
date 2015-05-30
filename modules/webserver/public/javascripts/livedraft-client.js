@@ -35,6 +35,15 @@ client.on('message', function(data) {
 });
 
 client.on('setting', function(data) {
+    if (typeof data.value.class !== "undefined") {
+        $.each(data.value.class, function(i, val) {
+            $('#'+data.id).removeClass(function (index, css) {
+                var regex = new RegExp("(^|\\s)" + i + "-\\S+");
+                return (css.match (regex) || []).join(' ');
+            })
+            $('#'+data.id).addClass(i + "-" + val);
+        });
+    }
     if (typeof data.value.css !== "undefined") {
         console.log(data);
         $.each(data.value.css, function(i, val) {

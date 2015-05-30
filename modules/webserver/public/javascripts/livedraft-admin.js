@@ -1,6 +1,8 @@
 
 var control = io(document.location.origin+'/livedraft');
 
+var elements = {};
+
 // TODO create a CSS customization like url and color
 
 /**** Control Functions *****/
@@ -41,6 +43,11 @@ control.on('message', function(data) {
 
 control.on('setting', function(data){
     console.log(data);
+    elements[data.id] = data.value;
+    $.each(data.value.class, function(i, val) {
+        // TODO This only works for one class, on one element. does not scale.
+        $('.selectpicker').selectpicker('val', val);
+    });
     if (typeof data.value.options !== "undefined") {
         if (typeof data.value.options.radio !== "undefined") {
             if (data.value.options.radio.type == 'btn') {
@@ -122,8 +129,6 @@ function updateValue(data) {
 
 /**** Administrative Functions ****/
 
-// TODO edit themes
-
 $('#url').focus(function () {
     $(this).select();
 });
@@ -178,6 +183,10 @@ $('[data-group="draft-background-pills"]').click(function() {
         } else {
             message.data.value.css[$(obj).attr('id')] = '';
         }
+    }
+
+    if(typeof elements['wrapper'] !== "undefined") {
+        $.extend(message.data.value, elements['wrapper']);
     }
 
     send(message);
@@ -240,4 +249,25 @@ $("#btnReload").click(function() {
     $("[data-group='selections']").text("");
     location.reload();
     send({ event: 'reload' });
+});
+
+/* document.ready(); */
+$(function() {
+    // TODO This only works for one class, on one element. does not scale.
+    $('.selectpicker').on('change', function(){
+        var selected = $(this).find("option:selected").val();
+        var build = { event: 'setting', data: { id: 'wrapper',
+                    value: {
+                        class: { 'theme': $(this).find("option:selected").val() }
+                    } } };
+
+        var message = $.extend(true, {}, build);
+        if(typeof elements['wrapper'] !== "undefined") {
+            $.extend(true, message.data.value, elements['wrapper']);
+        }
+        $.extend(true, message, build);
+
+        send(message);
+    });
+
 });

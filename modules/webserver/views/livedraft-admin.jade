@@ -60,9 +60,9 @@ block content
               | Use Color
       div(name='theme').col-md-3
         label(for='theme',class='control-label') Theme
-        select(data-group='text',type='text',id='wrapper:class',data-style='btn-info').selectpicker
-          option(data-content="<i class='fa fa-star'></i> default") default
-          option clean
+        select(data-group='selects',type='option',id='wrapper:class',data-style='btn-info').selectpicker
+          option(data-content="<i class='fa fa-star'></i> default",value='default') default
+          option(value='clean') clean
 
 
     div.row
