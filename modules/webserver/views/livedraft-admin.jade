@@ -22,10 +22,12 @@ block footer
 block content
   div.container
     style.
-      .row { margin-top: 24px;}
+      .col { margin-top: 16px;}
 
     div.row
       div(name='url').col-md-8
+    div.row
+      div(name='url').col.col-md-8
         label(for='url',class='control-label') Draft URL (Observer)
         div(id='url-tooltip',data-toggle='tooltip',data-placement='bottom',title="You must 'Disconnect' before changing.").input-group
           input(data-group='text',type='text',id='url',placeholder='http://www.somedrafttool.com/en/drafttool/12345',class='form-control')
@@ -36,13 +38,13 @@ block content
             button(data-group='draft-control-pills',id='btnConnect',data-action='connect',data-class='success',type='button').btn.btn-success
               i.fa.fa-link
               | Connect
-      div(name='status').col-md-4
+      div(name='status').col.col-md-4
         label(for='status',class='control-label') Status
         div
           span(data-group='spans',type='text',id='status',class='form-control',disabled) Disconnected
 
     div.row
-      div(name='background-image').col-md-6
+      div(name='background-image').col.col-md-6
         label(for='background-image',class='control-label') Background Image URL (1920x1080)
         div(data-group='onload-tooltips',id='background-image-tooltip',data-toggle='tooltip',data-placement='bottom',title="Enter the URL (.gif, .png, .jpg) for your 1920x1080 background image.").input-group
           input(data-group='text',type='text',id='wrapper:background-image',placeholder='http://i.imgur.com/OcFygJu.jpg',class='form-control')
@@ -50,7 +52,7 @@ block content
             button(data-group='draft-background-pills',id='background-image',data-transform='url',data-action='image',data-default='http://i.imgur.com/OcFygJu.jpg',data-selection='radio').btn.btn-primary
               i.fa.fa-picture-o
               | Use Image
-      div(name='background-color').col-md-3
+      div(name='background-color').col.col-md-3
         label(for='background-color',class='control-label') Background Color (#Hex)
         div(data-group='onload-tooltips',id='background-color-tooltip',data-toggle='tooltip',data-placement='bottom',title='Enter a hexadecimal color value prefixed with a # (e.g. #FF00FF)').input-group
           input(data-group='text',type='text',id='wrapper:background-color',placeholder='#FF00FF',class='form-control')
@@ -58,7 +60,7 @@ block content
             button(data-group='draft-background-pills',id='background-color',data-transform='color',data-action='color',data-default='#FF00FF',data-selection='radio').btn.btn-primary
               i.fa.fa-paint-brush
               | Use Color
-      div(name='theme').col-md-3
+      div(name='theme').col.col-md-3
         label(for='theme',class='control-label') Theme
         select(data-group='selects',type='option',id='wrapper:class',data-style='btn-info').selectpicker
           option(data-content="<i class='fa fa-star'></i> default",value='default') default
@@ -66,36 +68,36 @@ block content
 
 
     div.row
-      div.col-sm-3
+      div.col.col-sm-3
         div
           label(for='team1-name',class='control-label') Team 1 Name
           div
             input(data-group='text',type='text',id='team1-name',name='team1-name',placeholder='Rancho Carne Toros',class='form-control')
-      div.col-sm-2
+      div.col.col-sm-2
         div
           label(for='team1-timer',class='control-label') Team 1 Pool
           div
             span(data-group='spans',type='text',id='blue-pool',placeholder='0',class='form-control',disabled,value=0)
-      div.col-sm-2
+      div.col.col-sm-2
         div
           label(for='timer',class='control-label') Timer
           div
             span(data-group='spans',type='text',id='time-pool',placeholder='0',class='form-control',disabled,value=0)
-      div.col-sm-2
+      div.col.col-sm-2
         div
           label(for='team2-timer',class='control-label') Team 2 Pool
           div
             span(data-group='spans',type='text',id='red-pool',placeholder='0',class='form-control',disabled,value=0)
-      div.col-sm-3
+      div.col.col-sm-3
         div
           label(for='team2-name',class='control-label') Team 2 Name
           div
             input(data-group='text',type='text',id='team2-name',name='team2-name',placeholder='East Compton Clovers',class='form-control')
 
     div.row
-      div.col-lg-12
+      div.col.col-lg-12
         div.row
-          div.col-sm-12.text-center
+          div.col.col-sm-12.text-center
             div.btn-toolbar
               a(data-group='draft-command-pills',id='btnPause',data-action='pause').btn.btn-lg.btn-warning
                 i.fa.fa-pause
@@ -107,36 +109,36 @@ block content
                 i.fa.fa-refresh
                 | Reload
         div.row
-          div.col-sm-2
+          div.col.col-sm-2
               div(data-group='pictures',id='blue-b1-icon').center.divimage.divimagelg
-          div.col-sm-2
+          div.col.col-sm-2
               div(data-group='pictures',id='blue-b2-icon').center.divimage.divimagelg
-          div.col-sm-4
+          div.col.col-sm-4
             div(data-group='pictures',id='map-icon').center.divimage.map-small
-          div.col-sm-2
+          div.col.col-sm-2
               div(data-group='pictures',id='red-b2-icon').center.divimage.divimagelg
-          div.col-sm-2
+          div.col.col-sm-2
               div(data-group='pictures',id='red-b1-icon').center.divimage.divimagelg
 
         - for (var x = 1; x < 6; ++x) {
           div.row
-            div.col-sm-2
+            div.col.col-sm-2
               div(data-group='pictures',id='blue-p'+x+'-icon').center.divimage.divimagelg
-            div(data-group='selections',id='blue-p'+x).col-sm-4
+            div(data-group='selections',id='blue-p'+x).col.col-sm-4
               label(for='blue-p'+x+'-hero',class='control-label') blue-p#{x}
               div
                 span(data-group='spans',role='trigger',data-trigger='picture',id='blue-p'+x+'-hero',class='form-control',disabled)
-            div(data-group='selections',id='red-p'+x).col-sm-4
+            div(data-group='selections',id='red-p'+x).col.col-sm-4
               label(for='red-p'+x+'-hero',class='control-label') red-p#{x}
               div
                 span(data-group='spans',role='trigger',data-trigger='picture',id='red-p'+x+'-hero',class='form-control',disabled)
-            div.col-sm-2
+            div.col.col-sm-2
               div(data-group='pictures',id='red-p'+x+'-icon').center.divimage.divimagelg
         - }
 
 
     div.row
-      div.col-lg-12
+      div.col.col-lg-12
         div
           label(for='announcement',class='control-label') Announcement
           div
