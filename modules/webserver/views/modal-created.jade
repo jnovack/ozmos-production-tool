@@ -1,0 +1,18 @@
+div(id="myModal",tabindex="-1",role="dialog",aria-labelledby="myModalLabel",aria-hidden="true").modal.fade
+  div(style='z-index: 2000').modal-dialog
+    div.modal-content
+      div.modal-header
+        button(type="button",data-dismiss="modal",aria-label="Close").close
+          span(aria-hidden="true") &times;
+        h4(id="myModalLabel").modal-title Welcome to Livedraft Admin
+      div.modal-body
+        b A random ID has been assigned to allow you a private session for using the draft.
+        hr
+        p To get started:
+        ol
+          li 1. Enter in the Draft URL.
+          li 2. Open the Live Draft (via the button)
+          li 3. There's no step 3!
+        i Drafts are best viewed at 1080p (1920x1080) or 720p (1280x720).
+      div.modal-footer
+        button(type="button",data-dismiss="modal").btn.btn-default Close

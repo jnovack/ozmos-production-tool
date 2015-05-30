@@ -21,9 +21,15 @@ block footer
   script(src='/javascripts/livedraft-admin.js')
 
 block content
+  - if (created == "true") {
+  script.
+    $('#myModal').modal('show');
+  - }
+
   div.container
     style.
       .col { margin-top: 16px;}
+
 
     div.row
       div.col.col-sm-12

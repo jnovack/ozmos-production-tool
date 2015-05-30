@@ -54,7 +54,7 @@ module.exports = function(app, myApp, express){
                 config = { theme: "default", wsurl: "http://localhost:8000", settings: {} };
                 myApp.storage.set('livedraft:'+req.params.id, config);
             }
-            res.render('livedraft-admin.jade', { id: req.params.id, wsurl: config.wsurl });
+            res.render('livedraft-admin.jade', { id: req.params.id, wsurl: config.wsurl, created: req.flash('created') });
         });
     });
 
@@ -72,19 +72,13 @@ module.exports = function(app, myApp, express){
         });
     });
 
-    /*
     router.get('/create', function(req, res, next) {
         id = myApp.utils.shortid();
-        admin = myApp.utils.shortid();
-        blueteam = myApp.utils.shortid();
-        redteam = myApp.utils.shortid();
-        draftids = { id: id, admin: admin, blueteam: blueteam, redteam: redteam };
-
-        myApp.database.create(draftids, function(data) {
-            res.redirect('/draft/'+draftids.admin );
-        });
+        req.flash('created', true);
+        res.redirect('/livedraft/'+id+'/admin' );
     });
 
+    /*
     router.get('/draft/:id', function(req, res, next) {
         myApp.database.find(req.params.id, function(data){
             if (typeof data === 'undefined') {
