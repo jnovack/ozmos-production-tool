@@ -3,7 +3,7 @@ module.exports = function(app, myApp, express){
     var router = express.Router();
 
     router.get('/', function(req, res, next) {
-        res.render('index.jade', { } );
+        res.render('index.jade', { version: myApp.package.version } );
     });
 
     // router.get('/livedraft/admin', function(req, res, next) {

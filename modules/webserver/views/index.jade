@@ -1,5 +1,19 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div.container
+    div.row
+      div.col.col-sm-12
+        h1 Ozmo's Production Tool
+        h6 Version: #{version}
+        p Ozmo's Production Tool is designed to make a streaming a bit easier for Heroes of the Storm(tm).
+            | The goal of the project is to allow streamers fast and easy access to the
+            | graphical capabilities provided and animations allowed by HTML5/CSS/Javascript
+            | without having to write or learn Flash or After Effects.
+
+    div.row
+      div.col.col-sm-12.text-center
+        div.btn-toolbar
+          a(data-group='draft-command-pills',href='/create',target='new').btn.btn-lg.btn-success
+            i.fa.fa-plus
+            | Create New Draft
