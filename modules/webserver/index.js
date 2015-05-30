@@ -92,10 +92,10 @@ module.exports = function(myApp){
             });
         });
 
-        var server = app.listen(8000);
-        myApp.utils.consoleOutput("webserver started on port 8000");
+        var server = app.listen(myApp.config.PORT);
+        myApp.utils.consoleOutput("webserver started on port "+myApp.config.PORT);
         webserver.io = require('socket.io').listen(server);
-        myApp.utils.consoleOutput("socket.io started on port 8000");
+        myApp.utils.consoleOutput("socket.io started on port "+myApp.config.PORT);
         webserver.app = app;
 
     };
