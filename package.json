@@ -1,6 +1,6 @@
 {
   "name": "ozmos-production-tool",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "Justin J. Novack <jnovack@gmail.com>",
   "description": "A stream production tool for Heroes of the Storm(tm).",
   "private": true,
