@@ -14,7 +14,7 @@ client.on('state', function(data) {
         case "url":
             draftid = data.value;
             if (draftid !== null) {
-                livedraftConnect();
+                livedraftConnect(draftid);
                 console.log("initiating connection to livedraft " + draftid);
             } else {
                 livedraftDisconnect();

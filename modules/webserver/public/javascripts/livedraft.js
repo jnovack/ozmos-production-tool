@@ -1,12 +1,11 @@
 var heroes = { bans1: [], bans2: [], picks1: [], picks2: [] };
 var livedraft = null;
-var draftid;
 var status = -1;
 
-/* Status 1 { mode: "pre", ready1: 1, ready2: 0, status: 1, timer1: 118, timer1_percent: 98, timer2: -1 } */
+function livedraftConnect(draftid) {
+    heroes = { bans1: [], bans2: [], picks1: [], picks2: [] };
+    livedraft = io(livedraft_url,{'forceNew':true, query:"draft_id="+draftid});
 
-function livedraftConnect() {
-    livedraft = io(livedraft_url,{query:"draft_id="+draftid});
     livedraft.on('connect', function(data) {
         triggerConnect();
         console.log("connected to livedraft "+draftid);
@@ -79,9 +78,8 @@ function livedraftConnect() {
 
 function livedraftDisconnect() {
     console.log("livedraftDisconnect()");
-    // TODO Fix socket reconnection
     if (livedraft !== null) {
-        location.reload();
+        livedraft.disconnect();
     }
 }
 

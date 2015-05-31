@@ -32,7 +32,7 @@ control.on('state', function(data) {
                 $('#url').attr('disabled',true).addClass('disabled');
                 $('[data-toggle="tooltip"]').tooltip();
                 draftid = data.value;
-                livedraftConnect();
+                livedraftConnect(draftid);
                 console.log("initiating connection to livedraft " + draftid);
             } else {
                 livedraftDisconnect();
@@ -43,7 +43,6 @@ control.on('state', function(data) {
             console.log(data);
     }
 });
-
 
 control.on('command', function(data) {
     switch (data.action) {
