@@ -33,10 +33,16 @@ module.exports = function(myApp) {
                 json = myApp.utils.tryJSONParse(json);            // TODO Don't trust parsing.
                 console.log("!! livedraft: onJoin get", json);
                 if (json !== null) {
-                    if (typeof json.settings !== "undefined") {
-                        myApp.utils.each(json.settings, function(value) {
+                    if (typeof json.setting !== "undefined") {
+                        myApp.utils.each(json.setting, function(value) {
                             console.log("!! livedraft: onJoin get each: ", value);
                             socket.emit('setting', value);
+                        });
+                    }
+                    if (typeof json.state !== "undefined") {
+                        myApp.utils.each(json.state, function(value) {
+                            console.log("!! livedraft: onJoin get each: ", value);
+                            socket.emit('state', value);
                         });
                     }
                 }
@@ -48,7 +54,7 @@ module.exports = function(myApp) {
             if (!socket.custom.isAdmin) {
                 return;
             }
-            if (message.event == "setting") {
+            if (message.event != "command") {
                 myApp.storage.get(socket.custom.room, makeGetCallback(socket.custom.room, message));
             }
             nsp_draft.in(socket.custom.room).emit(message.event, message.data);
@@ -61,10 +67,10 @@ module.exports = function(myApp) {
         var passthru = { id: id, data: message };
         return function(err, json) {
             json = myApp.utils.tryJSONParse(json);    // TODO Don't trust parsing.
-            if (typeof json.settings == "undefined") {
-                json.settings = {};
+            if (typeof json[message.event] == "undefined") {
+                json[message.event] = {};
             }
-            json.settings[message.data.id] = message.data;
+            json[message.event][message.data.id] = message.data;
             console.log("!! makeGetCallback: passthru: ", passthru);
             console.log("!! makeGetCallback: json: ", json);
             myApp.storage.set(passthru.id, JSON.stringify(json));

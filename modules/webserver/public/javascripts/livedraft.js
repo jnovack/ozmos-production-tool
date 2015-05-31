@@ -80,7 +80,9 @@ function livedraftConnect() {
 function livedraftDisconnect() {
     console.log("livedraftDisconnect()");
     // TODO Fix socket reconnection
-    location.reload();
+    if (livedraft !== null) {
+        location.reload();
+    }
 }
 
 var heroesArray = {

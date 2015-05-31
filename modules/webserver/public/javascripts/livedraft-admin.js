@@ -16,25 +16,39 @@ control.on('joined', function(data) {
     console.log('(control) joined ' + data);
 });
 
-control.on('message', function(data) {
-    switch (data.action) {
-        case "connect":
-            $('[name=url').removeClass('has-error');
-            $('#url').attr('disabled',true).addClass('disabled');
-            $('[data-toggle="tooltip"]').tooltip();
+control.on('state', function(data) {
+    switch (data.id) {
+        case 'videos':
+            if (data.value !== 'pause') {
+                console.log('videos playing');
+            } else {
+                console.log('videos paused');
+            }
+            break;
+        case "url":
             draftid = data.value;
-            livedraftConnect();
-            console.log("initiating connection to livedraft " + draftid);
+            if (draftid !== null) {
+                $('[name=url').removeClass('has-error');
+                $('#url').attr('disabled',true).addClass('disabled');
+                $('[data-toggle="tooltip"]').tooltip();
+                draftid = data.value;
+                livedraftConnect();
+                console.log("initiating connection to livedraft " + draftid);
+            } else {
+                livedraftDisconnect();
+                console.log("administratively disconnected");
+            }
             break;
-        case "disconnect":
-            livedraftDisconnect();
-            console.log("administratively disconnected");
-            break;
-        case 'pause':
-            console.log('videos paused');
-            break;
-        case 'play':
-            console.log('videos resumed');
+        default:
+            console.log(data);
+    }
+});
+
+
+control.on('command', function(data) {
+    switch (data.action) {
+        case 'reload':
+            location.reload();
             break;
         default:
             console.log(data);
@@ -102,6 +116,7 @@ function updateStatus(data) {
 }
 
 function draftOver() {
+    send({ event: 'state', data: { id: 'url', value: null }});
     $('#status').text('draft complete');
 }
 
@@ -142,7 +157,7 @@ $('#url').blur(function() {
         $('[name=url').removeClass('has-error');
         $('#url').attr('disabled',true).addClass('disabled');
         $('[data-toggle="tooltip"]').tooltip();
-        send({ event: 'message', data: { action: 'connect', value: result }});
+        send({ event: 'state', data: { id: 'url', value: result }});
     } else {
         $('[name=url').removeClass('has-success').addClass('has-error');
     }
@@ -244,13 +259,12 @@ $('#btnPlay').click(function() {
 
 $('#btnDisconnect').click(function() {
     // TODO Fix Reconnect
-    send({ event: 'message', data: { action: 'disconnect', value: true }});
+    send({ event: 'state', data: { id: 'url', value: null }});
 });
 
 $("#btnReload").click(function() {
     $("[data-group='selections']").text("");
-    location.reload();
-    send({ event: 'reload' });
+    send({ event: 'message', data: { action: 'reload' } });
 });
 
 /* document.ready(); */

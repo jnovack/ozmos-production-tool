@@ -9,25 +9,37 @@ client.on('joined', function(data) {
     console.log('(client) joined ' + data);
 });
 
-client.on('message', function(data) {
-    switch (data.action) {
-        case "connect":
+client.on('state', function(data) {
+    switch (data.id) {
+        case "url":
             draftid = data.value;
-            livedraftConnect();
-            console.log("initiating connection to livedraft " + draftid);
+            if (draftid !== null) {
+                livedraftConnect();
+                console.log("initiating connection to livedraft " + draftid);
+            } else {
+                livedraftDisconnect();
+                console.log("administratively disconnected");
+            }
             break;
-        case "disconnect":
-            livedraftDisconnect();
-            console.log("administratively disconnected");
+        case 'videos':
+            if (data.value !== 'pause') {
+                // $("[data-group='videos']").attr('loop', true);
+                // TODO FIX Looping by using .play()
+                console.log('videos playing');
+            } else {
+                $("[data-group='videos']").removeAttr('loop');
+                console.log('videos paused');
+            }
             break;
-        case 'pause':
-            $("[data-group='videos']").removeAttr('loop');
-            console.log('videos paused');
-            break;
-        case 'play':
-            // $("[data-group='videos']").attr('loop', true);
-            // TODO FIX Looping by using .play()
-            console.log('videos resumed');
+        default:
+            console.log(data);
+    }
+});
+
+client.on('command', function(data) {
+    switch (data.action) {
+        case 'reload':
+            location.reload();
             break;
         default:
             console.log(data);
