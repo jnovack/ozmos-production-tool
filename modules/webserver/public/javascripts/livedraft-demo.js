@@ -5,7 +5,7 @@ countdown = setInterval(function() { seconds--; $('#timer-pool').text(seconds); 
 
 function updateValue(data) {
         console.log(data);
-        $('#'+data.id+'-video').attr('src', getHeroVideo(data.value)).removeClass('hide').addClass(data.value + ' animated');
+        $('#'+data.id+'-video').attr('src', getHeroVideo(data.value)).removeClass('hide').addClass('video-' + data.value + ' animated');
         $('#'+data.id+' .overlay-hero').removeClass('hide').addClass('animated');
         $('#'+data.id+'-hero').text(properName(data.value));
 }

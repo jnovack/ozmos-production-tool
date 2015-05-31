@@ -12,44 +12,44 @@
   border-left: 69px solid transparent;
 }
 
-/* 256px x 304px Portrait */
-.portrait.abathur            { margin-left: -838px; margin-top: -294px; -webkit-transform: scale(0.9); }
-.portrait.anubarak           { margin-left: -773px; margin-top: -312px; -webkit-transform: scale(0.7); }
-.portrait.arthas             { margin-left: -870px; margin-top: -145px; -webkit-transform: scale(0.9); }
-.portrait.azmodan            { margin-left: -837px; margin-top: -258px; -webkit-transform: scale(1); }
-.portrait.brightwing         { margin-left: -778px; margin-top: -283px; -webkit-transform: scale(0.75); }
-.portrait.chen               { margin-left: -833px; margin-top: -266px; -webkit-transform: scale(0.9); }
-.portrait.diablo             { margin-left: -799px; margin-top: -208px; -webkit-transform: scale(0.9); }
-.portrait.etc                { margin-left: -811px; margin-top: -293px; -webkit-transform: scale(0.7); }
-.portrait.falstad            { margin-left: -779px; margin-top: -260px; -webkit-transform: scale(0.75); }
-.portrait.gazlowe            { margin-left: -773px; margin-top: -373px; -webkit-transform: scale(0.75); }
-.portrait.illidan            { margin-left: -794px; margin-top: -235px; -webkit-transform: scale(0.7); }
-.portrait.jaina              { margin-left: -842px; margin-top: -215px; -webkit-transform: scale(0.9); }
-.portrait.johanna            { /* TODO */ }
-.portrait.kaelthas           { margin-left: -810px; margin-top: -135px; -webkit-transform: scale(0.9); }
-.portrait.kerrigan           { margin-left: -880px; margin-top: -150px; -webkit-transform: scale(1); }
-.portrait.lili               { margin-left: -879px; margin-top: -311px; -webkit-transform: scale(1); }
-.portrait.malfurion          { margin-left: -868px; margin-top: -242px; -webkit-transform: scale(1); }
-.portrait.muradin            { margin-left: -804px; margin-top: -342px; -webkit-transform: scale(0.8); }
-.portrait.murky              { margin-left: -828px; margin-top: -366px; -webkit-transform: scale(0.75); }
-.portrait.nazeebo            { margin-left: -791px; margin-top: -247px; -webkit-transform: scale(0.8); }
-.portrait.nova               { margin-left: -896px; margin-top: -203px; -webkit-transform: scale(1); }
-.portrait.raynor             { margin-left: -824px; margin-top: -198px; -webkit-transform: scale(0.9); }
-.portrait.rehgar             { margin-left: -853px; margin-top: -207px; -webkit-transform: scale(1); }
-.portrait.sgt-hammer         { margin-left: -920px; margin-top: -137px; -webkit-transform: scale(1); }
-.portrait.sonya              { margin-left: -868px; margin-top: -224px; -webkit-transform: scale(1); }
-.portrait.stitches           { margin-left: -871px; margin-top: -194px; -webkit-transform: scale(1); }
-.portrait.sylvanas           { margin-left: -872px; margin-top: -138px; -webkit-transform: scale(1); }
-.portrait.tassadar           { margin-left: -866px; margin-top: -131px; -webkit-transform: scale(1); }
-.portrait.the-lost-vikings   { margin-left: -822px; margin-top: -274px; -webkit-transform: scale(0.7); }
-.portrait.thrall             { margin-left: -857px; margin-top: -186px; -webkit-transform: scale(1); }
-.portrait.tychus             { margin-left: -858px; margin-top: -190px; -webkit-transform: scale(1); }
-.portrait.tyrael             { margin-left: -856px; margin-top: -162px; -webkit-transform: scale(1); }
-.portrait.tyrande            { margin-left: -843px; margin-top: -194px; -webkit-transform: scale(0.9); }
-.portrait.uther              { margin-left: -845px; margin-top: -168px; -webkit-transform: scale(1); }
-.portrait.valla              { margin-left: -845px; margin-top: -168px; -webkit-transform: scale(1); }
-.portrait.zagara             { margin-left: -833px; margin-top: -258px; -webkit-transform: scale(1); }
-.portrait.zeratul            { margin-left: -835px; margin-top: -189px; -webkit-transform: scale(0.9); }
+/* 256px x 304px Video Portrait */
+.video-abathur            { margin-left: -838px; margin-top: -294px; -webkit-transform: scale(0.9); }
+.video-anubarak           { margin-left: -773px; margin-top: -312px; -webkit-transform: scale(0.7); }
+.video-arthas             { margin-left: -870px; margin-top: -145px; -webkit-transform: scale(0.9); }
+.video-azmodan            { margin-left: -837px; margin-top: -258px; -webkit-transform: scale(1); }
+.video-brightwing         { margin-left: -778px; margin-top: -283px; -webkit-transform: scale(0.75); }
+.video-chen               { margin-left: -833px; margin-top: -266px; -webkit-transform: scale(0.9); }
+.video-diablo             { margin-left: -799px; margin-top: -208px; -webkit-transform: scale(0.9); }
+.video-etc                { margin-left: -811px; margin-top: -293px; -webkit-transform: scale(0.7); }
+.video-falstad            { margin-left: -779px; margin-top: -260px; -webkit-transform: scale(0.75); }
+.video-gazlowe            { margin-left: -773px; margin-top: -373px; -webkit-transform: scale(0.75); }
+.video-illidan            { margin-left: -794px; margin-top: -235px; -webkit-transform: scale(0.7); }
+.video-jaina              { margin-left: -842px; margin-top: -215px; -webkit-transform: scale(0.9); }
+.video-johanna            { /* TODO */ }
+.video-kaelthas           { margin-left: -810px; margin-top: -135px; -webkit-transform: scale(0.9); }
+.video-kerrigan           { margin-left: -880px; margin-top: -150px; -webkit-transform: scale(1); }
+.video-lili               { margin-left: -879px; margin-top: -311px; -webkit-transform: scale(1); }
+.video-malfurion          { margin-left: -868px; margin-top: -242px; -webkit-transform: scale(1); }
+.video-muradin            { margin-left: -804px; margin-top: -342px; -webkit-transform: scale(0.8); }
+.video-murky              { margin-left: -828px; margin-top: -366px; -webkit-transform: scale(0.75); }
+.video-nazeebo            { margin-left: -791px; margin-top: -247px; -webkit-transform: scale(0.8); }
+.video-nova               { margin-left: -896px; margin-top: -203px; -webkit-transform: scale(1); }
+.video-raynor             { margin-left: -824px; margin-top: -198px; -webkit-transform: scale(0.9); }
+.video-rehgar             { margin-left: -853px; margin-top: -207px; -webkit-transform: scale(1); }
+.video-sgt-hammer         { margin-left: -920px; margin-top: -137px; -webkit-transform: scale(1); }
+.video-sonya              { margin-left: -868px; margin-top: -224px; -webkit-transform: scale(1); }
+.video-stitches           { margin-left: -871px; margin-top: -194px; -webkit-transform: scale(1); }
+.video-sylvanas           { margin-left: -872px; margin-top: -138px; -webkit-transform: scale(1); }
+.video-tassadar           { margin-left: -866px; margin-top: -131px; -webkit-transform: scale(1); }
+.video-the-lost-vikings   { margin-left: -822px; margin-top: -274px; -webkit-transform: scale(0.7); }
+.video-thrall             { margin-left: -857px; margin-top: -186px; -webkit-transform: scale(1); }
+.video-tychus             { margin-left: -858px; margin-top: -190px; -webkit-transform: scale(1); }
+.video-tyrael             { margin-left: -856px; margin-top: -162px; -webkit-transform: scale(1); }
+.video-tyrande            { margin-left: -843px; margin-top: -194px; -webkit-transform: scale(0.9); }
+.video-uther              { margin-left: -845px; margin-top: -168px; -webkit-transform: scale(1); }
+.video-valla              { margin-left: -845px; margin-top: -168px; -webkit-transform: scale(1); }
+.video-zagara             { margin-left: -833px; margin-top: -258px; -webkit-transform: scale(1); }
+.video-zeratul            { margin-left: -835px; margin-top: -189px; -webkit-transform: scale(0.9); }
 
 
 /* Base */
