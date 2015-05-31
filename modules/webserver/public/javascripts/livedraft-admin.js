@@ -249,26 +249,24 @@ function transformData(obj) {
 */
 
 $('#btnPause').click(function() {
-    send({ event: 'message', data: { action: 'pause', value: true }});
+    send({ event: 'state', data: { id: 'videos', value: 'pause' }});
     $(this).hide();
     $('#btnPlay').show();
 });
 
 $('#btnPlay').click(function() {
-    send({ event: 'message', data: { action: 'play', value: true }});
+    send({ event: 'state', data: { id: 'videos', value: 'play' }});
     $(this).hide();
     $('#btnPause').show();
 });
 
-
 $('#btnDisconnect').click(function() {
-    // TODO Fix Reconnect
     send({ event: 'state', data: { id: 'url', value: null }});
 });
 
 $("#btnReload").click(function() {
     $("[data-group='selections']").text("");
-    send({ event: 'message', data: { action: 'reload' } });
+    send({ event: 'command', data: { action: 'reload' } });
 });
 
 /* document.ready(); */
