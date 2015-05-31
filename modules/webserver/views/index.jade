@@ -1,5 +1,9 @@
 extends layout
 
+block head
+  style.
+    .col { margin-top: 16px;}
+
 block content
   div.container
     div.row
@@ -12,11 +16,29 @@ block content
             | without having to write or learn Flash or After Effects.
 
     div.row
+      div.col.col-md-8.col-md-offset-2
+        div(role='alert').alert.alert-warning
+          i.fa.fa-warning
+          strong.spacer Warning!
+          span Ozmo's Production Tool is in ALPHA. Bugs are expected, try reloading first. You can report issues
+            a(href='https://github.com/jnovack/ozmos-production-tool/issues').spacer here
+            | if you are having trouble.
+
+    div.row
+      div.col.col-sm-12
+        h4 Live Draft
+        p The Live Draft tool will interface with an active drafting session and display a clean and customizable
+          | observer interface designed for broadcast.
+      div.col.col-sm-8.col-sm-offset-2
+        div(role='alert').alert.alert-info
+          i.fa.fa-exclamation-circle
+          strong.spacer Heads Up!
+          span Observer interfaces look best in the latest Chrome at 1920x1080 (1080p).
       div.col.col-sm-12.text-center
         div.btn-toolbar
           a(data-group='draft-command-pills',href='/demo/livedraft').btn.btn-lg.btn-info
-            i.fa.fa-plus
+            i.fa.fa-magic
             | View Demo Draft
           a(data-group='draft-command-pills',href='/create/livedraft').btn.btn-lg.btn-success
             i.fa.fa-plus
-            | Create New Draft
+            | Create Live Draft

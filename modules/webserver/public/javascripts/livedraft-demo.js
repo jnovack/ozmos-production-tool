@@ -1,4 +1,7 @@
 $('#title').text('Dragon Shire');
+$('#wrapper').css('background-color', '').css('background-image', 'url("http://i.imgur.com/OcFygJu.jpg")');
+$('#blue-name .overlay-text').text('Blue Team');
+$('#red-name  .overlay-text').text('Red Team');
 var seconds = 5;
 setTimeout( demo, 5000);
 countdown = setInterval(function() { seconds--; $('#timer-pool').text(seconds); if (seconds == 0) { $('#timer-pool').text(''); clearInterval(countdown);  } }, 1000);
@@ -11,8 +14,6 @@ function updateValue(data) {
 }
 
 function demo() {
-    updateValue({ id: 'blue-name', value: 'Cloud9 Maelstrom' });
-    updateValue({ id: 'red-name', value: 'Tempo Storm' });
     var base = 3000;
 
     updateValue({ id: 'blue-p1-name', value: 'iDream' });

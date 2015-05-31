@@ -27,6 +27,9 @@ div.center { margin-left: auto; margin-right: auto; }
 div.pad-none { padding: 0px; }
 div.pad-small { padding: 2px; }
 
+/* .jade hack, saving the file cuts of end-of-line spacing, and adding &nbsp looks ugly */
+.spacer { margin-left: 0.3em; margin-right: 0.3em; }
+
 /* Font Awesome Overrides */
 i.fa { margin-right: 0.3em; }
 

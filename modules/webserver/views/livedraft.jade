@@ -4,7 +4,6 @@ block head
   title OPT: livedraft
   link(href="/stylesheets/base.css", rel="stylesheet")
   link(href="/stylesheets/heroes.css", rel="stylesheet")
-  link(rel='stylesheet',href='/cdn/font-awesome.min.css')
   link(href="/stylesheets/divimage.css", rel="stylesheet")
   script(src='/javascripts/functions.js')
 
@@ -76,8 +75,8 @@ block content
         div.row
           div.col-lg-12.flex.flex-justify-end
             div(id='red-name').team-name
-              div.overlay-text.animated.slideInRight
               div.overlay-triangle
+              div.overlay-text.animated.slideInRight
         div.row
           div.col-sm-12.teams.flex.flex-justify-between
             - for (var i = 5; i > 0; --i) {
