@@ -40,21 +40,21 @@ module.exports = function(app, myApp, express){
     router.get('/livedraft/:id', checkShortId, function(req, res, next) {
         myApp.storage.get('livedraft:'+req.params.id, function(err, config) {
             if (err || myApp.utils.isEmpty(config) ) {
-                config = { theme: "default", wsurl: "http://localhost:8000", settings: {} };
+                config = { theme: "default", settings: {} };
                 myApp.storage.set('livedraft:'+req.params.id, config);
             }
             console.log('/livedraft/:id ', typeof config, config);
-            res.render('livedraft.jade', { id: req.params.id, theme: config.theme, layout: 'livedraft', wsurl: config.wsurl } );
+            res.render('livedraft.jade', { id: req.params.id, theme: config.theme, layout: 'livedraft', wsurl: myApp.config.LIVEDRAFT_WEBSOCKET_URL } );
         });
     });
 
     router.get('/livedraft/:id/admin', checkShortId, function(req, res, next) {
         myApp.storage.get('livedraft:'+req.params.id, function(err, config) {
             if (err || myApp.utils.isEmpty(config) ) {
-                config = { theme: "default", wsurl: "http://localhost:8000", settings: {} };
+                config = { theme: "default", settings: {} };
                 myApp.storage.set('livedraft:'+req.params.id, config);
             }
-            res.render('livedraft-admin.jade', { id: req.params.id, wsurl: config.wsurl, created: req.flash('created') });
+            res.render('livedraft-admin.jade', { id: req.params.id, wsurl: myApp.config.LIVEDRAFT_WEBSOCKET_URL, created: req.flash('created') });
         });
     });
 
