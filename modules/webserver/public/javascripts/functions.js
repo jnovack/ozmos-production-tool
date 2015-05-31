@@ -110,6 +110,12 @@ function getHeroVideo(hero) {
     return blizzard[hero];
 }
 
+function buildWildcardClass(prefix) {
+  return function (index, css) {
+    return (css.match (new RegExp("(^|\\s)" + prefix + "-\\S+", "g") ) || []).join(' ');
+  }
+}
+
 // Catch ESC anywhere to blur the element, which should process the input
 $(document).keyup(function(e) {
     if (e.keyCode == 27) { $(document.activeElement).blur(); }   // escape key maps to keycode `27`
