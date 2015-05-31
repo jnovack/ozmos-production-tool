@@ -22,13 +22,14 @@ function livedraftConnect(draftid) {
         if (status == 1) {
             if (data.timer1 > 0) {
                 data.timer = data.timer1;
-                data.timer1_bonus = 'READY';
-                data.timer2_bonus = 'waiting';
+                data.timer_bonus1 = '<i class="fa fa-thumbs-o-up"></i>';
+                data.timer_bonus2 = '';
             } else {
                 data.timer = data.timer2;
-                data.timer2_bonus = 'READY';
-                data.timer1_bonus = 'waiting';
+                data.timer_bonus2 = '<i class="fa fa-thumbs-o-up"></i>';
+                data.timer_bonus1 = '';
             }
+            updateTime(data);
         }
         if (typeof data.heroes !== "undefined") {
             if (JSON.stringify(data.heroes) !== JSON.stringify(heroes)) {

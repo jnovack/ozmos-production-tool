@@ -41,6 +41,8 @@
 .theme-clean div.teams { height: 300px; }
 
 .theme-clean div.timers { height: 78px; overflow: hidden; }
+.theme-clean div.timers .time-notactive { color: #999999; }
+
 .theme-clean div.time-pool-sm { font-size: 3em; text-align: center; width: 64px; }
 .theme-clean div.time-pool-lg { margin-left: 52px; margin-right: 52px; font-size: 6em; line-height: 64px; text-align: center; width: 96px; }
 .theme-clean div.team-name { visibility: hidden;}

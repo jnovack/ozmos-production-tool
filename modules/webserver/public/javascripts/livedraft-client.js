@@ -92,7 +92,16 @@ function triggerDisconnect() {
     console.log("triggerDisconnect()");
 }
 
-function updateStatus(status) { }
+function updateStatus(data) {
+    console.log('updateStatus()', data.status);
+    switch (parseInt(data.status)) {
+        case 0:
+            $('#timer-pool').html('<i class="fa fa-spin fa-gear"></i>');
+            break;
+        default:
+            $('#timer-pool').html('');
+    }
+}
 
 function updateProgress(data) {
     console.log("updateProgress()");
@@ -104,10 +113,10 @@ function updateProgress(data) {
 }
 
 function updateTime(data) {
-    console.log("updateTime()");
+    console.log("updateTime()", data);
     $('#timer-pool').text(data.timer);
-    $('#timer-blue').text(data.timer_bonus1);
-    $('#timer-red').text(data.timer_bonus2);
+    $('#timer-blue').html(data.timer_bonus1);
+    $('#timer-red').html(data.timer_bonus2);
 }
 
 function draftOver() {

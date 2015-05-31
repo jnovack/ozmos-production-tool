@@ -37,6 +37,8 @@
 .theme-default div.teams { height: 300px; }
 
 .theme-default div.timers { position: relative; height: 64px; overflow: hidden; }
+.theme-default div.timers .time-notactive { color: #999999; }
+
 .theme-default div.time-pool-sm { font-size: 3em; text-align: center; width: 64px; }
 .theme-default div.time-pool-lg { margin-left: 52px; margin-right: 52px; font-size: 5.6em; line-height: 64px; text-align: center; width: 96px; }
 .theme-default div.team-name { }

@@ -108,29 +108,38 @@ function send(message) {
 function updateStatus(data) {
     switch (parseInt(data.status)) {
         case 0:
-            $('#status').text('setting up draft...');
+            $('#status').parent().removeClass(buildWildcardClass('has')).addClass('has-warning');
+            $('#status').html('<i class="fa fa-spin fa-gear"></i> setting up draft...');
             break;
         case 1:
-            $('#status').text('waiting for teams to ready up...');
+            $('#status').parent().removeClass(buildWildcardClass('has')).addClass('has-warning');
+            $('#status').html('<i class="fa fa-spin fa-spinner"></i> waiting for teams to ready up...');
             break;
         case 2:
+            $('#status').parent().removeClass(buildWildcardClass('has')).addClass('has-success');
             $('#status').text('bans...');
             break;
         case 3:
+            $('#status').parent().removeClass(buildWildcardClass('has')).addClass('has-success');
             $('#status').text('picks...');
             break;
     }
 }
 
 function draftOver() {
+    $('#time-pool').text('');
+    $('#blue-pool').text('');
+    $('#red-pool').text('');
+
     send({ event: 'state', data: { id: 'url', value: null }});
+    $('[data-group="spans"]').parent().removeClass(buildWildcardClass('has'));
     $('#status').text('draft complete');
 }
 
 function updateTime(data) {
-    $('#timer-pool').text(data.timer);
-    $('#timer-blue').text(data.timer_bonus1);
-    $('#timer-red').text(data.timer_bonus2);
+    $('#time-pool').text(data.timer);
+    $('#blue-pool').html(data.timer_bonus1);
+    $('#red-pool').html(data.timer_bonus2);
 }
 
 function updateProgress(data) {
