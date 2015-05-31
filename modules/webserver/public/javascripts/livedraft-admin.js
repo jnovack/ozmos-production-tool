@@ -44,10 +44,12 @@ control.on('message', function(data) {
 control.on('setting', function(data){
     console.log(data);
     elements[data.id] = data.value;
-    $.each(data.value.class, function(i, val) {
-        // TODO This only works for one class, on one element. does not scale.
-        $('.selectpicker').selectpicker('val', val);
-    });
+    if (typeof data.value.class !== "undefined") {
+        $.each(data.value.class, function(i, val) {
+            // TODO This only works for one class, on one element. does not scale.
+            $('.selectpicker').selectpicker('val', val);
+        });
+    }
     if (typeof data.value.options !== "undefined") {
         if (typeof data.value.options.radio !== "undefined") {
             if (data.value.options.radio.type == 'btn') {
