@@ -176,7 +176,7 @@ $('#url').blur(function() {
 
 $('[data-group="draft-background-pills"]').click(function() {
     var clicked = this;
-    var message = { event: 'setting', data: { id: 'wrapper',
+    var build = { event: 'setting', data: { id: 'wrapper',
                     value: {
                         css: {},
                         options: {
@@ -204,18 +204,20 @@ $('[data-group="draft-background-pills"]').click(function() {
             $("[name='"+$(obj).attr('id')+"'").removeClass('has-error');
         }
 
-        message.data.value.options.saved[$(obj).attr('id')] = $(obj).val();
+        build.data.value.options.saved[$(obj).attr('id')] = $(obj).val();
 
         if (clicked === obj) {
-            message.data.value.css[$(obj).attr('id')] = value;
+            build.data.value.css[$(obj).attr('id')] = value;
         } else {
-            message.data.value.css[$(obj).attr('id')] = '';
+            build.data.value.css[$(obj).attr('id')] = '';
         }
     }
 
+    var message = $.extend(true, {}, build);
     if(typeof elements['wrapper'] !== "undefined") {
-        $.extend(message.data.value, elements['wrapper']);
+        $.extend(true, message.data.value, elements['wrapper']);
     }
+    $.extend(true, message.data.value, build.data.value);
 
     send(message);
 });
