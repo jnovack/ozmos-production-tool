@@ -128,6 +128,10 @@ function updateTime(data) {
 
 function updateProgress(data) {
     // TODO Update clock to team pick
+    $('#time-pool').parent().addClass('has-success');
+    $('.time-turn'+data.turn).parent().addClass('has-success');
+    $('.time-turn'+parseInt(data.turn % 2 + 1)).parent().removeClass('has-success');
+
     // TODO Make current selection more appealing
     $.each($("[data-group='selections']"), function(i, val) {
         $(val).removeClass('has-success');

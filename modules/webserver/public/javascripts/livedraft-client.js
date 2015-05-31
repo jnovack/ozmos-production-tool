@@ -84,6 +84,8 @@ function updateStatus(status) { }
 
 function updateProgress(data) {
     console.log("updateProgress()");
+    $('.time-turn'+data.turn).removeClass('time-notactive');
+    $('.time-turn'+parseInt(data.turn % 2 + 1)).addClass('time-notactive');
     var team = [null, "blue", "red"];
     var stage = [null, null, 'b', 'p'];
     $('#'+team[data.turn]+'-'+stage[data.status]+data.turn_index+' .overlay-bg').removeClass('waiting').addClass('animated myturn');
