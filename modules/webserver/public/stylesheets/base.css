@@ -36,6 +36,19 @@ i.fa { margin-right: 0.3em; }
     border-top-right-radius: 4px;
 }
 
+.has-success .form-control[disabled] {
+  background-color: #e0efe0;
+}
+
+.has-warning .form-control[disabled] {
+  background-color: #e8e8e0;
+}
+
+.has-error .form-control[disabled] {
+  background-color: #efe0e0;
+}
+
+
 /*
  ***** Media Queries *****
  */

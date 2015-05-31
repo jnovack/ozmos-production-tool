@@ -30,11 +30,14 @@ control.on('state', function(data) {
             if (draftid !== null) {
                 $('[name=url').removeClass('has-error');
                 $('#url').attr('disabled',true).addClass('disabled');
+                $('#url').val(data.value);
                 $('[data-toggle="tooltip"]').tooltip();
                 draftid = data.value;
                 livedraftConnect(draftid);
                 console.log("initiating connection to livedraft " + draftid);
             } else {
+                $('#url').val('');
+                $('#url').attr('disabled',false).removeClass('disabled');
                 livedraftDisconnect();
                 console.log("administratively disconnected");
             }
@@ -82,6 +85,11 @@ control.on('setting', function(data){
 
 function triggerConnect() {
     console.log("triggerConnect()");
+
+    status = -1;
+    $('[data-group="pictures"]').removeClass(buildWildcardClass('divimage'));
+    $('[data-group="spans"]').val();
+
     $('#btnConnect').hide();
     $('#btnDisconnect').show();
 };

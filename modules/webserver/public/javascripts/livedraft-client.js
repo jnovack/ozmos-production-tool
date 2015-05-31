@@ -66,13 +66,26 @@ client.on('setting', function(data) {
     }
 });
 
-
-client.on('reload', function(data){
-    console.log("reloading...");
-    location.reload();
-});
-
 function triggerConnect() {
+    var team = [null, "blue", "red"];
+    var stage = [null, null, 'b', 'p'];
+
+    for (var t = 1; t < 3; ++t) {
+        for (var s = 2; s < 4; ++s) {
+            for (var i = 1; i < 6; ++i) {
+                $('#'+team[t]+'-'+stage[s]+i+' .overlay-bg').removeClass('animated myturn').addClass('waiting');
+                $('#'+team[t]+'-'+stage[s]+i+' .overlay-hero').removeClass('animated').addClass('hide');
+            }
+        }
+    }
+
+    $('[data-group="videos"]').attr('src', '').removeClass(buildWildcardClass('video')).addClass('hide');
+    $('.overlay-message').addClass('hide').removeClass('animated');
+
+    $('#timer-pool').text('');
+    $('#timer-blue').text('');
+    $('#timer-red').text('');
+
     console.log("triggerConnect()");
 }
 
