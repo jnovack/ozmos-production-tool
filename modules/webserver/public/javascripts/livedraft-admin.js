@@ -255,6 +255,7 @@ $("#btnReload").click(function() {
 
 /* document.ready(); */
 $(function() {
+    $('.selectpicker').selectpicker();
     // TODO This only works for one class, on one element. does not scale.
     $('.selectpicker').on('change', function(){
         var selected = $(this).find("option:selected").val();
@@ -271,5 +272,7 @@ $(function() {
 
         send(message);
     });
+
+    $('#livedraft').text(document.location.href.replace(/\/admin/g,''));
 
 });

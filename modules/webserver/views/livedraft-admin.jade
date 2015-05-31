@@ -16,7 +16,6 @@ block footer
   script.
     var livedraft_url = '#{wsurl}';
     var id = '#{id}';
-    $('.selectpicker').selectpicker();
   script(src='/javascripts/livedraft.js')
   script(src='/javascripts/livedraft-admin.js')
 
@@ -76,6 +75,30 @@ block content
             option(data-content="<i class='fa fa-star'></i> default",value='default') default
             option(value='clean') clean
 
+    div.row
+      div.col.col-lg-12
+        label(for='livedraft',class='control-label') Your Livedraft URL
+        div.input-group
+          span(data-group='text',type='text',id='livedraft',class='form-control',disabled)
+          span.input-group-btn
+            a(data-group='draft-command-pills',href='/livedraft/#{id}',target='new').btn.btn-success
+              i.fa.fa-external-link
+              | Open Livedraft
+
+    hr
+
+    div.row
+      div.col.col-sm-12.text-center
+        div.btn-toolbar
+          a(data-group='draft-command-pills',id='btnPause',data-action='pause').btn.btn-lg.btn-warning
+            i.fa.fa-pause
+            | Pause Videos
+          a(data-group='draft-command-pills',id='btnPlay',data-action='play',style='display: none;').btn.btn-lg.btn-success
+            i.fa.fa-play
+            | Play Videos
+          a(data-group='draft-reset-pills',id='btnReload',data-action='reset').btn.btn-lg.btn-primary
+            i.fa.fa-refresh
+            | Reload
 
     div.row
       div.col.col-sm-3
@@ -106,21 +129,6 @@ block content
 
     div.row
       div.col.col-lg-12
-        div.row
-          div.col.col-sm-12.text-center
-            div.btn-toolbar
-              a(data-group='draft-command-pills',href='/livedraft/#{id}',target='new').btn.btn-lg.btn-success
-                i.fa.fa-external-link
-                | Open Live Draft
-              a(data-group='draft-command-pills',id='btnPause',data-action='pause').btn.btn-lg.btn-warning
-                i.fa.fa-pause
-                | Pause Videos
-              a(data-group='draft-command-pills',id='btnPlay',data-action='play',style='display: none;').btn.btn-lg.btn-success
-                i.fa.fa-play
-                | Play Videos
-              a(data-group='draft-reset-pills',id='btnReload',data-action='reset').btn.btn-lg.btn-primary
-                i.fa.fa-refresh
-                | Reload
         div.row
           div.col.col-sm-2
               div(data-group='pictures',id='blue-b1-icon').center.divimage.divimagelg
