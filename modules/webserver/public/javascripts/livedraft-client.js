@@ -23,11 +23,10 @@ client.on('state', function(data) {
             break;
         case 'videos':
             if (data.value !== 'pause') {
-                // $("[data-group='videos']").attr('loop', true);
-                // TODO FIX Looping by using .play()
+                $("[data-group='videos']").each(function (i, val) { document.getElementById($(val).attr('id')).play(); });
                 console.log('videos playing');
             } else {
-                $("[data-group='videos']").removeAttr('loop');
+                $("[data-group='videos']").each(function (i, val) { document.getElementById($(val).attr('id')).pause(); });
                 console.log('videos paused');
             }
             break;
