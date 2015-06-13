@@ -1,0 +1,17 @@
+{
+    "hero": "abathur",
+    "game": "starcraft",
+    "role": "specialist",
+    "talents": {
+        "1": [
+            { "name": "Pressurized Glands", "image": "spike-burst" },
+            { "name": "Survival Instincts", "image": "locust-strain" },
+            { "name": "Regenerative Microbes", "image": "carapace" },
+            { "name": "Envenomed Nest", "image": "toxic-nest" }
+        ],
+        "10": [
+            { "name": "Ultimate Evolution", "image": "ultimate-evolution" },
+            { "name": "Evolve Monstrocity", "image": "evolve-monstrocity" }
+        ]
+    }
+}

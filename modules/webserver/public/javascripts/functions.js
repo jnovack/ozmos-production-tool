@@ -11,6 +11,7 @@ var blizzard = {
     'gazlowe': 'http://media.blizzard.com/heroes/videos/heroes/skins/gazlowe_bossOfRatchet.webm',
     'illidan': 'http://media.blizzard.com/heroes/videos/heroes/skins/illidan_theBetrayer.webm',
     'jaina': 'http://media.blizzard.com/heroes/videos/heroes/skins/jaina_archmage.webm',
+    'johanna': 'http://media.blizzard.com/heroes/videos/heroes/skins/johanna_crusaderOfZakarum.webm',
     'kaelthas': 'http://media.blizzard.com/heroes/videos/heroes/skins/kaelthas_theSunKing.webm',
     'kerrigan': 'http://media.blizzard.com/heroes/videos/heroes/skins/kerrigan_queenOfBlades.webm',
     'lili': 'http://media.blizzard.com/heroes/videos/heroes/skins/lili_worldWanderer.webm',

@@ -14,8 +14,15 @@ module.exports = function(app, myApp, express){
         }
     };
 
+    /* MessageBoard */
 
+    router.get('/messageboard/:id', checkShortId, function(req, res, next) {
+        res.render('messageboard.jade', { id: req.params.id, title: "OPT: Heroes of the Storm - Message Board" } );
+    });
 
+    router.get('/messageboard/:id/admin', checkShortId, function(req, res, next) {
+        res.render('messageboard-admin.jade', { id: req.params.id, admin: true, title: 'OPT: Messageboard Admin', created: req.flash('created') });
+    });
 
     /* LiveDraft */
 

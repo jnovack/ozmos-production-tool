@@ -46,6 +46,7 @@ module.exports = function(myApp){
 
         // Initialize the socket.io namespaces
         require("../sockets/livedraft")(myApp);
+        require("../sockets/messageboard")(myApp);
     };
 
     myApp.core = core;
