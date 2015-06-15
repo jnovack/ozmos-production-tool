@@ -35,32 +35,32 @@ socket.on('setting', function(data) {
     console.log(data);
 
     if ($("#"+data.id).text() != data.text) {
-        $("#"+data.id).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-            $(this).removeClass("animated bounceIn");
-        });
+
+        // If the element has an animation on change, perform it
+        if ($("#"+data.id).attr('data-animation') !== null) {
+            animateCSS(data.id, $("#"+data.id).attr('data-animation'));
+        }
 
         if ($("#"+data.id).hasClass("value")) {
-            $("#"+data.id).text(data.text).addClass("animated bounceIn");
+            $("#"+data.id).text(data.text);
         }
 
         if ($("#"+data.id).hasClass("text")) {
-            $("#"+data.id).text(data.text).addClass("animated bounceIn");
+            $("#"+data.id).text(data.text);
         }
 
         if ($("#"+data.id).hasClass("html")) {
-            $("#"+data.id).html(data.text).addClass("animated bounceIn");
+            $("#"+data.id).html(data.text);
         }
 
         if ($("#"+data.id).hasClass("divimage")) {
-            $("#"+data.id).removeClass().addClass("animated bounceIn divimage divimage-"+data.text);
+            $("#"+data.id).removeClass().addClass("divimage divimage-"+data.text);
         }
 
         if ($("#"+data.id).hasClass("linked-picture")) {
-            $("#"+data.id).text(properName(data.text)).addClass("animated bounceIn");
-            $("#"+data.id.substring(0, data.id.indexOf('-'))+"-picture").removeClass().addClass("animated bounceIn divimage divimage-"+data.text);
-            $("#"+data.id.substring(0, data.id.indexOf('-'))+"-picture").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-                $(this).removeClass("animated bounceIn");
-            });
+            $("#"+data.id).text(properName(data.text));
+            $("#"+data.id.substring(0, data.id.indexOf('-'))+"-picture").removeClass(buildWildcardClass('divimage')).addClass('divimage-'+data.text);
+            animateCSS(data.id.substring(0, data.id.indexOf('-'))+"-picture", $("#"+data.id.substring(0, data.id.indexOf('-'))+"-picture").attr('data-animation'));
         }
 
         if ($("#"+data.id).hasClass("progress-bar")) {
@@ -70,6 +70,7 @@ socket.on('setting', function(data) {
         if ($("#"+data.id).hasClass("video")) {
             $("#"+data.id).attr('src', "/assets/hero-videos/"+data.text+".webm").removeClass().addClass("video " + data.text);
             $("#"+data.id+'-text').text(properName(data.text));
+            animateCSS(data.id+'-text');
         }
 
         if ($("#"+data.id).hasClass("percent")) {
@@ -80,11 +81,11 @@ socket.on('setting', function(data) {
             if ((data.text >= 55) && (data.text < 60)) { $("#"+data.id).removeClass(redgreen).addClass("color-greener"); }
             if  (data.text >= 60) { $("#"+data.id).removeClass(redgreen).addClass("color-greenest"); }
 
-            $("#"+data.id).text(data.text).addClass("animated bounceIn");
+            $("#"+data.id).text(data.text);
         }
 
         if ($("#"+data.id).hasClass("ratio")) {
-            $("#"+data.id).text(data.text).addClass("animated bounceIn");
+            $("#"+data.id).text(data.text);
             var group = $("#"+data.id).attr('data-group');
             var total = 0;
             $.each( $("[data-group='"+group+"']"), function(val, obj) {
@@ -116,12 +117,11 @@ function initContent(){
     resetTimer();
 };
 
-/***** MessageBoard Animation Javascripts *****/
-var loopTimer;
-// var currentLoop = 0;
+/***** BEGIN MessageBoard Animation Javascripts *****/
 var rotateTime = 5000;
+var loopTimer;
 loadMessages();
-loopTimer = setTimeout(paginateMessages, rotateTime);
+loopTimer = setTimeout(paginateMessages, 1000); // HACK: wait a second to load from socket.io
 
 function loadMessages(){
     var i = 1;
@@ -167,9 +167,11 @@ function fadeMessages(){
 
 function rotateMessages() {
     // Rotate the current element to the bottom and remove it from the top.
-    console.log("rotating ",$('#messages li:nth-child(1)')[0].firstChild );
     $('#messages li:nth-child(1)').clone().appendTo('#messages').fadeTo(0,0);
     $('#messages li:nth-child(1)').remove();
+
+    // Reset margin top after animation
+    $('#messages').css('margin-top', 0);
 
     // Hide or show element on rotation
     if ( $('#messages li:last-child').attr('data-ignore') == "true" ) {
@@ -191,13 +193,11 @@ function rotateMessages() {
         $('#messages li:last-child').addClass('dim');
     }
 
-    $('#messages').css('margin-top', 0);
-
+    // If the next message is hidden, cycle it anyway.
     if ($('#messages li:nth-child(1)').hasClass('hide')) {
         rotateMessages();
     }
 }
-
 
 function paginateMessages(){
 
@@ -208,32 +208,25 @@ function paginateMessages(){
 
     clearTimeout(loopTimer);
 
-    // if(currentLoop == 0){
-    // }else if(currentLoop <= listAmount){
-        $('#messages').animate({
-            marginTop: -height
-          }, {
-            duration: 1000,
-            specialEasing: {
-                marginTop: 'easeInOutBack'
-            },
-            complete: function() {
-                clearTimeout(loopTimer);
+    $('#messages').animate({
+        marginTop: -height
+      }, {
+        duration: 1000,
+        specialEasing: {
+            marginTop: 'easeInOutBack'
+        },
+        complete: function() {
+            clearTimeout(loopTimer);
 
-                rotateMessages();
+            rotateMessages();
 
-                loopTimer = setTimeout(paginateMessages, rotateTime);
-                fadeMessages();
-            }
-         });
-    // }else if(currentLoop > listAmount){
-    //     clearTimeout(loopTimer);
-    //     loopTimer = setTimeout(paginateMessages, rotateTime);
-    //     //console.log('refreshed');
-    //     currentLoop = 0;
-    // }
-    // currentLoop++;
+            loopTimer = setTimeout(paginateMessages, rotateTime);
+            fadeMessages();
+        }
+    });
 }
+/***** END MessageBoard Animation Javascripts *****/
+
 
 // Hack to restart marquee if it breaks...
 $('#mainview_footer').bind('changeData', function(e){

@@ -15,11 +15,22 @@ block content
       .row { margin-top: 24px;}
 
     div.row
-      div.col-lg-12
+      div.col.col-sm-12
+        h1 Ozmo's Production Tool - /messageboard Admin
+
+    div.row
+      div.col-md-4
+        +hero-select('hero-video','Hero Video')
+      div.col-lg-4
         div.control-group
           label(for='title',class='control-label') Title
           div.controls
             input(data-group="text",type='text',id='title',name='title',placeholder="Title of the Stream",class='form-control')
+      div.col-md-4
+        div.control-group
+          label(for='rank',class='control-label') Rank
+          div.controls
+            input(data-group='value',type='text',id='rank',name='rank',placeholder="25",class='form-control')
 
     div.row
       div.col-md-6
@@ -30,27 +41,18 @@ block content
       div.col-md-6
         div.control-group
           label(for='subtitle2',class='control-label') SubTitle Bottom Line
-          div.controls
+          div.controls.input-group
+            span.input-group-btn
+              button(data-group='checkbox-pills',data-action='class',data-element='subtitle2-icons',data-unvalue='fa-transparent',data-value='fa-twitter',type='button').btn.btn-checkbox
+                i.fa.fa-twitter
             input(data-group="text",type='text',id='subtitle2',name='subtitle2',placeholder='Quick Match',class='form-control')
+
+    div.row
       div.col-lg-12
-        ul.nav.nav-pills.nav-justified
-          li(data-group="subtitle-pills",id="subtitleText")
-            a(href="#") Use Text
-          li(data-group="subtitle-pills",id="subtitleAFKBreak")
-            a(href="#") AFK On Break
-          li(data-group="subtitle-pills",id="subtitleAFKCustom")
-            a(href="#") AFK Custom
-
-    div.row
-      div.col-md-8
-        +hero-select('hero-video','Hero Video')
-      div.col-md-4
-        div.control-group
-          label(for='rank',class='control-label') Rank
-          div.controls
-            input(data-group='value',type='text',id='rank',name='rank',placeholder="25",class='form-control')
-
-    div.row
+        a(href="#",class="btn btn-primary",id="reloadButton")
+          i.fa.fa-refresh
+          | Reload
+    hr
 
     div.row
       div.col-lg-12
@@ -58,27 +60,26 @@ block content
           ul(role='tablist').nav.nav-tabs
             li(role='presentation').active
               a(href='#tab-map',aria-expanded='true',role='tab',data-toggle='tab')
-                span(id='label-map').label.label-primary Map Info
+                span(id='label-map').label.label-primary Map
             li(role='presentation')
-              a(href='#tab-hero',aria-expanded='false',role='tab',data-toggle='tab')
-                span(id='label-hero').label.label-primary Hero Info
+              a(href='#tab-player',aria-expanded='false',role='tab',data-toggle='tab')
+                span(id='label-player').label.label-primary Player
             li(role='presentation')
               a(href='#tab-voice',aria-expanded='false',role='tab',data-toggle='tab')
-                span(id='label-voice').label.label-primary Voice Info
+                span(id='label-voice').label.label-primary Voice
             li(role='presentation')
-              a(href='#tab-crawl',aria-expanded='false',role='tab',data-toggle='tab')
-                span(id='label-crawl').label.label-primary Crawl
+              a(href='#tab-marquee',aria-expanded='false',role='tab',data-toggle='tab')
+                span(id='label-marquee').label.label-primary Marquee
             li(role='presentation')
               a(href='#tab-messages',aria-expanded='false',role='tab',data-toggle='tab')
-                span Messages
+                span(id='label-messages').label.label-primary Messages
           div.tab-content
             div(role='tabpanel',id='tab-map').tab-pane.active.has-primary
               div.row
                 div.col-lg-12
                   div.btn-toolbar
                     div.btn-group
-                      a(data-group="toggle-pills",data-set='map',data-partner='Show',data-value='true',id="mapHide",data-element="map_container",href='#').btn.btn-sm.btn-success Map Tab is VISIBLE
-                      a(data-group="toggle-pills",data-set='map',data-partner='Hide',data-value='false',id="mapShow",data-element="map_container",href='#',style="display: none").btn.btn-sm.btn-danger Map Tab is HIDDEN
+                      button(data-group="checkbox-pills",data-action='ignore',data-element="map_container",data-unvalue='true',data-value='false',data-active-text='Map Tab is VISIBLE',data-inactive-text='Map Tab is HIDDEN',data-partner='label-map',data-partner-active='label-success',data-partner-inactive='label-danger').btn.btn-checkbox
               div.row
                 div.col-md-3
                   div(id="blackhearts-bay")
@@ -122,13 +123,12 @@ block content
                       label(for='tomb-of-the-spider-queen-percent',class='control-label') tomb-of-the-spider-queen
                       div.controls
                         input(data-group='value',type='text',id='tomb-of-the-spider-queen-percent',placeholder="46",class='form-control')
-            div(role='tabpanel',id='tab-hero').tab-pane
+            div(role='tabpanel',id='tab-player').tab-pane
               div.row
                 div.col-lg-12
                   div.btn-toolbar
                     div.btn-group
-                      a(data-group="toggle-pills",data-set='hero',data-partner='Show',data-value='true',id="heroHide",data-element="hero_container",href='#').btn.btn-sm.btn-success Hero Tab is VISIBLE
-                      a(data-group="toggle-pills",data-set='hero',data-partner='Hide',data-value='false',id="heroShow",data-element="hero_container",href='#',style="display: none").btn.btn-sm.btn-danger Hero Tab is HIDDEN
+                      button(data-group="checkbox-pills",data-action='ignore',data-element="player_container",data-unvalue='true',data-value='false',data-active-text='Player Tab is VISIBLE',data-inactive-text='Player Tab is HIDDEN',data-partner='label-player',data-partner-active='label-success',data-partner-inactive='label-danger').btn.btn-checkbox
               div.row
                 div.col-md-3
                   div(id="warrior")
@@ -194,46 +194,48 @@ block content
                         label(for='hero3-level',class='control-label') hero3-level
                         div.controls
                           input(data-group='value',type='text',id='hero3-level',placeholder="10",class='form-control')
-            div(role='tabpanel',id='tab-crawl').tab-pane
+            div(role='tabpanel',id='tab-marquee').tab-pane
               div.row
                 div.col-lg-12
                   div.control-group
-                    label(for='crawl-text',class='control-label') Crawl
+                    label(for='marquee-text',class='control-label') Marquee
                     div.controls
-                      textarea(type='text',id='crawl-text',name='crawl-text',placeholder=':: <strong>Heroes of the Dorm</strong> :: Boston College defeated Western Ontario in a 2-0 victory.  ||  Arizona State beat Texas A&M in a 2-0 victory.',class='form-control')
+                      textarea(data-group='text',type='text',id='marquee-text',name='marquee-text',placeholder=':: <strong>Heroes of the Dorm</strong> :: Boston College defeated Western Ontario in a 2-0 victory.  ||  Arizona State beat Texas A&M in a 2-0 victory.',class='form-control')
               div.row
                 div.col-lg-12
-                  ul.nav.nav-pills.nav-justified
-                    li(data-group="crawl-pills",id="crawlBlack")
-                      a(href="#") Default Crawl
-                    li(data-group="crawl-pills",id="crawlBlue")
-                      a(href="#") Priority Crawl
-                    li(data-group="crawl-pills",id="crawlRed")
-                      a(href="#") Urgent Crawl
-                    li(data-group="crawl-pills",id="crawlDisable")
-                      a(href="#") Disable Crawl
-            div(role='tabpanel',id='tab-messages',style="height: 600px; overflow-y:scroll; overflow-x:hidden").tab-pane
+                  div(data-toggle="buttons").btn-group
+                    label(data-group="radio-pills",autocomplete="off",data-action='class',data-element='mainview_footer_marquee',data-value='marquee-black',data-partner='label-marquee',data-partner-active='label-success',data-partner-inactive='label').btn.btn-radio Default Marquee
+                      input(type="radio",name="marquee-style")
+                    label(data-group="radio-pills",autocomplete="off",data-action='class',data-element='mainview_footer_marquee',data-value='marquee-blue',data-partner='label-marquee',data-partner-active='label-success',data-partner-inactive='label').btn.btn-radio Priority Marquee
+                      input(type="radio",name="marquee-style")
+                    label(data-group="radio-pills",autocomplete="off",data-action='class',data-element='mainview_footer_marquee',data-value='marquee-red',data-partner='label-marquee',data-partner-active='label-success',data-partner-inactive='label').btn.btn-radio Urgent Marquee
+                      input(type="radio",name="marquee-style")
+                    label(data-group="radio-pills",autocomplete="off",data-action='class',data-element='mainview_footer_marquee',data-value='marquee-hide',data-partner='label-marquee',data-partner-active='label-default',data-partner-inactive='label').btn.btn-radio Disable Marquee
+                      input(type="radio",name="marquee-style")
+            div(role='tabpanel',id='tab-messages').tab-pane
               - for (var i = 1; i <= 10; ++i) {
-                div.row
-                  div.col-lg-12
-                    fieldset.active
-                      legend Message #{i} of 10
-                      div.control-group
-                        label(for='message#{i}-text',class='control-label') message
-                        div.controls
-                          textarea(data-group='value',type='text',id='message#{i}-text',placeholder="",class='form-control')
-                      div.control-group
-                        label(for='message#{i}-date',class='control-label') date
-                        div.controls
-                          input(data-group='value',type='text',id='message#{i}-date',placeholder="",class='form-control')
+                fieldset.pad-small
+                  div.col-sm-2
+                    label(class='control-label') Message #{i}
+                    div.btn-toolbar
+                      button(data-group="checkbox-pills",data-action='ignore',data-element="msg#{i}",data-unvalue='true',data-value='false',data-active-text='ENABLED',data-inactive-text='DISABLED').btn.btn-checkbox
+                  div.col-sm-8
+                    div.control-group
+                      label(for='msg#{i}-text',class='control-label') message
+                      div.controls
+                        textarea(data-group='text',type='text',id='msg#{i}-text',placeholder="",class='form-control')
+                  div.col-sm-2
+                    div.control-group
+                      label(for='msg#{i}-tag',class='control-label') tag
+                      div.controls
+                        input(data-group='text',type='text',id='msg#{i}-tag',placeholder="",class='form-control')
               - }
             div(role='tabpanel',id='tab-voice').tab-pane
               div.row
                 div.col-lg-12
                   div.btn-toolbar
                     div.btn-group
-                      a(data-group="toggle-pills",data-set='voice',data-partner='Show',data-value='true',id="voiceHide",data-element="voice_container",href='#').btn.btn-sm.btn-success Voice Tab is VISIBLE
-                      a(data-group="toggle-pills",data-set='voice',data-partner='Hide',data-value='false',id="voiceShow",data-element="voice_container",href='#',style="display: none").btn.btn-sm.btn-danger Voice Tab is HIDDEN
+                      button(data-group="checkbox-pills",data-action='ignore',data-element="voice_container",data-unvalue='true',data-value='false',data-active-text='Voice Tab is VISIBLE',data-inactive-text='Voice Tab is HIDDEN',data-partner='label-voice',data-partner-active='label-success',data-partner-inactive='label-danger').btn.btn-checkbox
               div.row
                 div.col-lg-12
                   - for (var i = 1; i < 4; ++i) {
@@ -267,9 +269,3 @@ block content
                         input(data-group='value',type='text',id='template-value',placeholder='42',class='form-control')
 
     hr
-
-    div.row
-      div.col-lg-12
-        a(href="#",class="btn btn-primary",id="reloadButton") Reload
-        a(href="#",class="btn btn-warning",id="hideMsgButton") Hide Messages
-        a(href="#",class="btn btn-success",id="showMsgButton", style="display: none") Show Messages

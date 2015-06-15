@@ -24,8 +24,10 @@ div.title {margin-top: 16px; font-weight: 700; text-shadow: 0 0 1em #009cff; tex
 
 
 div.center { margin-left: auto; margin-right: auto; }
-div.pad-none { padding: 0px; }
-div.pad-small { padding: 2px; }
+.pad-none { padding: 0px; }
+.pad-small { padding: 2px; }
+
+.margin-top-none { margin-top: 0px;}
 
 /* .jade hack, saving the file cuts of end-of-line spacing, and adding &nbsp looks ugly */
 .spacer { margin-left: 0.3em; margin-right: 0.3em; }
@@ -33,7 +35,10 @@ div.pad-small { padding: 2px; }
 /* Font Awesome Overrides */
 i.fa { margin-right: 0.3em; }
 
-/* Bootstrap Overrides */
+
+/*
+ ***** Bootstrap Overrides
+ */
 .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle){
     border-bottom-right-radius: 4px;
     border-top-right-radius: 4px;
@@ -51,6 +56,39 @@ i.fa { margin-right: 0.3em; }
   background-color: #efe0e0;
 }
 
+/* Button is RED when inactive, GREEN when active */
+.btn-checkbox {
+    background-image: -webkit-linear-gradient(#ff1d1b, #cd0200 50%, #b90200);
+    background-image: -o-linear-gradient(#ff1d1b, #cd0200 50%, #b90200);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ff1d1b), color-stop(50%, #cd0200), to(#b90200));
+    background-image: linear-gradient(#ff1d1b, #cd0200 50%, #b90200);
+    background-repeat: no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff1d1b', endColorstr='#ffb90200', GradientType=0);
+    -webkit-filter: none;
+    filter: none;
+    border: 1px solid #9a0200;
+    color: #ffffff;
+    background-color: #cd0200;
+    border-color: #cd0200;
+}
+.btn-checkbox.active { color: #ffffff; background-color: #2e8a19; border-color: #2b8118; }
+
+/* Button is DARKBLUE when inactive, LIGHTBLUE when active */
+.btn-radio {
+    background-image: -webkit-linear-gradient(#6d94bf, #446e9b 50%, #3e648d);
+    background-image: -o-linear-gradient(#6d94bf, #446e9b 50%, #3e648d);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#6d94bf), color-stop(50%, #446e9b), to(#3e648d));
+    background-image: linear-gradient(#6d94bf, #446e9b 50%, #3e648d);
+    background-repeat: no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6d94bf', endColorstr='#ff3e648d', GradientType=0);
+    -webkit-filter: none;
+    filter: none;
+    border: 1px solid #345578;
+    color: #ffffff;
+    background-color: #446e9b;
+    border-color: #446e9b;
+}
+.btn-radio.active { color: #ffffff; background-color: #0e80e5; border-color: #0d7bdc; }
 
 /*
  ***** Media Queries *****

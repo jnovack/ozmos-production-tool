@@ -112,12 +112,25 @@ function getHeroVideo(hero) {
 }
 
 function buildWildcardClass(prefix) {
-  return function (index, css) {
-    return (css.match (new RegExp("(^|\\s)" + prefix + "-\\S+", "g") ) || []).join(' ');
-  }
+    return function (index, css) {
+        return (css.match (new RegExp("(^|\\s)" + prefix + "-\\S+", "g") ) || []).join(' ');
+    }
 }
 
 // Catch ESC anywhere to blur the element, which should process the input
 $(document).keyup(function(e) {
     if (e.keyCode == 27) { $(document.activeElement).blur(); }   // escape key maps to keycode `27`
+    if (e.keyCode == 13 && e.shiftKey) { var elem = document.activeElement; $(elem).blur(); $(elem).focus();}
 });
+
+function animateCSS(id, animation) {
+    if (animation === undefined) {
+        animation = $('#'+id).attr('data-animation');
+    }
+
+    $('#'+id).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        $(this).removeClass('animated '+ animation);
+    });
+
+    $('#'+id).addClass('animated '+ animation);
+}

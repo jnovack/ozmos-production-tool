@@ -7,7 +7,6 @@ function send(message) {
     console.log(message);
 }
 
-var classes_label = "label-primary label-default label-info label-success label-danger label-warning";
 
 /*
  ***** Master Buttons *****
@@ -16,70 +15,60 @@ var classes_label = "label-primary label-default label-info label-success label-
 $("#reloadButton").click(function() {
     send({ event: 'reload' });
 });
-$("#hideMsgButton").click(function() {
-    message = { event: 'hide-messages' };
-    send(message);
-    $("#showMsgButton").show();
-    $("#hideMsgButton").hide();
-});
-$("#showMsgButton").click(function() {
-    message = { event: 'show-messages' };
-    send(message);
-    $("#hideMsgButton").show();
-    $("#showMsgButton").hide();
-});
 
 
 /*
- ***** SubTitle *****
+ ***** Radio Pills *****
  */
-
-$("#subtitleText").click(function() {
-    message = { event: 'setting', data: { id: "subtitle1", text: $("#subtitle1").val() } };
-    message = { event: 'setting', data: { id: "subtitle2", text: $("#subtitle2").val() } };
-    $("[data-group='subtitle-pills']").removeClass("active");
-    $(this).addClass("active");
-    $("#subtitle1").parent().parent().addClass("has-success");
-    $("#subtitle2").parent().parent().addClass("has-success");
-    send(message);
-});
-$("#subtitleAFKBreak").click(function() {
-    message = { event: 'setting', data: { id: "subtitle1", text: "Away From Keyboard" } };
-    message = { event: 'setting', data: { id: "subtitle2", text: "On Break" } };
-    $("[data-group='subtitle-pills']").removeClass("active");
-    $(this).addClass("active");
-    $("#subtitle1").parent().parent().removeClass("has-success");
-    $("#subtitle2").parent().parent().removeClass("has-success");
-    send(message);
-});
-$("#subtitleAFKCustom").click(function() {
-    message = { event: 'setting', data: { id: "subtitle1", text: "Away From Keyboard" } };
-    message = { event: 'setting', data: { id: "subtitle2", text: $("#subtitle2").val() } };
-    $("[data-group='subtitle-pills']").removeClass("active");
-    $(this).addClass("active");
-    $("#subtitle1").parent().parent().removeClass("has-success");
-    $("#subtitle2").parent().parent().addClass("has-success");
-    send(message);
-});
-
-
-/*
- ***** Toggle Pills *****
- */
-
-$("[data-group='toggle-pills']").click(function() {
-    var set = $(this).attr('data-set');
-    var partner = $(this).attr('data-partner');
+$("[data-group='radio-pills']").click(function() {
+    var element = $(this).attr('data-element');
+    var action = $(this).attr('data-action');
     var value = $(this).attr('data-value');
-    var label = "success"
 
-    if (partner == "Show") { label = "danger"; }
+    if ($(this).attr('data-partner') !== null && $(this).attr('data-partner-active') !== null ) {
+        $('#'+ $(this).attr('data-partner')).removeClass(buildWildcardClass($(this).attr('data-partner-inactive'))).addClass($(this).attr('data-partner-active'));
+    }
 
-    message = { event: 'action', data: { id: set+'_container', action: 'ignore', value: value } };
+
+    message = { event: 'action', data: { id: element, action: action, value: value } };
     send(message);
-    $("#"+set+partner).show();
-    $(this).hide();
-    $("#label-"+set).removeClass(classes_label).addClass("label-"+label);
+});
+
+
+/*
+ ***** Checkbox Pills *****
+ */
+$("[data-group='checkbox-pills']").click(function() {
+    var element = $(this).attr('data-element');
+    var action = $(this).attr('data-action');
+    var activeText = $(this).attr('data-active-text');
+    var inactiveText = $(this).attr('data-inactive-text');
+    var value
+
+    // Not sure why I have to do all this, the socket.on('action') should be taking care of it...
+    if ($(this).hasClass('active')) {
+        value = $(this).attr('data-unvalue');
+        $(this).removeClass('active');
+    } else {
+        value = $(this).attr('data-value');
+        $(this).addClass('active');
+    }
+
+    if ($(this).hasClass('active') && activeText !== null) {
+        $(this).text(activeText);
+        if ($(this).attr('data-partner') !== null && $(this).attr('data-partner-active') !== null ) {
+            $('#'+ $(this).attr('data-partner')).removeClass($(this).attr('data-partner-inactive')).addClass($(this).attr('data-partner-active'));
+        }
+    } else if (!$(this).hasClass('active') && inactiveText !== null) {
+        $(this).text(inactiveText);
+        if ($(this).attr('data-partner') !== null && $(this).attr('data-partner-inactive') !== null ) {
+            $('#'+ $(this).attr('data-partner')).removeClass($(this).attr('data-partner-active')).addClass($(this).attr('data-partner-inactive'));
+        }
+    }
+
+    message = { event: 'action', data: { id: element, action: action, value: value } };
+    send(message);
+    $(this).blur();
 });
 
 /*
@@ -94,52 +83,13 @@ $("input[data-automate='voice']").blur(function() {
         $('#' + id + '-picture option[value="transparent"]').attr('selected', 'selected');
         $('#' + id + '-picture').change();
     } else {
+        // Set a random picture based on the amount of images if no image was selected
         if ( $('#' + id + '-picture option:selected').text() == 'transparent') {
             $('#' + id + '-picture option:selected').removeAttr('selected');
             $('#' + id + '-picture option:eq(' + parseInt($('#' + id + '-text').val().toLowerCase(), 36) % $('#' + id + '-picture option').size() + ')').attr('selected', 'selected');
             $('#' + id + '-picture').change();
         }
     }
-});
-
-/*
- ***** Crawl *****
- */
-
-$("#crawl-text").blur(function() {
-    message = { event: 'setting', data: { id: "crawl-text", text: $("#crawl-text").val() } };
-    send(message);
-});
-
-$("#crawlDisable").click(function() {
-    $("[data-group='crawl-pills']").removeClass("active");
-    $(this).addClass("active");
-    $("#label-crawl").removeClass(classes_label).addClass("label-default");
-    send({ event: 'action', data: { id: "mainview_footer", action: "visible", value: "hide" }});
-});
-
-$("#crawlBlack").click(function() {
-    $("[data-group='crawl-pills']").removeClass("active");
-    $(this).addClass("active");
-    $("#label-crawl").removeClass(classes_label).addClass("label-primary");
-    send({ event: 'action', data: { id: "mainview_footer_marquee", action: "class", value: "marquee-black" }});
-    send({ event: 'action', data: { id: "mainview_footer", action: "visible", value: "show" }});
-});
-
-$("#crawlBlue").click(function() {
-    $("[data-group='crawl-pills']").removeClass("active");
-    $(this).addClass("active");
-    $("#label-crawl").removeClass(classes_label).addClass("label-info");
-    send({ event: 'action', data: { id: "mainview_footer_marquee", action: "class", value: "marquee-blue" }});
-    send({ event: 'action', data: { id: "mainview_footer", action: "visible", value: "show" }});
-});
-
-$("#crawlRed").click(function() {
-    $("[data-group='crawl-pills']").removeClass("active");
-    $(this).addClass("active");
-    $("#label-crawl").removeClass(classes_label).addClass("label-danger");
-    send({ event: 'action', data: { id: "mainview_footer_marquee", action: "class", value: "marquee-red" }});
-    send({ event: 'action', data: { id: "mainview_footer", action: "visible", value: "show" }});
 });
 
 /*
@@ -188,43 +138,71 @@ $("input[data-group='value']").blur(function() {
     }
 });
 
-
-$("input[data-group='text']").blur(function() {
+$("textarea[data-group='text']").blur(function() {
     result = $(this).val();
-    pattern = new RegExp(/[a-zA-Z0-9 \'\"\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]]/);
+    pattern = new RegExp(/[a-zA-Z0-9 \'\"\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\;\:\,\.]/);
     if (pattern.test(result) || result == "") {
         message = { event: 'setting', data: { id: $(this).attr("id"), text: $(this).val() } };
         send(message);
     }
 });
 
-
-socket.on('action', function(data) {
-    console.log(data);
-
-    if (data.action == 'ignore') {
-        // Toggles
-        $.each( $("[data-element='"+data.id+"']"), function(i, obj) {
-            if ($(this).attr('data-value') == data.value) {
-                var set = $(this).attr('data-set');
-                var partner = $(obj).attr('data-partner');
-                var label = "success"
-
-                if (partner == "Show") { label = "danger"; }
-                $("#"+set+partner).show();
-                $(this).hide();
-                $("#label-"+set).removeClass(classes_label).addClass("label-"+label);
-            }
-        });
+$("input[data-group='text']").blur(function() {
+    result = $(this).val();
+    pattern = new RegExp(/[a-zA-Z0-9 \'\"\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\;\:\,\.]/);
+    if (pattern.test(result) || result == "") {
+        message = { event: 'setting', data: { id: $(this).attr("id"), text: $(this).val() } };
+        send(message);
     }
 });
 
+/*
+ ***** socket.on Actions
+ */
+socket.on('action', function(data) {
+    console.log(data);
+
+    if (data.action == 'class' || data.action == 'ignore') {
+        var element = $('[data-element="' + data.id + '"][data-action="' + data.action + '"]');
+
+        switch ($(element[0]).attr('data-group')) {
+            case "checkbox-pills":
+                if (data.value == $(element[0]).attr('data-value')) {
+                    $(element[0]).addClass('active');
+                    if ($(element[0]).attr('data-active-text') !== null) {
+                        $(element[0]).text($(element[0]).attr('data-active-text'));
+                    }
+                    if ($(element[0]).attr('data-partner') !== null && $(element[0]).attr('data-partner-active') !== null ) {
+                        $('#'+ $(element[0]).attr('data-partner')).removeClass($(element[0]).attr('data-partner-inactive')).addClass($(element[0]).attr('data-partner-active'));
+                    }
+                } else if (data.value == $(element[0]).attr('data-unvalue')) {
+                    $(element[0]).removeClass('active');
+                    if ($(element[0]).attr('data-inactive-text') !== null) {
+                        $(element[0]).text($(element[0]).attr('data-inactive-text'));
+                    }
+                    if ($(element[0]).attr('data-partner') !== null && $(element[0]).attr('data-partner-inactive') !== null ) {
+                        $('#'+ $(element[0]).attr('data-partner')).removeClass($(element[0]).attr('data-partner-active')).addClass($(element[0]).attr('data-partner-inactive'));
+                    }
+                } else {
+                    console.log('no clue how I got here... :/');
+                }
+                break;
+            case "radio-pills":
+                var element = $('[data-element="' + data.id + '"][data-action="' + data.action + '"][data-value="' + data.value + '"]');
+                element.addClass('active');
+                if (element.attr('data-partner') !== null && element.attr('data-partner-active') !== null ) {
+                    $('#'+ element.attr('data-partner')).removeClass(buildWildcardClass(element.attr('data-partner-inactive'))).addClass(element.attr('data-partner-active'));
+                }
+                break;
+            default:
+                console.log('socket.on(action) switch case '+$(element[0]).attr('data-group')+' is NOT valid');
+        }
+    }
+
+});
 
 socket.on('setting', function(data) {
     console.log(data);
-
-    // TODO crawl-text
-    // TODO crawl-pills
 
     // Admin helper functions
     if (typeof $('#'+data.id).prop('type') !== "undefined") {
