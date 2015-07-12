@@ -31,7 +31,9 @@ block content
       #sidebar_body
         #timer_percent
         #map_container(data-group="sidebar_body_containers",data-ignore='true').hidden
-          div.heading Map Win Percentage
+          div.heading.flex.flex-align-items-center.flex-justify-between
+            div.li-text Win Percentage
+            div.li-number.ratio-of-total.percent(id='overall-win-text',data-animation='bounceIn',data-reference="games-played") 99.99
           ul
             li.flex.flex-align-items-center.flex-justify-between
               div(id='blackhearts-bay-picture').divimage.divimagewide.divimage-blackhearts-bay

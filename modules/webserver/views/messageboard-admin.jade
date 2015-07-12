@@ -82,6 +82,13 @@ block content
                       button(data-group="checkbox-pills",data-action='ignore',data-element="map_container",data-unvalue='true',data-value='false',data-active-text='Map Tab is VISIBLE',data-inactive-text='Map Tab is HIDDEN',data-partner='label-map',data-partner-active='label-success',data-partner-inactive='label-danger').btn.btn-checkbox
               div.row
                 div.col-md-3
+                  div(id="overall-win")
+                    div.control-group
+                      label(for='overall-win-text',class='control-label') total-wins
+                      div.controls
+                        input(data-group='value',type='text',id='overall-win-text',placeholder="52",class='form-control')
+              div.row
+                div.col-md-3
                   div(id="blackhearts-bay")
                     div.control-group
                       label(for='blackhearts-bay-percent',class='control-label') blackhearts-bay

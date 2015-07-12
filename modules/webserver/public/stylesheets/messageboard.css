@@ -1,6 +1,6 @@
 * {margin: 0px; padding: 0px; font-weight: normal; list-style-type: none;}
 
-body {background: #000; cursor: none; color: white; font-family: 'Exo 2', 'Open Sans', sans-serif; }
+body {background: #000; cursor: none; color: white; font-family: "Exo 2", sans-serif; }
 
 strong { color: #FFFFFF; font-weight: 600; }
 .link { color: rgb(36,144,255); text-decoration: underline; }
@@ -99,6 +99,14 @@ strong { color: #FFFFFF; font-weight: 600; }
 
 #mainview_footer { background-color: #1F1F1F; height: 56px; margin-top:1024px; z-index: 999; font-size: 2.2em; text-shadow: 1px 1px #000000; border: 1px solid #000000;}
 
+
+/*
+ ***** Messages *****
+ */
+#messages .divimage {
+  margin: 6px;
+  float: left;
+}
 
 /*
  ***** Marquee *****

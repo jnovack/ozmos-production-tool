@@ -21,7 +21,7 @@ div.title {margin-top: 16px; font-weight: 700; text-shadow: 0 0 1em #009cff; tex
 .flex-justify-start { -webkit-box-pack: justify; -webkit-justify-content: flex-start; -ms-flex-pack: justify; -moz-box-pack: justify; justify-content: flex-start; }
 .flex-justify-end { -webkit-box-pack: justify; -webkit-justify-content: flex-end; -ms-flex-pack: justify; -moz-box-pack: justify; justify-content: flex-end; }
 .flex-wrap { -moz-box-wrap: wrap; -webkit-box-wrap: wrap; -webkit-flex-wrap: wrap; -ms-flexbox-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }
-
+.flex-full-width { flex-grow: 100; }
 
 div.center { margin-left: auto; margin-right: auto; }
 .pad-none { padding: 0px; }

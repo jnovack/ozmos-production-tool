@@ -84,6 +84,18 @@ socket.on('setting', function(data) {
             $("#"+data.id).text(data.text);
         }
 
+        if ($("#"+data.id).hasClass("ratio-of-total")) {
+            var group = $("#"+data.id).attr('data-reference');
+            var total = 0;
+            $.each( $("[data-group='"+group+"']"), function(val, obj) {
+                console.log($(obj).text());
+                if ($.isNumeric(parseInt($(obj).text()))) {
+                    total += parseInt($(obj).text());
+                }
+            });
+            $("#"+data.id).text( (parseInt(data.text)*100/total).toFixed(2) );
+        }
+
         if ($("#"+data.id).hasClass("ratio")) {
             $("#"+data.id).text(data.text);
             var group = $("#"+data.id).attr('data-group');
@@ -91,7 +103,6 @@ socket.on('setting', function(data) {
             $.each( $("[data-group='"+group+"']"), function(val, obj) {
                 if ($.isNumeric(parseInt($(obj).text()))) {
                     total = Math.max(parseInt($(obj).text()),total);
-                    // total += parseInt($(obj).text());
                 }
             });
             $.each( $("[data-group='"+group+"']"), function(val, obj) {
@@ -118,7 +129,7 @@ function initContent(){
 };
 
 /***** BEGIN MessageBoard Animation Javascripts *****/
-var rotateTime = 5000;
+var rotateTime = 12000;
 var loopTimer;
 loadMessages();
 loopTimer = setTimeout(paginateMessages, 1000); // HACK: wait a second to load from socket.io
