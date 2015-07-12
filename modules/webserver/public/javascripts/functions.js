@@ -27,6 +27,7 @@ var blizzard = {
     'stitches': 'http://media.blizzard.com/heroes/videos/heroes/skins/stitches_terrorOfDarkshire.webm',
     'sylvanas': 'http://media.blizzard.com/heroes/videos/heroes/skins/sylvanas_theBansheeQueen.webm',
     'tassadar': 'http://media.blizzard.com/heroes/videos/heroes/skins/tassadar_saviorOfTheTemplar.webm',
+    'the-butcher': 'http://media.blizzard.com/heroes/videos/heroes/skins/the-butcher_fleshCarver.webm',
     'the-lost-vikings': 'http://media.blizzard.com/heroes/videos/heroes/skins/the-lost-vikings_tripleTrouble.webm',
     'thrall': 'http://media.blizzard.com/heroes/videos/heroes/skins/thrall_warchiefOfTheHorde.webm',
     'tychus': 'http://media.blizzard.com/heroes/videos/heroes/skins/tychus_notoriousOutlaw.webm',
@@ -96,6 +97,9 @@ function properName(hero) {
             break;
         case 'sgt-hammer':
             return "Sgt. Hammer";
+            break;
+        case 'the-butcher':
+            return "The Butcher";
             break;
         case 'the-lost-vikings':
             return "The Lost Vikings";

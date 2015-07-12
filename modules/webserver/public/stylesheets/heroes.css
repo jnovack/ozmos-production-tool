@@ -41,6 +41,7 @@
 .video-stitches           { margin-left: -871px; margin-top: -194px; -webkit-transform: scale(1); }
 .video-sylvanas           { margin-left: -872px; margin-top: -138px; -webkit-transform: scale(1); }
 .video-tassadar           { margin-left: -866px; margin-top: -131px; -webkit-transform: scale(1); }
+.video-the-butcher        { /* TODO */ }
 .video-the-lost-vikings   { margin-left: -822px; margin-top: -274px; -webkit-transform: scale(0.7); }
 .video-thrall             { margin-left: -857px; margin-top: -186px; -webkit-transform: scale(1); }
 .video-tychus             { margin-left: -858px; margin-top: -190px; -webkit-transform: scale(1); }
@@ -81,6 +82,7 @@
 .stitches           {   margin-left: -671px;    margin-top: -150px; }
 .sylvanas           {   margin-left: -720px;    margin-top: -120px; }
 .tassadar           {   margin-left: -679px;    margin-top: -100px; }
+.the-butcher        {   margin-left: -696px;    margin-top: -124px; }
 .the-lost-vikings   {   margin-left: -696px;    margin-top: -124px; }
 .thrall             {   margin-left: -650px;    margin-top: -119px; }
 .tychus             {   margin-left: -675px;    margin-top: -128px; }
