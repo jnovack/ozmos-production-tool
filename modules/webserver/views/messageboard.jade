@@ -68,32 +68,34 @@ block content
               div(id='battlefield-of-eternity-text').li-text Battlefield of Eternity
               div(id='battlefield-of-eternity-percent',data-animation='bounceIn').li-number.percent.font-opensans
         #player_container(data-group="sidebar_body_containers").hidden
-          div.heading Games Played
+          div.heading.flex.flex-align-items-center.flex-justify-between
+            div.li-text Games Played
+            div.li-number.ratio.color-info(id='overall-games-text',data-animation='bounceIn') 0
           ul
             li.flex.flex-align-items-center.flex-justify-between
               img(src="/assets/roles/warrior-mini.png")
               div(id='warrior-text').li-text Warrior
                 div.li-text-progress.progress
                   div(id='warrior-progress').progress-bar.progress-bar-info
-              div(id='warrior-value').li-number.ratio.color-info(data-group="games-played")
+              div(id='warrior-value').li-number.ratio.color-info(data-group="games-played", data-reference="overall-games-text")
             li.flex.flex-align-items-center.flex-justify-between
               img(src="/assets/roles/assassin-mini.png")
               div(id='assassin-text').li-text Assassin
                 div.li-text-progress.progress
                   div(id='assassin-progress').progress-bar.progress-bar-info
-              div(id='assassin-value').li-number.ratio.color-info(data-group="games-played")
+              div(id='assassin-value').li-number.ratio.color-info(data-group="games-played", data-reference="overall-games-text")
             li.flex.flex-align-items-center.flex-justify-between
               img(src="/assets/roles/support-mini.png")
               div(id='support-text').li-text Support
                 div.li-text-progress.progress
                   div(id='support-progress').progress-bar.progress-bar-info
-              div(id='support-value').li-number.ratio.color-info(data-group="games-played")
+              div(id='support-value').li-number.ratio.color-info(data-group="games-played", data-reference="overall-games-text")
             li.flex.flex-align-items-center.flex-justify-between
               img(src="/assets/roles/specialist-mini.png")
               div(id='specialist-text').li-text Specialist
                 div.li-text-progress.progress
                   div(id='specialist-progress').progress-bar.progress-bar-info
-              div(id='specialist-value').li-number.ratio.color-info(data-group="games-played")
+              div(id='specialist-value').li-number.ratio.color-info(data-group="games-played", data-reference="overall-games-text")
           div.heading Highest Level Heroes
           ul
             li.flex.flex-align-items-center.flex-justify-between

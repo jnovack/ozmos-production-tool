@@ -99,22 +99,26 @@ socket.on('setting', function(data) {
         if ($("#"+data.id).hasClass("ratio")) {
             $("#"+data.id).text(data.text);
             var group = $("#"+data.id).attr('data-group');
+            var elem = $("#"+data.id).attr('data-reference');
             var total = 0;
+            var max = 0;
             $.each( $("[data-group='"+group+"']"), function(val, obj) {
                 if ($.isNumeric(parseInt($(obj).text()))) {
-                    total = Math.max(parseInt($(obj).text()),total);
+                    max = Math.max(parseInt($(obj).text()),max);
+                    total = total + parseInt($(obj).text());
+
+                    var elem = $(obj).attr('data-reference');
+                    $("#" + elem).html(total);
                 }
             });
             $.each( $("[data-group='"+group+"']"), function(val, obj) {
-                if ($.isNumeric(total)) {
+                if ($.isNumeric(max)) {
                     id = $(this).attr('id').substring(0,$(this).attr('id').indexOf("-"));
-                    var percent = parseInt($(obj).text())*100/total;
+                    var percent = parseInt($(obj).text())*100/max;
                     $("#"+id+"-progress").css("width", percent + "%");
                 }
             });
-
         }
-
     }
 });
 
