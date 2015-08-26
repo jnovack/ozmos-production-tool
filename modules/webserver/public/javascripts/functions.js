@@ -14,6 +14,8 @@ var blizzard = {
     'johanna': 'http://media.blizzard.com/heroes/videos/heroes/skins/johanna_crusaderOfZakarum.webm',
     'kaelthas': 'http://media.blizzard.com/heroes/videos/heroes/skins/kaelthas_theSunKing.webm',
     'kerrigan': 'http://media.blizzard.com/heroes/videos/heroes/skins/kerrigan_queenOfBlades.webm',
+    'kharazim': 'http://media.blizzard.com/heroes/videos/heroes/skins/kharazim_veradaniMonk.webm',
+    'leoric': 'http://media.blizzard.com/heroes/videos/heroes/skins/leoric_theSkeletonKing.webm',
     'lili': 'http://media.blizzard.com/heroes/videos/heroes/skins/lili_worldWanderer.webm',
     'malfurion': 'http://media.blizzard.com/heroes/videos/heroes/skins/malfurion_archdruid.webm',
     'muradin': 'http://media.blizzard.com/heroes/videos/heroes/skins/muradin_mountainKing.webm',
