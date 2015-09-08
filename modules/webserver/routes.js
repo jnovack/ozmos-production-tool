@@ -14,6 +14,11 @@ module.exports = function(app, myApp, express){
         }
     };
 
+
+    router.get('/onair', function(req, res, next) {
+        res.render('onair.jade', { } );
+    });
+
     /* MessageBoard */
 
     router.get('/messageboard/:id', checkShortId, function(req, res, next) {
