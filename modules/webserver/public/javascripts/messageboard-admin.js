@@ -108,10 +108,18 @@ $("input[data-group='value']").keydown( function( event ) {
     }
     switch( event.keyCode ) {
         case 38: //up
-            $(this).val(parseInt($(this).val())+1);
+            if ($(this).hasClass('inverse')) {
+               $(this).val(parseInt($(this).val())-1);
+            } else {
+               $(this).val(parseInt($(this).val())+1);
+            }
             break;
         case 40: //down
-            $(this).val(parseInt($(this).val())-1);
+            if ($(this).hasClass('inverse')) {
+               $(this).val(parseInt($(this).val())+1);
+            } else {
+               $(this).val(parseInt($(this).val())-1);
+            }
             break;
     }
 });
