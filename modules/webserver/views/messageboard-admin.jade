@@ -65,6 +65,9 @@ block content
               a(href='#tab-player',aria-expanded='false',role='tab',data-toggle='tab')
                 span(id='label-player').label.label-primary Player
             li(role='presentation')
+              a(href='#tab-roster',aria-expanded='false',role='tab',data-toggle='tab')
+                span(id='label-roster').label.label-primary Roster
+            li(role='presentation')
               a(href='#tab-voice',aria-expanded='false',role='tab',data-toggle='tab')
                 span(id='label-voice').label.label-primary Voice
             li(role='presentation')
@@ -185,6 +188,31 @@ block content
                           div.controls
                             input(data-group='value',type='text',id='hero#{x}-value',placeholder="123",class='form-control')
                 - }
+            div(role='tabpanel',id='tab-roster').tab-pane
+              div.row
+                div.col-lg-12
+                  div.btn-toolbar
+                    div.btn-group
+                      button(data-group="checkbox-pills",data-action='ignore',data-element="roster_container",data-unvalue='true',data-value='false',data-active-text='Roster Tab is VISIBLE',data-inactive-text='Roster Tab is HIDDEN',data-partner='label-roster',data-partner-active='label-success',data-partner-inactive='label-danger').btn.btn-checkbox
+              - for (var r = 0; r <= 1; ++r) {
+                div.row
+                - for (var i = 1; i <= 4; ++i) {
+                  - var x = r*4+i;
+                  div.col-md-3
+                    div(id='roster#{x}')
+                      +hero-select('roster'+x+'-text','Hero '+x+'')
+                      div.col-lg-8
+                        div.control-group
+                          label(for='roster#{x}-progress',class='control-label') progress
+                          div.controls
+                            input(data-group='value',type='text',id='roster#{x}-progress',placeholder="2345/4750",class='form-control')
+                      div.col-lg-4
+                        div.control-group
+                          label(for='roster#{x}-level',class='control-label') level
+                          div.controls
+                            input(data-group='value',type='text',id='roster#{x}-level',placeholder="10",class='form-control')
+                - }
+              - }
             div(role='tabpanel',id='tab-marquee').tab-pane
               div.row
                 div.col-lg-12

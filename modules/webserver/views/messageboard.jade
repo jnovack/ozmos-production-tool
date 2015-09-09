@@ -115,6 +115,20 @@ block content
                 div(id='hero#{x}-value',data-animation='bounceIn',data-group="most-played",data-reference="overall-most-played").li-number.ratio.color-info
             - }
 
+        #roster_container(data-group="sidebar_body_containers").hidden
+          div.heading.flex.flex-align-items-center.flex-justify-between
+            div.li-text Favorites Roster
+          ul
+            - for (var x = 1; x <= 8; ++x) {
+              li.flex.flex-align-items-center.flex-justify-between
+                div(id='roster#{x}-picture',data-animation='fadeIn').divimage.divimage-transparent
+                div.li-text
+                  div(id='roster#{x}-text',data-animation='fadeIn').li-text-name.linked-picture
+                  div.li-text-progress.progress
+                    div(id='roster#{x}-progress').progress-bar.progress-bar-gold
+                div(id='roster#{x}-level',data-animation='bounceIn').li-number.value.color-gold
+            - }
+
         #voice_container(data-group="sidebar_body_containers").hidden
           div.heading Voice Chat
           ul
