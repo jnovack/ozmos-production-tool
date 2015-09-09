@@ -28,6 +28,8 @@
 .video-johanna            { /* TODO */ }
 .video-kaelthas           { margin-left: -810px; margin-top: -135px; -webkit-transform: scale(0.9); }
 .video-kerrigan           { margin-left: -880px; margin-top: -150px; -webkit-transform: scale(1); }
+.video-kharazim           { /* TODO */ }
+.video-leoric             { /* TODO */ }
 .video-lili               { margin-left: -879px; margin-top: -311px; -webkit-transform: scale(1); }
 .video-malfurion          { margin-left: -868px; margin-top: -242px; -webkit-transform: scale(1); }
 .video-muradin            { margin-left: -804px; margin-top: -342px; -webkit-transform: scale(0.8); }
@@ -36,6 +38,7 @@
 .video-nova               { margin-left: -896px; margin-top: -203px; -webkit-transform: scale(1); }
 .video-raynor             { margin-left: -824px; margin-top: -198px; -webkit-transform: scale(0.9); }
 .video-rehgar             { margin-left: -853px; margin-top: -207px; -webkit-transform: scale(1); }
+.video-rexxar             { /* TODO */ }
 .video-sgt-hammer         { margin-left: -920px; margin-top: -137px; -webkit-transform: scale(1); }
 .video-sonya              { margin-left: -868px; margin-top: -224px; -webkit-transform: scale(1); }
 .video-stitches           { margin-left: -871px; margin-top: -194px; -webkit-transform: scale(1); }
@@ -79,6 +82,7 @@
 .nova               {   margin-left: -668px;    margin-top: -134px; }
 .raynor             {   margin-left: -650px;    margin-top: -140px; }
 .rehgar             {   margin-left: -683px;    margin-top: -157px; }
+.rexxar             {   margin-left: -527px;    margin-top: -207px; }
 .sgt-hammer         {   margin-left: -661px;    margin-top: -117px; }
 .sonya              {   margin-left: -636px;    margin-top: -171px; }
 .stitches           {   margin-left: -671px;    margin-top: -150px; }

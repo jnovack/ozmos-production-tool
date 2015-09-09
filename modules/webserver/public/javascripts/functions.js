@@ -24,6 +24,7 @@ var blizzard = {
     'nova': 'http://media.blizzard.com/heroes/videos/heroes/skins/nova_dominionGhost.webm',
     'raynor': 'http://media.blizzard.com/heroes/videos/heroes/skins/raynor_renegadeCommander.webm',
     'rehgar': 'http://media.blizzard.com/heroes/videos/heroes/skins/rehgar_shamanOfTheEarthenRing.webm',
+    'rexxar': 'http://media.blizzard.com/heroes/videos/heroes/skins/rexxar_championOfTheHorde.webm',
     'sgt-hammer': 'http://media.blizzard.com/heroes/videos/heroes/skins/sgt-hammer_siegeTankOperator.webm',
     'sonya': 'http://media.blizzard.com/heroes/videos/heroes/skins/sonya_wanderingBarbarian.webm',
     'stitches': 'http://media.blizzard.com/heroes/videos/heroes/skins/stitches_terrorOfDarkshire.webm',
