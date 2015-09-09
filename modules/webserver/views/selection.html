@@ -1,0 +1,112 @@
+<div class="skin-navigation__window">
+    <ul class="skin-list">
+        <li class="skin-list__item tooltip--icon-alternate selected">
+            <img src="../public/assets/hero-portraits/sylvanas.jpg" class="skin-list__thumbnail theBansheeQueen" data-analytics="skin-view" data-analytics-skin="The Banshee Queen">
+        </li>
+        <li class="skin-list__item tooltip--icon-alternate">
+            <img src="../public/assets/hero-portraits/lili.jpg" class="skin-list__thumbnail masterSylvanas" data-analytics="skin-view" data-analytics-skin="Master Sylvanas">
+        </li>
+        <li class="skin-list__item tooltip--icon-alternate">
+            <img src="../public/assets/hero-portraits/leoric.jpg" class="skin-list__thumbnail rangerGeneralSylvanas" data-analytics="skin-view" data-analytics-skin="Ranger-General Sylvanas">
+        </li>
+    </ul>
+</div>
+
+<style>
+.skin-navigation.no-paginate .skin-navigation__window {
+    width: 280px;
+}
+.skin-navigation .skin-navigation__window {
+    width: 290px;
+    float: left;
+}
+.skin-navigation .skin-navigation__window {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.tooltip--icon-alternate:hover {
+    background-color: #8782d4;
+    background-image: linear-gradient(#8782d4,#6ebfd4);
+}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, em, img, strong, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+.skin-list {
+    position: relative;
+    top: auto;
+    left: 0;
+    right: auto;
+    overflow: visible;
+    height: 100px;
+    padding: 10px 0 0 0;
+    text-align: left;
+}
+.skin-list {
+    transition: left 1s ease-in-out;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-top: 10px;
+}
+ol, ul {
+    list-style-type: none;
+}
+* {
+    box-sizing: border-box;
+}
+.skin-list__item {
+    position: relative;
+    margin: 0 4px;
+    width: 80px;
+    height: 80px;
+}
+.skin-list__item {
+    margin: 0 8px 8px 0;
+    margin: 0 .5rem .5rem 0;
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    position: relative;
+}
+.tooltip--icon-alternate {
+    background-repeat: no-repeat;
+    padding: 3px;
+    background-color: #273a4a;
+    background: linear-gradient(#273a4a,#2f284a);
+    position: relative;
+}
+* {
+    box-sizing: border-box;
+}
+.skin-list__thumbnail {
+    padding: 3px;
+    background-color: #000;
+}
+img, video {
+    max-width: 100%;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+.skin-list__item.selected:before {
+    content: "";
+    background-image: url(../public/images/hover-red.png);
+    background-size: 100%;
+    width: 120%;
+    height: 0;
+    padding-bottom: 125%;
+    display: block;
+    z-index: 1;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+}
+</style>
