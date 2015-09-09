@@ -101,55 +101,35 @@ block content
                 div.li-text-progress.progress
                   div(id='specialist-progress').progress-bar.progress-bar-info
               div(id='specialist-value').li-number.ratio.color-info(data-group="games-played", data-reference="overall-games-text")
-          div.heading Highest Level Heroes
+          div.heading
+            div.li-text Most Played Heroes
+            div.li-number.ratio.color-info(id='overall-most-played').hidden 0
           ul
-            li.flex.flex-align-items-center.flex-justify-between
-              div(id='hero1-picture',data-animation='fadeIn').divimage.divimage-transparent
-              div.li-text
-                div(id='hero1-text',data-animation='fadeIn').li-text-name.linked-picture
-                div.li-text-progress.progress
-                  div(id='hero1-progress').progress-bar.progress-bar-info
-              div(id='hero1-level',data-animation='bounceIn').li-number.value.color-info
-            li.flex.flex-align-items-center.flex-justify-between
-              div(id='hero2-picture',data-animation='fadeIn').divimage.divimage-transparent
-              div.li-text
-                div(id='hero2-text',data-animation='fadeIn').li-text-name.linked-picture
-                div.li-text-progress.progress
-                  div(id='hero2-progress').progress-bar.progress-bar-info
-              div(id='hero2-level',data-animation='bounceIn').li-number.value.color-info
-            li.flex.flex-align-items-center.flex-justify-between
-              div(id='hero3-picture',data-animation='fadeIn').divimage.divimage-transparent
-              div.li-text
-                div(id='hero3-text',data-animation='fadeIn').li-text-name.linked-picture
-                div.li-text-progress.progress
-                  div(id='hero3-progress').progress-bar.progress-bar-info
-              div(id='hero3-level',data-animation='bounceIn').li-number.value.color-info
+            - for (var x = 1; x <= 3; ++x) {
+              li.flex.flex-align-items-center.flex-justify-between
+                div(id='hero#{x}-picture',data-animation='fadeIn').divimage.divimage-transparent
+                div.li-text
+                  div(id='hero#{x}-text',data-animation='fadeIn').li-text-name.linked-picture
+                  div.li-text-progress.progress
+                    div(id='hero#{x}-progress').progress-bar.progress-bar-info
+                div(id='hero#{x}-value',data-animation='bounceIn',data-group="most-played",data-reference="overall-most-played").li-number.ratio.color-info
+            - }
+
         #voice_container(data-group="sidebar_body_containers").hidden
           div.heading Voice Chat
           ul
-            li.flex.flex-align-items-center.flex-justify-start
-              div(id='voice1-picture',data-animation='bounceIn').divimage.divimage-transparent
-              div(id='voice1-text',data-animation='bounceIn').li-text.text
-            li.flex.flex-align-items-center.flex-justify-start
-              div(id='voice2-picture',data-animation='bounceIn').divimage.divimage-transparent
-              div(id='voice2-text',data-animation='bounceIn').li-text.text
-            li.flex.flex-align-items-center.flex-justify-start
-              div(id='voice3-picture',data-animation='bounceIn').divimage.divimage-transparent
-              div(id='voice3-text',data-animation='bounceIn').li-text.text
-            li.flex.flex-align-items-center.flex-justify-start
-              div(id='voice4-picture',data-animation='bounceIn').divimage.divimage-transparent
-              div(id='voice4-text',data-animation='bounceIn').li-text.text
-            li.flex.flex-align-items-center.flex-justify-start
-              div(id='voice5-picture',data-animation='bounceIn').divimage.divimage-transparent
-              div(id='voice5-text',data-animation='bounceIn').li-text.text
-            li.flex.flex-align-items-center.flex-justify-start
-              div(id='voice6-picture',data-animation='bounceIn').divimage.divimage-transparent
-              div(id='voice6-text',data-animation='bounceIn').li-text.text
+            - for (var x = 1; x <= 8; ++x) {
+              li.flex.flex-align-items-center.flex-justify-start
+                div(id='voice#{x}-picture',data-animation='bounceIn').divimage.divimage-transparent
+                div(id='voice#{x}-text',data-animation='bounceIn').li-text.text
+            - }
+
       #sidebar_footer
         #sidebar_footer_container
           #sidebar_footer_description Hero League
           #sidebar_footer_text
             div(id='rank',data-animation='bounceIn').value
+
     #mainview
       #mainview_header.flex.flex-align-items-center.flex-justify-between
         #mainview_header_title
