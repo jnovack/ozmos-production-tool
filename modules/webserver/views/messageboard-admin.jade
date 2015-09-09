@@ -278,13 +278,15 @@ block content
                             input(data-group='text',data-automate='voice',type='text',id='voice'+i+'-text',placeholder='Player '+i,class='form-control')
                   - }
 
+
+
             div(role='tabpanel',id='tab-template').tab-pane
-              div.col-lg-12
-                div.col-md-2
+              div.row
+                div.col-lg-12
                   div(id="template")
                     div.control-group
                       label(for='template-value',class='control-label') template
                       div.controls
-                        input(data-group='value',type='text',id='template-value',placeholder='42',class='form-control')
+                        input(data-group='text',type='text',id='template-value',placeholder='42',class='form-control')
 
     hr
