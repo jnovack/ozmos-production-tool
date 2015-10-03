@@ -16,6 +16,7 @@
 .video-abathur            { margin-left: -838px; margin-top: -294px; -webkit-transform: scale(0.9); }
 .video-anubarak           { margin-left: -773px; margin-top: -312px; -webkit-transform: scale(0.7); }
 .video-arthas             { margin-left: -870px; margin-top: -145px; -webkit-transform: scale(0.9); }
+.video-artanis            { /* TODO */ }
 .video-azmodan            { margin-left: -837px; margin-top: -258px; -webkit-transform: scale(1); }
 .video-brightwing         { margin-left: -778px; margin-top: -283px; -webkit-transform: scale(0.75); }
 .video-chen               { margin-left: -833px; margin-top: -266px; -webkit-transform: scale(0.9); }
@@ -31,6 +32,7 @@
 .video-kharazim           { /* TODO */ }
 .video-leoric             { /* TODO */ }
 .video-lili               { margin-left: -879px; margin-top: -311px; -webkit-transform: scale(1); }
+.video-ltmorales          { /* TODO */ }
 .video-malfurion          { margin-left: -868px; margin-top: -242px; -webkit-transform: scale(1); }
 .video-muradin            { margin-left: -804px; margin-top: -342px; -webkit-transform: scale(0.8); }
 .video-murky              { margin-left: -828px; margin-top: -366px; -webkit-transform: scale(0.75); }
@@ -56,10 +58,12 @@
 .video-zeratul            { margin-left: -835px; margin-top: -189px; -webkit-transform: scale(0.9); }
 
 
+
 /* Base */
 .abathur            {   margin-left: -667px;    margin-top: -207px; }
 .anubarak           {   margin-left: -660px;    margin-top: -195px; }
 .arthas             {   margin-left: -650px;    margin-top: -107px; }
+.artanis            { /* TODO */ }
 .azmodan            {   margin-left: -644px;    margin-top: -150px; }
 .brightwing         {   margin-left: -650px;    margin-top: -150px; }
 .chen               {   margin-left: -650px;    margin-top: -180px; }
@@ -75,6 +79,7 @@
 .kharazim           {   margin-left: -632px;    margin-top: -132px; }
 .leoric             {   margin-left: -682px;    margin-top: -92px; }
 .lili               {   margin-left: -615px;    margin-top: -180px; }
+.ltmorales          { /* TODO */ }
 .malfurion          {   margin-left: -658px;    margin-top: -122px; }
 .muradin            {   margin-left: -650px;    margin-top: -219px; }
 .murky              {   margin-left: -705px;    margin-top: -246px; }

@@ -2,6 +2,7 @@ var blizzard = {
     'abathur': 'http://media.blizzard.com/heroes/videos/heroes/skins/abathur_evolutionMaster.webm',
     'anubarak': 'http://media.blizzard.com/heroes/videos/heroes/skins/anubarak_traitorKing.webm',
     'arthas': 'http://media.blizzard.com/heroes/videos/heroes/skins/arthas_theLichKing.webm',
+    'artanis': '',
     'azmodan': 'http://media.blizzard.com/heroes/videos/heroes/skins/azmodan_lordOfSin.webm',
     'brightwing': 'http://media.blizzard.com/heroes/videos/heroes/skins/brightwing_faerieDragon.webm',
     'chen': 'http://media.blizzard.com/heroes/videos/heroes/skins/chen_legendaryBrewmaster.webm',
@@ -17,6 +18,7 @@ var blizzard = {
     'kharazim': 'http://media.blizzard.com/heroes/videos/heroes/skins/kharazim_veradaniMonk.webm',
     'leoric': 'http://media.blizzard.com/heroes/videos/heroes/skins/leoric_theSkeletonKing.webm',
     'lili': 'http://media.blizzard.com/heroes/videos/heroes/skins/lili_worldWanderer.webm',
+    'ltmorales': '',
     'malfurion': 'http://media.blizzard.com/heroes/videos/heroes/skins/malfurion_archdruid.webm',
     'muradin': 'http://media.blizzard.com/heroes/videos/heroes/skins/muradin_mountainKing.webm',
     'murky': 'http://media.blizzard.com/heroes/videos/heroes/skins/murky_babyMurloc.webm',
@@ -97,6 +99,9 @@ function properName(hero) {
             break;
         case 'lili':
             return "Li Li";
+            break;
+        case 'ltmorales':
+            return "Lt. Morales";
             break;
         case 'sgt-hammer':
             return "Sgt. Hammer";
